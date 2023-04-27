@@ -8,31 +8,29 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "rol")
-public class Rol implements Serializable {
+@Table(name = "sucursal")
+public class Sucursal implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rolID")
-    private Long rol_id;
+    @Column(name = "sucursalID")
+    private Long sucursal_id;
 
-    @Column(name = "rolNombre")
-    private String rol_nombre;
+    @OneToOne()
+    @JoinColumn(name = "usuarioID")
+    private Usuario usuario;
 
-    @Column(name = "rolDescripcion")
-    private String rol_descripcion;
+    @OneToOne()
+    @JoinColumn(name = "direcID")
+    private Direccion direccion;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "rol")
-    private List<Usuario> usuario;
+
 
 }

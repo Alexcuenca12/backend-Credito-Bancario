@@ -15,24 +15,27 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "rol")
-public class Rol implements Serializable {
+@Table(name = "provincia")
+public class Provincia implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rolID")
-    private Long rol_id;
+    @Column(name = "provID")
+    private Long provincia_id;
 
-    @Column(name = "rolNombre")
-    private String rol_nombre;
+    @Column(name = "provCod")
+    private String provincia_codigo;
 
-    @Column(name = "rolDescripcion")
-    private String rol_descripcion;
+    @Column(name = "provNombre")
+    private String provincia_nombre;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "rol")
-    private List<Usuario> usuario;
+    @OneToMany(mappedBy = "provincia")
+    private List<Direccion> direccion;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "provincia")
+    private List<Canton> canton;
 }
