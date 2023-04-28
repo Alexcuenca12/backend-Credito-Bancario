@@ -1,4 +1,6 @@
 package com.back.creditobancario.service.Servicios;
 
-public interface NegocioService {
+import com.back.creditobancario.model.Negocio;
+
+public interface NegocioService extends IGenericService<Negocio, Long> {
 }

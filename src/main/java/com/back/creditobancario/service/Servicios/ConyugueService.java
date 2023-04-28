@@ -1,4 +1,8 @@
 package com.back.creditobancario.service.Servicios;
 
-public interface ConyugueService {
+import com.back.creditobancario.model.Conyugue;
+
+import java.util.List;
+
+public interface ConyugueService extends IGenericService<Conyugue, Long> {
 }

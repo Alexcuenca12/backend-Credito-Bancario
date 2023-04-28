@@ -1,4 +1,7 @@
 package com.back.creditobancario.repository;
 
-public class ProvinciaRepository {
+import com.back.creditobancario.model.Provincia;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProvinciaRepository extends JpaRepository<Provincia, Long> {
 }

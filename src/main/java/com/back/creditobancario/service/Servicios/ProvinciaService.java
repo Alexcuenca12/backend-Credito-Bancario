@@ -1,4 +1,6 @@
 package com.back.creditobancario.service.Servicios;
 
-public interface ProvinciaService {
+import com.back.creditobancario.model.Provincia;
+
+public interface ProvinciaService extends IGenericService<Provincia, Long> {
 }

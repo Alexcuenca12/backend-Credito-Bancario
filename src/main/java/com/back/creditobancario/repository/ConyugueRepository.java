@@ -1,4 +1,7 @@
 package com.back.creditobancario.repository;
 
-public class ConyugueRepository {
+import com.back.creditobancario.model.Conyugue;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ConyugueRepository extends JpaRepository<Conyugue, Long> {
 }

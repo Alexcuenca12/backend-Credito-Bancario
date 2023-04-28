@@ -1,4 +1,8 @@
 package com.back.creditobancario.service.Servicios;
 
-public interface PersonaService {
+import com.back.creditobancario.model.Persona;
+
+import java.util.List;
+
+public interface PersonaService extends IGenericService<Persona, Long> {
 }

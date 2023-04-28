@@ -1,4 +1,6 @@
 package com.back.creditobancario.service.Servicios;
 
-public interface EmpleoService {
+import com.back.creditobancario.model.Empleo;
+
+public interface EmpleoService extends IGenericService<Empleo, Long> {
 }

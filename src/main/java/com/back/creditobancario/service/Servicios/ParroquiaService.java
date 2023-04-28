@@ -1,4 +1,6 @@
 package com.back.creditobancario.service.Servicios;
 
-public interface ParroquiaService {
+import com.back.creditobancario.model.Parroquia;
+
+public interface ParroquiaService extends IGenericService<Parroquia, Long> {
 }

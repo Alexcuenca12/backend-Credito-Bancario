@@ -1,4 +1,6 @@
 package com.back.creditobancario.service.Servicios;
 
-public interface DomicilioService {
+import com.back.creditobancario.model.Domicilio;
+
+public interface DomicilioService extends IGenericService<Domicilio, Long> {
 }

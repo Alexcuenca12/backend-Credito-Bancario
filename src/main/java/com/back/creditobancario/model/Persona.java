@@ -27,6 +27,9 @@ public class Persona implements Serializable {
     @Column(name = "per_ci")
     private String persona_ci;
 
+    @Column(name = "perNombres")
+    private String persona_nombres;
+
     @Column(name = "perApellidos")
     private String persona_apellidos;
 
@@ -53,9 +56,6 @@ public class Persona implements Serializable {
 
     @Column(name = "perCorreo")
     private String persona_correo;
-
-    @Column(name = "edad")
-    private Integer edad;
 
     @Column(name = "perCelular")
     private String persona_celular;
