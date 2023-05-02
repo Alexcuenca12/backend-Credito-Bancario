@@ -42,6 +42,9 @@ public class Usuario implements Serializable {
     @Column(name = "usuarioPreg_dos")
     private String pregunta_dos;
 
+    @Column(name = "usuarioEstado")
+    private Boolean usuario_estado;
+
     @OneToOne()
     @JoinColumn(name = "perID")
     private Persona persona;

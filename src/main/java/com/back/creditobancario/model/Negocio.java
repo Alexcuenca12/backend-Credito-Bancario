@@ -36,6 +36,9 @@ public class Negocio implements Serializable {
     @Column(name = "negocioTiempo")
     private Integer negocio_tiempo;
 
+    @Column(name = "negocioEstado")
+    private Boolean negocio_estado;
+
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;

@@ -23,6 +23,9 @@ public class Conyugue implements Serializable {
     @Column(name = "conyugueID")
     private Long conyugue_id;
 
+    @Column(name = "conyugueEstado")
+    private Boolean conyugue_estado;
+
     @OneToOne()
     @JoinColumn(name = "perID")
     private Persona persona;

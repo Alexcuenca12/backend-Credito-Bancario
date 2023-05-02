@@ -37,6 +37,9 @@ public class Direccion implements Serializable {
     @Column(name = "direcSector")
     private String sector;
 
+    @Column(name = "direccionEstado")
+    private Boolean direccion_estado;
+
     @JsonIgnore
     @OneToOne(mappedBy = "direccion")
     private Sucursal sucursal;

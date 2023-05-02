@@ -44,6 +44,9 @@ public class Domicilio  implements Serializable {
     @Column(name = "domicilioTlfnPropietario")
     private String domicilio_tlfnPropietario;
 
+    @Column(name = "domicilioEstado")
+    private Boolean domicilio_estado;
+
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;

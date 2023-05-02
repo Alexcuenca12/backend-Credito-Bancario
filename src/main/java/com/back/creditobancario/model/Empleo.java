@@ -45,6 +45,9 @@ public class Empleo implements Serializable {
     @Column(name = "empleoTiempoEmpresa")
     private String empleo_tiempoEmpresa;
 
+    @Column(name = "empleoEstado")
+    private Boolean empleo_estado;
+
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;

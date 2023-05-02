@@ -31,6 +31,9 @@ public class Provincia implements Serializable {
     @Column(name = "provNombre")
     private String provincia_nombre;
 
+    @Column(name = "provEstado")
+    private Boolean provincia_estado;
+
     @JsonIgnore
     @OneToMany(mappedBy = "provincia")
     private List<Direccion> direccion;

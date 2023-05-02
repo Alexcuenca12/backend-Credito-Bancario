@@ -19,7 +19,7 @@ public class PersonaController {
     @GetMapping("/listar")
     public ResponseEntity<List<Persona>> obtenerLista() {
         try {
-            return new ResponseEntity<>(personaService.listar(), HttpStatus.OK);
+            return new ResponseEntity<>(personaService.findByAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -61,7 +61,7 @@ public class PersonaController {
     }
 
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<Persona> actualizarUsuario(@PathVariable Long id, @RequestBody Persona p) {
+    public ResponseEntity<Persona> actualizarPersona(@PathVariable Long id, @RequestBody Persona p) {
         Persona persona = personaService.findById(id);
         if (persona == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

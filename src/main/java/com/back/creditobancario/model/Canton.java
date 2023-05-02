@@ -31,6 +31,9 @@ public class Canton implements Serializable {
     @Column(name = "cantonNombre")
     private String canton_nombre;
 
+    @Column(name = "cantonEstado")
+    private Boolean canton_estado;
+
     @ManyToOne
     @JoinColumn(name = "provID")
     private Provincia provincia;

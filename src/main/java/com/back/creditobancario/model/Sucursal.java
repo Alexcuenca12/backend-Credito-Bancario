@@ -23,6 +23,8 @@ public class Sucursal implements Serializable {
     @Column(name = "sucursalID")
     private Long sucursal_id;
 
+    @Column(name = "sucursalEstado")
+    private Boolean sucursal_estado;
     @OneToOne()
     @JoinColumn(name = "usuarioID")
     private Usuario usuario;

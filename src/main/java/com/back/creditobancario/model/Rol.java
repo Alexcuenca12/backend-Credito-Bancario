@@ -31,6 +31,9 @@ public class Rol implements Serializable {
     @Column(name = "rolDescripcion")
     private String rol_descripcion;
 
+    @Column(name = "rolEstado")
+    private Boolean rol_estado;
+
     @JsonIgnore
     @OneToMany(mappedBy = "rol")
     private List<Usuario> usuario;

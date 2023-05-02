@@ -29,6 +29,9 @@ public class Parroquia implements Serializable {
     @Column(name = "parroqNombre")
     private String parroquia_nombre;
 
+    @Column(name = "parroquiaEstado")
+    private Boolean parroquia_estado;
+
     @ManyToOne
     @JoinColumn(name = "cantonID")
     private Canton canton;
