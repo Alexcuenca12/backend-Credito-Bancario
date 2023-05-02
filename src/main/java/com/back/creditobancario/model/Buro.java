@@ -13,19 +13,19 @@ import java.io.Serializable;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "burosolicitante")
-public class BuroSolicitante implements Serializable {
+@Table(name = "buro")
+public class Buro implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "buroSolID")
-    private Long buroSol_id;
+    @Column(name = "buroID")
+    private Long buro_id;
 
     //deudas_venciadas
-    @Column(name = "buroSolDeudasVencidas")
+    @Column(name = "buroDeudasVencidas")
     private String deudas_vencidas;
 
 }

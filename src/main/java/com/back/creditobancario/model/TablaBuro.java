@@ -13,22 +13,22 @@ import java.io.Serializable;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tablasolicitante")
-public class TablaSolicitante  implements Serializable {
+@Table(name = "tablaBuro")
+public class TablaBuro implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tabSolID")
-    private Long tabSol_id;
+    @Column(name = "tabBuro_id")
+    private Long tabBuro_id;
 
     //score
-    @Column(name = "tabSolScore")
-    private String score;
+    @Column(name = "tabBuroScore")
+    private String tabBuro_score;
 
     //calificacion
     @Column(name = "tabSolCalificacion")
-    private String calificacion;
+    private String tabBuro_calificacion;
 }
