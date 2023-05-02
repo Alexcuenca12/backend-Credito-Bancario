@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Setter
 @Getter
@@ -32,6 +34,10 @@ public class Sucursal implements Serializable {
     @OneToOne()
     @JoinColumn(name = "direcID")
     private Direccion direccion;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "credito")
+    private List<Credito> credito;
 
 
 
