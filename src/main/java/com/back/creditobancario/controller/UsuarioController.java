@@ -66,7 +66,7 @@ public class UsuarioController {
 
     @PostMapping("/signin")
     public Usuario IniciarSesion(@RequestBody Usuario usuario) throws Exception {
-        // COMPROBAR SI sEXISTE EL NOMBRE DE USUARIO EN NUESTRA BD..
+        // COMPROBAR SI EXISTE EL NOMBRE DE USUARIO EN NUESTRA BD..
         if (userRepository.existsByUsername(usuario.getUsername())) {
             // COMPROBAR SI CONINCIDE USUARIO Y CONTRASEÑA EN NUESTRA BD..
             if (userRepository.existsByPassword(usuario.getPassword())) {
