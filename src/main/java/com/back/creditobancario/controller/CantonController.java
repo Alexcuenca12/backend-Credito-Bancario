@@ -1,5 +1,7 @@
 package com.back.creditobancario.controller;
+//Controlador de Canton
 
+//importaciones
 import com.back.creditobancario.model.Canton;
 import com.back.creditobancario.service.Servicios.CantonService;
 import org.springframework.beans.factory.annotation.Autowired;

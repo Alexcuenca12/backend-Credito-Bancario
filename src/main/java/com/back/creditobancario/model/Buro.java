@@ -28,4 +28,8 @@ public class Buro implements Serializable {
     @Column(name = "buroDeudasVencidas")
     private String deudas_vencidas;
 
+    //estado
+    @Column(name = "buroEstado")
+    private Boolean buro_estado;
+
 }

@@ -47,4 +47,9 @@ public class Deudas implements Serializable {
     //saldo
     @Column(name = "deuSaldo")
     private String saldo;
+
+    //estado
+    @Column(name = "deuEstado")
+    private Boolean deudas_estado;
+
 }
