@@ -27,6 +27,7 @@ public class Sucursal implements Serializable {
 
     @Column(name = "sucursalEstado")
     private Boolean sucursal_estado;
+
     @OneToOne()
     @JoinColumn(name = "usuarioID")
     private Usuario usuario;
@@ -36,9 +37,8 @@ public class Sucursal implements Serializable {
     private Direccion direccion;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "credito")
+    @OneToMany(mappedBy = "sucursal")
     private List<Credito> credito;
-
 
 
 }
