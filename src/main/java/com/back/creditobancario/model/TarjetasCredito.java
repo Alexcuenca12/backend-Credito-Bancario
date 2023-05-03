@@ -47,4 +47,9 @@ public class TarjetasCredito {
     @Column(name = "tarCreCuota")
     private String cuota;
 
+    //estado
+    @Column(name = "tarCreEstado")
+    private Boolean tarCre_estado;
+
+
 }

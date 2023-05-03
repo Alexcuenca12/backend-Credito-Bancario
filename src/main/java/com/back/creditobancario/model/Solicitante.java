@@ -24,5 +24,8 @@ public class Solicitante  implements Serializable {
     @Column(name = "soliID")
     private Long soli_id;
 
+    //estado
+    @Column(name = "soliEstado")
+    private Boolean soli_estado;
 
 }

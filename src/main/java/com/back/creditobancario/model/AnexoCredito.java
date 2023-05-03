@@ -24,5 +24,9 @@ public class AnexoCredito  implements Serializable {
     @Column(name = "anexoCreID")
     private Long anexoCre_id;
 
+    //estado
+    @Column(name = "anexoCreEstado")
+    private Boolean anexoCre_estado;
+
 
 }

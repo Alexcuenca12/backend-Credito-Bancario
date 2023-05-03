@@ -36,7 +36,7 @@ public class Credito implements Serializable {
     private String numero_credito;
 
     @Column(name = "credEstado")
-    private String estado;
+    private Boolean credito_estado;
 
     @ManyToOne
     @JoinColumn(name = "sucursalID")
@@ -45,6 +45,8 @@ public class Credito implements Serializable {
     @ManyToOne
     @JoinColumn(name = "destCredID")
     private DestinoCredito destino_credito;
+
+
 
     /*@ManyToOne
     @JoinColumn(name = "soliID")

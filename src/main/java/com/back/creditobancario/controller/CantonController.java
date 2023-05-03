@@ -71,7 +71,6 @@ public class CantonController {
             try {
                 canton.setCanton_codigo(p.getCanton_codigo());
                 canton.setCanton_nombre(p.getCanton_nombre());
-
                 return new ResponseEntity<>(cantonService.save(canton), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

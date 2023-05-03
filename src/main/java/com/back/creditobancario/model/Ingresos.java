@@ -50,4 +50,9 @@ public class Ingresos implements Serializable {
     //total_ingresos
     @Column(name = "ingTotalIngresos")
     private String total_ingresos;
+
+    //estado
+    @Column(name = "ingEstado")
+    private Boolean ingresos_estado;
+
 }

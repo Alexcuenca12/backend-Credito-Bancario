@@ -48,4 +48,8 @@ public class BienesRaices implements Serializable {
     @Column(name = "bieRaicInstitucionPersona")
     private String institucion_persona;
 
+    //estado
+    @Column(name = "bieRaicEstado")
+    private Boolean bienes_raices_estado;
+
 }

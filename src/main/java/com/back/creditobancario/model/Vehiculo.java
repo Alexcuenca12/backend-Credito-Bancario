@@ -47,7 +47,7 @@ public class Vehiculo  implements Serializable {
     @Column(name = "vehiculoInstitucionPersona")
     private String institucion_persona;
 
-
-
+    @Column(name = "vehiculoEstado")
+    private Boolean vehiculo_estado;
 
 }

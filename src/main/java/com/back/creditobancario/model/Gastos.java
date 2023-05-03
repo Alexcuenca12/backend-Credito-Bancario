@@ -51,4 +51,8 @@ public class Gastos {
     @Column(name = "gasTotalGastos")
     private String total_gastos;
 
+    //estado
+    @Column(name = "gasEstado")
+    private Boolean gastos_estado;
+
 }

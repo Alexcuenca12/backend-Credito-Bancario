@@ -31,4 +31,9 @@ public class TablaBuro implements Serializable {
     //calificacion
     @Column(name = "tabSolCalificacion")
     private String tabBuro_calificacion;
+
+    //estado
+    @Column(name = "tabBuroEstado")
+    private Boolean tabBuro_estado;
+
 }
