@@ -20,36 +20,36 @@ public class TarjetasCredito {
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tarCreID")
-    private Long tarjetas_credito_id;
+    @Column(name = "tarCredID")
+    private Long tarCred_id;
 
     //banco
-    @Column(name = "tarCreBanco")
-    private String banco;
+    @Column(name = "tarCredBanco")
+    private String tarCred_banco;
 
     //numero
-    @Column(name = "tarCreNumero")
-    private String numero;
+    @Column(name = "tarCredNumero")
+    private String tarCred_numero;
 
-    //cauduca
-    @Column(name = "tarCreCauduca")
-    private String cauduca;
+    //cauducidad
+    @Column(name = "tarCredCauducidad")
+    private String tarCred_cauducidad;
 
     //cupo
-    @Column(name = "tarCreCupo")
-    private String cupo;
+    @Column(name = "tarCredCupo")
+    private String tarCred_cupo;
 
     //utilizado
-    @Column(name = "tarCreUtilizado")
-    private String utilizado;
+    @Column(name = "tarCredUtilizado")
+    private String tarCred_utilizado;
 
     //cuota
-    @Column(name = "tarCreCuota")
-    private String cuota;
+    @Column(name = "tarCredCuota")
+    private String tarCred_cuota;
 
     //estado
-    @Column(name = "tarCreEstado")
-    private Boolean tarCre_estado;
+    @Column(name = "tarCredEstado")
+    private Boolean tarCred_estado;
 
 
 }

@@ -50,7 +50,7 @@ public class DomicilioController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                domicilio.setDomicilio_estado(false);
+                domicilio.setDomi_estado(false);
                 return new ResponseEntity<>(domicilioService.save(domicilio), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

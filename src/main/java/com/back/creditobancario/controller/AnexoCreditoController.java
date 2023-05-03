@@ -52,7 +52,7 @@ public class AnexoCreditoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                AnexoCredito.setAnexoCre_estado(false);
+                AnexoCredito.setAneCred_estado(false);
                 return new ResponseEntity<>(anexoCreditoService.save(AnexoCredito), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

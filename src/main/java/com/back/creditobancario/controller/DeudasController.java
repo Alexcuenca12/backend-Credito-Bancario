@@ -52,7 +52,7 @@ public class DeudasController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Deudas.setDeudas_estado(false);
+                Deudas.setDeud_estado(false);
                 return new ResponseEntity<>(deudasService.save(Deudas), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -19,35 +19,46 @@ public class Empleo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "empleoID")
-    private Long empleo_id;
+    @Column(name = "emplID")
+    private Long empl_id;
 
-    @Column(name = "empleoTipoEmp")
-    private String empleo_tipoEmpleado;
+    //tipo_empleado
+    @Column(name = "emplTipoEmpleado")
+    private String empl_tipoEmpleado;
 
-    @Column(name = "empleoActEmpresa")
-    private String empleo_actEmpresa;
+    //actividad_empresa
+    @Column(name = "emplActividadEmpresa")
+    private String empl_actividadEmpresa;
 
-    @Column(name = "empleoNomEmpresa")
-    private String empleo_nomEmpresa;
+    //nombre_empresa
+    @Column(name = "emplNombreEmpresa")
+    private String empl_nombreEmpresa;
 
-    @Column(name = "empleoCargoEmpresa")
-    private String empleo_cargoEmpresa;
+    //cargo_empresa
+    @Column(name = "emplCargoEmpresa")
+    private String empl_cargoEmpresa;
 
-    @Column(name = "empleoTlfnEmpresa")
-    private String empleo_tlfnEmpresa;
+    //telefono_empresa
+    @Column(name = "emplTelefonoEmpresa")
+    private String empl_telefonoEmpresa;
 
-    @Column(name = "empleoRefEmpresa")
-    private String empleo_refEmpresa;
+    //referencia_empresa
+    @Column(name = "emplReferenciaEmpresa")
+    private String empl_referenciaEmpresa;
 
-    @Column(name = "empleoTiempoEmpresa")
-    private String empleo_tiempoEmpresa;
+    //tiempo_empresa
+    @Column(name = "emplTiempoEmpresa")
+    private String empl_tiempoEmpresa;
 
-    @Column(name = "empleoEstado")
-    private Boolean empleo_estado;
+    //estado
+    @Column(name = "emplEstado")
+    private Boolean empl_estado;
 
+
+    //Relaciones
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;

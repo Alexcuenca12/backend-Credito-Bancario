@@ -52,7 +52,7 @@ public class TarjetasCreditoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                TarjetasCredito.setTarCre_estado(false);
+                TarjetasCredito.setTarCred_estado(false);
                 return new ResponseEntity<>(tarjetasCreditoService.save(TarjetasCredito), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

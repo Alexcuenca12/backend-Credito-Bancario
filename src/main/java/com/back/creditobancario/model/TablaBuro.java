@@ -29,7 +29,7 @@ public class TablaBuro implements Serializable {
     private String tabBuro_score;
 
     //calificacion
-    @Column(name = "tabSolCalificacion")
+    @Column(name = "tabBuroCalificacion")
     private String tabBuro_calificacion;
 
     //estado

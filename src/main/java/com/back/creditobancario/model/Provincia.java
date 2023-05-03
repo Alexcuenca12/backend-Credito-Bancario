@@ -20,20 +20,26 @@ public class Provincia implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "provID")
-    private Long provincia_id;
+    private Long prov_id;
 
+    //codigo
     @Column(name = "provCod")
-    private String provincia_codigo;
+    private String prov_codigo;
 
+    //nombre
     @Column(name = "provNombre")
-    private String provincia_nombre;
+    private String prov_nombre;
 
+    //estado
     @Column(name = "provEstado")
-    private Boolean provincia_estado;
+    private Boolean prov_estado;
 
+
+    //Relaciones
     @JsonIgnore
     @OneToMany(mappedBy = "provincia")
     private List<Direccion> direccion;

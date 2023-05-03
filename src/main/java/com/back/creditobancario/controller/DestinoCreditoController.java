@@ -52,7 +52,7 @@ public class DestinoCreditoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                DestinoCredito.setDestCred_estado(false);
+                DestinoCredito.setDesCred_estado(false);
                 return new ResponseEntity<>(destinoCreditoService.save(DestinoCredito), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

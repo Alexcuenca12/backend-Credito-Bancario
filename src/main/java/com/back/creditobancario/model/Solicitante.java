@@ -28,4 +28,6 @@ public class Solicitante  implements Serializable {
     @Column(name = "soliEstado")
     private Boolean soli_estado;
 
+    //Relaciones
+
 }

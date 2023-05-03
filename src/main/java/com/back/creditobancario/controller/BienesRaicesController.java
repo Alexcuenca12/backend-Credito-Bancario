@@ -52,7 +52,7 @@ public class BienesRaicesController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                BienesRaices.setBienes_raices_estado(false);
+                BienesRaices.setBienRaic_estado(false);
                 return new ResponseEntity<>(bienesRaicesService.save(BienesRaices), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

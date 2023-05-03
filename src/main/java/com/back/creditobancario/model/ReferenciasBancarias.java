@@ -26,27 +26,27 @@ public class ReferenciasBancarias implements Serializable {
 
     //nombre
     @Column(name = "refBancNombre")
-    private String nombre;
+    private String refBanc_nombre;
 
     //numero
     @Column(name = "refBancNumero")
-    private String numero;
+    private String refBanc_numero;
 
     //tipo
     @Column(name = "refBancTipo")
-    private String tipo;
+    private String refBanc_tipo;
 
     //apertura
     @Column(name = "refBancApertura")
-    private String apertura;
+    private String refBanc_apertura;
 
     //cifras_promedio
     @Column(name = "refBancCifrasPromedio")
-    private String cifras_promedio;
+    private String refBanc_cifrasPromedio;
 
     //saldo
     @Column(name = "refBancSaldo")
-    private String saldo;
+    private String refBanc_saldo;
 
     //estado
     @Column(name = "refBancEstado")

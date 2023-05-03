@@ -18,26 +18,34 @@ public class Credito implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "credID")
-    private Long credito_id;
+    private Long cred_id;
 
+    //fecha
     @Column(name = "credFecha")
-    private String fecha_credito;
+    private String cred_fecha;
 
+    //monto
     @Column(name = "credMonto")
-    private String monto;
+    private String cred_monto;
 
+    //plazo
     @Column(name = "credPlazo")
-    private String plazo;
+    private String cred_plazo;
 
+    //numero
     @Column(name = "credNumero")
-    private String numero_credito;
+    private String cred_numero;
 
+    //estado
     @Column(name = "credEstado")
-    private Boolean credito_estado;
+    private Boolean cred_estado;
 
+
+    //Relaciones
     @ManyToOne
     @JoinColumn(name = "sucursalID")
     private Sucursal sucursal;
@@ -45,11 +53,5 @@ public class Credito implements Serializable {
     @ManyToOne
     @JoinColumn(name = "destCredID")
     private DestinoCredito destino_credito;
-
-
-
-    /*@ManyToOne
-    @JoinColumn(name = "soliID")
-    private Solicitante solicitante;*/
 
 }

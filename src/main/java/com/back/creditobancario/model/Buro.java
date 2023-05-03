@@ -26,7 +26,7 @@ public class Buro implements Serializable {
 
     //deudas_venciadas
     @Column(name = "buroDeudasVencidas")
-    private String deudas_vencidas;
+    private String buro_deudasVencidas;
 
     //estado
     @Column(name = "buroEstado")

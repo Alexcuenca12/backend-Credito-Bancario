@@ -19,59 +19,78 @@ public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "perID")
-    private Long persona_id;
+    @Column(name = "persID")
+    private Long pers_id;
 
-    @Column(name = "per_ci")
-    private String persona_ci;
+    //cedula
+    @Column(name = "perCedula")
+    private String pers_cedula;
 
-    @Column(name = "perNombres")
-    private String persona_nombres;
+    //nombres
+    @Column(name = "persNombres")
+    private String pers_nombres;
 
-    @Column(name = "perApellidos")
-    private String persona_apellidos;
+    //apellidos
+    @Column(name = "persApellidos")
+    private String pers_apellidos;
 
-    @Column(name = "perFechaNac")
-    private String persona_fechaNac;
+    //fecha_nacimiento
+    @Column(name = "persFechaNacimiento")
+    private String pers_fechaNacimiento;
 
-    @Column(name = "perSexo")
-    private String persona_sexo;
+    //sexo
+    @Column(name = "persSexo")
+    private String pers_sexo;
 
-    @Column(name = "perGenero")
-    private String persona_genero;
+    //genero
+    @Column(name = "persGenero")
+    private String pers_genero;
 
-    @Column(name = "perFoto")
-    private String persona_foto;
+    //foto
+    @Column(name = "persFoto")
+    private String pers_foto;
 
-    @Column(name = "perEstadoCivil")
-    private String persona_estadoCivil;
+    //estado_civil
+    @Column(name = "persEstadoCivil")
+    private String pers_estadoCivil;
 
-    @Column(name = "perNivelInstruccion")
-    private String persona_nivelInstruccion;
+    //nivel_instruccion
+    @Column(name = "persNivelInstruccion")
+    private String pers_nivelInstruccion;
 
-    @Column(name = "perProfesion")
-    private String persona_profesion;
+    //profesion
+    @Column(name = "persProfesion")
+    private String pers_profesion;
 
-    @Column(name = "perCorreo")
-    private String persona_correo;
+    //correo
+    @Column(name = "persCorreo")
+    private String pers_correo;
 
-    @Column(name = "perCelular")
-    private String persona_celular;
+    //celular
+    @Column(name = "persCelular")
+    private String pers_celular;
 
-    @Column(name = "perTelefono")
-    private String persona_telefono;
+    //telefono
+    @Column(name = "persTelefono")
+    private String pers_telefono;
 
-    @Column(name = "perNacionalidad")
-    private String persona_nacionalidad;
+    //nationalidad
+    @Column(name = "persNacionalidad")
+    private String pers_nacionalidad;
 
-    @Column(name = "perCodigoPostal")
-    private String persona_codigoPostal;
+    //codigo_postal
+    @Column(name = "persCodigoPostal")
+    private String pers_codigoPostal;
 
-    @Column(name = "perEstado")
-    private Boolean persona_estado;
+    //estado
+    @Column(name = "persEstado")
+    private Boolean pers_estado;
 
+
+    //Relaciones
     @JsonIgnore
     @OneToOne(mappedBy = "persona")
     private Usuario usuario;

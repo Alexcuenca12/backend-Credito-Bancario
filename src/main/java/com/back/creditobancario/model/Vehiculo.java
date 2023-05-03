@@ -18,36 +18,46 @@ public class Vehiculo  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "vehiculoID")
-    private Long vehiculo_id;
+    @Column(name = "vehiID")
+    private Long vehi_id;
 
-    @Column(name = "vehiculoTipo")
-    private String tipo;
+    //tipo
+    @Column(name = "vehiTipo")
+    private String vehi_tipo;
 
-    @Column(name = "vehiculoMarca")
-    private String marca;
+    //marca
+    @Column(name = "vehiMarca")
+    private String vehi_marca;
 
-    @Column(name = "vehiculoModelo")
-    private String modelo;
+    //modelo
+    @Column(name = "vehiModelo")
+    private String vehi_modelo;
 
-    @Column(name = "vehiculoPlaca")
-    private String placa;
+    //placa
+    @Column(name = "vehiPlaca")
+    private String vehi_placa;
 
-    @Column(name = "vehiculoValor")
-    private String valor;
+    //valor
+    @Column(name = "vehiValor")
+    private String vehi_valor;
 
-    @Column(name = "vehiculoPrenda")
-    private String prenda;
+    //prenda
+    @Column(name = "vehiPrenda")
+    private String vehi_prenda;
 
-    @Column(name = "vehiculoFechaAdquisicion")
-    private String fecha_adquisicion;
+    //fecha_adquisicion
+    @Column(name = "vehiFechaAdquisicion")
+    private String vehi_fechaAdquisicion;
 
+    //institucion_persona
     @Column(name = "vehiculoInstitucionPersona")
-    private String institucion_persona;
+    private String vehi_institucionPersona;
 
-    @Column(name = "vehiculoEstado")
-    private Boolean vehiculo_estado;
+    //estado
+    @Column(name = "vehiEstado")
+    private Boolean vehi_estado;
 
 }

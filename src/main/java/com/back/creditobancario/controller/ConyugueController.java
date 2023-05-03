@@ -54,7 +54,7 @@ public class ConyugueController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                conyugue.setConyugue_estado(false);
+                conyugue.setCony_estado(false);
                 return new ResponseEntity<>(conyugueService.save(conyugue), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

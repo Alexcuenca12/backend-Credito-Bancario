@@ -20,39 +20,39 @@ public class Ingresos implements Serializable {
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ingID")
-    private Long ingresos_id;
+    @Column(name = "ingrID")
+    private Long ingr_id;
 
     //sueldo_mensual
-    @Column(name = "ingSueldoMensual")
-    private String sueldo_mensual;
+    @Column(name = "ingrSueldoMensual")
+    private String ingr_sueldoMensual;
 
     //sueldo_conyugue
-    @Column(name = "ingSueldoConyugue")
-    private String sueldo_conyugue;
+    @Column(name = "ingrSueldoConyugue")
+    private String ingr_sueldoConyugue;
 
     //remesas
-    @Column(name = "ingRemesas")
-    private String remesas;
+    @Column(name = "ingrRemesas")
+    private String ingr_remesas;
 
     //pension_jubilados
-    @Column(name = "ingPensionJubilados")
-    private String pension_jubilados;
+    @Column(name = "ingrPensionJubilados")
+    private String ingr_pensionJubilados;
 
     //ingresos_servicios
-    @Column(name = "ingIngresosServicios")
-    private String ingresos_servicios;
+    @Column(name = "ingrIngresosServicios")
+    private String ingr_ingresosServicios;
 
     //otros_ingresos
-    @Column(name = "ingOtrosIngresos")
-    private String otros_ingresos;
+    @Column(name = "ingrOtrosIngresos")
+    private String ingr_otrosIngresos;
 
     //total_ingresos
-    @Column(name = "ingTotalIngresos")
-    private String total_ingresos;
+    @Column(name = "ingrTotalIngresos")
+    private String ingr_totalIngresos;
 
     //estado
-    @Column(name = "ingEstado")
-    private Boolean ingresos_estado;
+    @Column(name = "ingrEstado")
+    private Boolean ingr_estado;
 
 }

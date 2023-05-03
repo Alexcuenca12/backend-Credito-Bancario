@@ -20,26 +20,34 @@ public class Direccion implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "direcID")
-    private Long direccion_id;
+    @Column(name = "direID")
+    private Long dire_id;
 
-    @Column(name = "direcCalle")
-    private String calle;
+    //calle
+    @Column(name = "direCalle")
+    private String dire_calle;
 
-    @Column(name = "direcNumero")
-    private String numero;
+    //numero
+    @Column(name = "direNumero")
+    private String dire_numero;
 
-    @Column(name = "direcInterseccion")
-    private String interseccion;
+    //interseccion
+    @Column(name = "direInterseccion")
+    private String dire_interseccion;
 
-    @Column(name = "direcSector")
-    private String sector;
+    //sector
+    @Column(name = "direSector")
+    private String dire_sector;
 
-    @Column(name = "direccionEstado")
-    private Boolean direccion_estado;
+    //estado
+    @Column(name = "direEstado")
+    private Boolean dire_estado;
 
+
+    //Relaciones
     @JsonIgnore
     @OneToOne(mappedBy = "direccion")
     private Sucursal sucursal;

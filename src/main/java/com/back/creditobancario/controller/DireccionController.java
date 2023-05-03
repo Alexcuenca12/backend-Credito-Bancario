@@ -50,7 +50,7 @@ public class DireccionController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                direccion.setDireccion_estado(false);
+                direccion.setDire_estado(false);
                 return new ResponseEntity<>(direccionService.save(direccion), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

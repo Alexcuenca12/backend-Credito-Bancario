@@ -21,35 +21,35 @@ public class Deudas implements Serializable {
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "deuID")
-    private Long deudas_id;
+    @Column(name = "deudID")
+    private Long deu_id;
 
     //fecha_corte
-    @Column(name = "deuFechaCorte")
-    private String fecha_corte;
+    @Column(name = "deudFechaCorte")
+    private String deud_fechaCorte;
 
     //institucion
-    @Column(name = "deuInstitucion")
-    private String institucion;
+    @Column(name = "deudInstitucion")
+    private String deud_institucion;
 
     //valor
-    @Column(name = "deuValor")
-    private String valor;
+    @Column(name = "deudValor")
+    private String deud_valor;
 
     //otorgado
-    @Column(name = "deuOtorgado")
-    private String otorgado;
+    @Column(name = "deudOtorgado")
+    private String deud_otorgado;
 
     //destino
-    @Column(name = "deuDestino")
-    private String destino;
+    @Column(name = "deudDestino")
+    private String deud_destino;
 
     //saldo
-    @Column(name = "deuSaldo")
-    private String saldo;
+    @Column(name = "deudSaldo")
+    private String deud_saldo;
 
     //estado
-    @Column(name = "deuEstado")
-    private Boolean deudas_estado;
+    @Column(name = "deudEstado")
+    private Boolean deud_estado;
 
 }

@@ -20,24 +20,29 @@ public class Canton implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cantonID")
-    private Long canton_id;
+    @Column(name = "cantID")
+    private Long cant_id;
 
-    @Column(name = "cantonCod")
-    private String canton_codigo;
+    //codigo
+    @Column(name = "cantCod")
+    private String cant_codigo;
 
-    @Column(name = "cantonNombre")
-    private String canton_nombre;
+    //nombre
+    @Column(name = "cantNombre")
+    private String cant_nombre;
 
-    @Column(name = "cantonEstado")
-    private Boolean canton_estado;
+    //estado
+    @Column(name = "cantEstado")
+    private Boolean cant_estado;
 
+
+    //Relaciones
     @ManyToOne
     @JoinColumn(name = "provID")
     private Provincia provincia;
-
 
     @JsonIgnore
     @OneToMany(mappedBy = "canton")

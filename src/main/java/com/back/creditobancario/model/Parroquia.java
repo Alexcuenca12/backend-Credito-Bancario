@@ -18,20 +18,26 @@ public class Parroquia implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "parroqID")
-    private Long parroquia_id;
+    @Column(name = "parrID")
+    private Long parr_id;
 
-    @Column(name = "parroqCod")
-    private String parroquia_codigo;
+    //codigo
+    @Column(name = "parrCod")
+    private String parr_codigo;
 
-    @Column(name = "parroqNombre")
-    private String parroquia_nombre;
+    //nombre
+    @Column(name = "parrNombre")
+    private String parr_nombre;
 
-    @Column(name = "parroquiaEstado")
-    private Boolean parroquia_estado;
+    //estado
+    @Column(name = "parrEstado")
+    private Boolean parr_estado;
 
+
+    //Relaciones
     @ManyToOne
     @JoinColumn(name = "cantonID")
     private Canton canton;

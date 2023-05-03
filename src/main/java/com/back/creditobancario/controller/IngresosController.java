@@ -52,7 +52,7 @@ public class IngresosController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Ingresos.setIngresos_estado(false);
+                Ingresos.setIngr_estado(false);
                 return new ResponseEntity<>(ingresosService.save(Ingresos), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -52,7 +52,7 @@ public class PersonaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                persona.setPersona_estado(false);
+                persona.setPers_estado(false);
                 return new ResponseEntity<>(personaService.save(persona), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -67,22 +67,21 @@ public class PersonaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                persona.setPersona_ci(p.getPersona_ci());
-                persona.setPersona_nombres(p.getPersona_nombres());
-                persona.setPersona_apellidos(p.getPersona_apellidos());
-                persona.setPersona_fechaNac(p.getPersona_fechaNac());
-                persona.setPersona_sexo(p.getPersona_sexo());
-                persona.setPersona_genero(p.getPersona_genero());
-                persona.setPersona_foto(p.getPersona_foto());
-                persona.setPersona_estadoCivil(p.getPersona_estadoCivil());
-                persona.setPersona_nivelInstruccion(p.getPersona_nivelInstruccion());
-                persona.setPersona_profesion(p.getPersona_profesion());
-                persona.setPersona_correo(p.getPersona_correo());
-                persona.setPersona_celular(p.getPersona_celular());
-                persona.setPersona_telefono(p.getPersona_telefono());
-                persona.setPersona_nacionalidad(p.getPersona_nacionalidad());
-                persona.setPersona_codigoPostal(p.getPersona_codigoPostal());
-
+                persona.setPers_cedula(p.getPers_cedula());
+                persona.setPers_nombres(p.getPers_nombres());
+                persona.setPers_apellidos(p.getPers_apellidos());
+                persona.setPers_fechaNacimiento(p.getPers_fechaNacimiento());
+                persona.setPers_sexo(p.getPers_sexo());
+                persona.setPers_genero(p.getPers_genero());
+                persona.setPers_foto(p.getPers_foto());
+                persona.setPers_estadoCivil(p.getPers_estadoCivil());
+                persona.setPers_nivelInstruccion(p.getPers_nivelInstruccion());
+                persona.setPers_profesion(p.getPers_profesion());
+                persona.setPers_correo(p.getPers_correo());
+                persona.setPers_celular(p.getPers_celular());
+                persona.setPers_telefono(p.getPers_telefono());
+                persona.setPers_nacionalidad(p.getPers_nacionalidad());
+                persona.setPers_codigoPostal(p.getPers_codigoPostal());
                 return new ResponseEntity<>(personaService.save(persona), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -18,24 +18,28 @@ public class Conyugue implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "conyugueID")
-    private Long conyugue_id;
+    @Column(name = "conyID")
+    private Long cony_id;
 
-    @Column(name = "conyugueEstado")
-    private Boolean conyugue_estado;
+    //nombre
+    @Column(name = "conyEstado")
+    private Boolean cony_estado;
 
+
+    //Relaciones
     @OneToOne()
-    @JoinColumn(name = "perID")
+    @JoinColumn(name = "persID")
     private Persona persona;
 
     @OneToOne()
-    @JoinColumn(name = "negocioID")
+    @JoinColumn(name = "negoID")
     private Negocio negocio;
 
     @OneToOne()
-    @JoinColumn(name = "empleoID")
+    @JoinColumn(name = "emplID")
     private Empleo empleo;
 
 }

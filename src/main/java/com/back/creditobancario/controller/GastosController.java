@@ -52,7 +52,7 @@ public class GastosController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Gastos.setGastos_estado(false);
+                Gastos.setGast_estado(false);
                 return new ResponseEntity<>(gastosService.save(Gastos), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

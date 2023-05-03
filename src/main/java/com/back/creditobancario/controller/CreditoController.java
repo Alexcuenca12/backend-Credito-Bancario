@@ -52,7 +52,7 @@ public class CreditoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Credito.setCredito_estado(false);
+                Credito.setCred_estado(false);
                 return new ResponseEntity<>(creditoService.save(Credito), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

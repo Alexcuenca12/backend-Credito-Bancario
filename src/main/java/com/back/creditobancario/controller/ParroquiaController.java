@@ -52,7 +52,7 @@ public class ParroquiaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                parroquia.setParroquia_estado(false);
+                parroquia.setParr_estado(false);
                 return new ResponseEntity<>(parroquiaService.save(parroquia), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -67,8 +67,8 @@ public class ParroquiaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                parroquia.setParroquia_codigo(p.getParroquia_codigo());
-                parroquia.setParroquia_nombre(p.getParroquia_nombre());
+                parroquia.setParr_codigo(p.getParr_codigo());
+                parroquia.setParr_nombre(p.getParr_nombre());
                 return new ResponseEntity<>(parroquiaService.save(parroquia), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
