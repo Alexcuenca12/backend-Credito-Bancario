@@ -73,6 +73,6 @@ public class Empleo implements Serializable {
     //one to one hacia solicitante
     @JsonIgnore
     @OneToOne(mappedBy = "empleo")
-    private Solicitante solicitante;
+    private Solicitud solicitud;
 
 }

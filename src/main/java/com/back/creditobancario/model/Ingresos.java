@@ -61,6 +61,6 @@ public class Ingresos implements Serializable {
     //one to one hacia solicitante
     @JsonIgnore
     @OneToOne(mappedBy = "ingresos")
-    private Solicitante solicitante;
+    private Solicitud solicitud;
 
 }

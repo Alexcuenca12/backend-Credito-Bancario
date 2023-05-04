@@ -56,9 +56,9 @@ public class BienesRaices implements Serializable {
 
     //Relaciones
 
-    //one to many hacia solicitante
-    @JsonIgnore
-    @OneToMany(mappedBy = "bienesRaices")
-    private List<Solicitante> solicitante;
+    //many to one desde solicitud
+    @ManyToOne
+    @JoinColumn(name = "soliID")
+    private Solicitud solicitud;
 
 }

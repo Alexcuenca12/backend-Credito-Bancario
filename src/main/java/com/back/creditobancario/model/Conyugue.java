@@ -50,6 +50,6 @@ public class Conyugue implements Serializable {
     //one to one hacia solicitante
     @JsonIgnore
     @OneToOne(mappedBy = "conyugue")
-    private Solicitante solicitante;
+    private Solicitud solicitud;
 
 }

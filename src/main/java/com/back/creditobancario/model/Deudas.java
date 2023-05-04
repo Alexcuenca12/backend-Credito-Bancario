@@ -57,6 +57,6 @@ public class Deudas implements Serializable {
 
     //one to meny hacia Soliciante
     @OneToMany(mappedBy = "deudas")
-    private List<Solicitante> solicitante;
+    private List<Solicitud> solicitud;
 
 }

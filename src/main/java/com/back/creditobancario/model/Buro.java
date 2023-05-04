@@ -43,6 +43,6 @@ public class Buro implements Serializable {
     //one to one hacia solicitante
     @JsonIgnore
     @OneToOne(mappedBy = "buro")
-    private Solicitante solicitante;
+    private Solicitud solicitud;
 
 }

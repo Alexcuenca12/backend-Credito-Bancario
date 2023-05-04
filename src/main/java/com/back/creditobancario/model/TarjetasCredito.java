@@ -55,9 +55,9 @@ public class TarjetasCredito {
 
     //Relaciones
 
-    //one to many hacia Solicitante
-    @OneToMany(mappedBy = "tarjetasCredito")
-    private List<Solicitante> solicitante;
-
+    //many to one desde solicitud
+    @ManyToOne
+    @JoinColumn(name = "soliID")
+    private Solicitud solicitud;
 
 }

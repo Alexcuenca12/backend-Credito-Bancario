@@ -68,6 +68,6 @@ public class Domicilio  implements Serializable {
     //one to one hacia solicitante
     @JsonIgnore
     @OneToOne(mappedBy = "domicilio")
-    private Solicitante solicitante;
+    private Solicitud solicitud;
 
 }

@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Setter
@@ -80,10 +82,20 @@ public class AnexoCredito  implements Serializable {
     @Column(name = "aneCredEstado")
     private Boolean aneCred_estado;
 
-    //Rwlaciones
+    //Relaciones
 
+
+
+    //one to one desde credito
+    @OneToOne
+    @JoinColumn(name = "credID")
+    private Credito credito;
+
+    /*
     //one to one hacia credito
+    @JsonIgnore
     @OneToOne(mappedBy = "anexoCredito")
     private Credito credito;
+     */
 
 }

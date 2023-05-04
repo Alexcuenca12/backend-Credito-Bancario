@@ -61,6 +61,6 @@ public class Gastos {
     //one to one hacia solicitante
     @JsonIgnore
     @OneToOne(mappedBy = "gastos")
-    private Solicitante solicitante;
+    private Solicitud solicitud;
 
 }

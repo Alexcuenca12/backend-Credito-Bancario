@@ -2,8 +2,8 @@ package com.back.creditobancario.controller;
 //Controlador para Solicitante
 
 //importaciones
-import com.back.creditobancario.model.Solicitante;
-import com.back.creditobancario.service.Servicios.SolicitanteService;
+import com.back.creditobancario.model.Solicitud;
+import com.back.creditobancario.service.Servicios.SolicitudService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,46 +14,46 @@ import java.util.List;
 @CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api/solicitante")
-public class SolicitanteController {
+public class SolicitudController {
     @Autowired
-    SolicitanteService solicitanteService;
+    SolicitudService solicitudService;
 
     @GetMapping("/listar")
-    public ResponseEntity<List<Solicitante>> obtenerLista() {
+    public ResponseEntity<List<Solicitud>> obtenerLista() {
         try {
-            return new ResponseEntity<>(solicitanteService.findByAll(), HttpStatus.OK);
+            return new ResponseEntity<>(solicitudService.findByAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/buscar/{id}")
-    public ResponseEntity<Solicitante> getById(@PathVariable("id") Long id) {
+    public ResponseEntity<Solicitud> getById(@PathVariable("id") Long id) {
         try {
-            return new ResponseEntity<>(solicitanteService.findById(id), HttpStatus.OK);
+            return new ResponseEntity<>(solicitudService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<Solicitante> crear(@RequestBody Solicitante p) {
+    public ResponseEntity<Solicitud> crear(@RequestBody Solicitud p) {
         try {
-            return new ResponseEntity<>(solicitanteService.save(p), HttpStatus.CREATED);
+            return new ResponseEntity<>(solicitudService.save(p), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/eliminar/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Solicitante p) {
-        Solicitante Solicitante = solicitanteService.findById(id);
-        if (Solicitante == null) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Solicitud p) {
+        Solicitud Solicitud = solicitudService.findById(id);
+        if (Solicitud == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Solicitante.setSoli_estado(false);
-                return new ResponseEntity<>(solicitanteService.save(Solicitante), HttpStatus.CREATED);
+                Solicitud.setSoli_estado(false);
+                return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

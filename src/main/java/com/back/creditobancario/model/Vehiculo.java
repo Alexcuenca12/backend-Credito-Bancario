@@ -66,6 +66,6 @@ public class Vehiculo  implements Serializable {
 
     //one to many hacia solicitante
     @OneToMany(mappedBy = "vehiculo")
-    private List<Solicitante> solicitante;
+    private List<Solicitud> solicitud;
 
 }

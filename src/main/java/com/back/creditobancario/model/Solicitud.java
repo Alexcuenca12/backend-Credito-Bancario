@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,15 +8,15 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "solicitante")
-public class Solicitante  implements Serializable {
+@Table(name = "solicitud")
+public class Solicitud implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,6 +31,11 @@ public class Solicitante  implements Serializable {
     private Boolean soli_estado;
 
     //Relaciones
+
+    //one to many hacia BienesRaices
+    @JsonIgnore
+    @OneToMany(mappedBy = "solicitud")
+    private List<BienesRaices> bienes_raices;
 
     //one to one desde Buro
     @OneToOne
@@ -71,16 +77,10 @@ public class Solicitante  implements Serializable {
     @JoinColumn(name = "credID")
     private Credito credito;
 
-    //many to one desde ReferenciasBancarias
-    @ManyToOne
-    @JoinColumn(name = "refBancID")
-    private ReferenciasBancarias referencias_bancarias;
-
-    //many to one desde BienesRaices
-    @ManyToOne
-    @JoinColumn(name = "bieRaicID")
-    private BienesRaices bienes_raices;
-
+    //one to many hacia ReferenciasPersonales
+    @JsonIgnore
+    @OneToMany(mappedBy = "solicitud")
+    private List<ReferenciasBancarias> referencias_bancarias;
 
     //many to one desde Vehiculo
     @ManyToOne
@@ -92,9 +92,7 @@ public class Solicitante  implements Serializable {
     @JoinColumn(name = "deudID")
     private Deudas deudas;
 
-    //many to one desde TarjetasCredito
-    @ManyToOne
-    @JoinColumn(name = "tarjCredID")
-    private TarjetasCredito tarjetas_credito;
-
+    //one to many hacia TarjetasCredito
+    @OneToMany(mappedBy = "solicitud")
+    private List<TarjetasCredito> tarjetas_credito;
 }

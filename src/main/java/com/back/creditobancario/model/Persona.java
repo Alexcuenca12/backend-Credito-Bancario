@@ -105,6 +105,25 @@ public class Persona implements Serializable {
     //one to one hacia Solicitante
     @JsonIgnore
     @OneToOne(mappedBy = "persona")
-    private Solicitante solicitante;
+    private Solicitud solicitud;
+
+
+
+
+
+
+    /*
+
+
+
+
+
+
+    */
+
+
+
+
+
 
 }
