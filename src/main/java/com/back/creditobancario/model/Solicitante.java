@@ -66,4 +66,35 @@ public class Solicitante  implements Serializable {
     @JoinColumn(name = "persID")
     private Persona persona;
 
+    //many to one desde Credito
+    @ManyToOne
+    @JoinColumn(name = "credID")
+    private Credito credito;
+
+    //many to one desde ReferenciasBancarias
+    @ManyToOne
+    @JoinColumn(name = "refBancID")
+    private ReferenciasBancarias referencias_bancarias;
+
+    //many to one desde BienesRaices
+    @ManyToOne
+    @JoinColumn(name = "bieRaicID")
+    private BienesRaices bienes_raices;
+
+
+    //many to one desde Vehiculo
+    @ManyToOne
+    @JoinColumn(name = "vehiID")
+    private Vehiculo vehiculo;
+
+    //many to one desde Deudas
+    @ManyToOne
+    @JoinColumn(name = "deudID")
+    private Deudas deudas;
+
+    //many to one desde TarjetasCredito
+    @ManyToOne
+    @JoinColumn(name = "tarjCredID")
+    private TarjetasCredito tarjetas_credito;
+
 }

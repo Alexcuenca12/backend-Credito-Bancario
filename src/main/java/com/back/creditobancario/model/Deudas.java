@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Setter
@@ -51,5 +52,11 @@ public class Deudas implements Serializable {
     //estado
     @Column(name = "deudEstado")
     private Boolean deud_estado;
+
+    //Relaciones
+
+    //one to meny hacia Soliciante
+    @OneToMany(mappedBy = "deudas")
+    private List<Solicitante> solicitante;
 
 }

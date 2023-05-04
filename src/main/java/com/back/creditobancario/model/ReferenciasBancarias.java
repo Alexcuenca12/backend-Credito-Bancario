@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Setter
@@ -52,5 +54,11 @@ public class ReferenciasBancarias implements Serializable {
     @Column(name = "refBancEstado")
     private Boolean refBanc_estado;
 
+    //Relaciones
+
+    //one to many hacia Solicitante
+    @JsonIgnore
+    @OneToMany(mappedBy = "referenciasBancarias")
+    private List<Solicitante> solicitante;
 
 }

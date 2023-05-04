@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Setter
@@ -50,6 +51,13 @@ public class TarjetasCredito {
     //estado
     @Column(name = "tarCredEstado")
     private Boolean tarCred_estado;
+
+
+    //Relaciones
+
+    //one to many hacia Solicitante
+    @OneToMany(mappedBy = "tarjetasCredito")
+    private List<Solicitante> solicitante;
 
 
 }
