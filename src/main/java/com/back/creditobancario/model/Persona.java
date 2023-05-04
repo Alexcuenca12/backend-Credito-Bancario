@@ -91,15 +91,20 @@ public class Persona implements Serializable {
 
 
     //Relaciones
+
+    //one to one hacia Usuario
     @JsonIgnore
     @OneToOne(mappedBy = "persona")
     private Usuario usuario;
 
+    //one to one hacia Conyugue
     @JsonIgnore
     @OneToOne(mappedBy = "persona")
     private Conyugue conyugue;
 
-
-
+    //one to one hacia Solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "persona")
+    private Solicitante solicitante;
 
 }

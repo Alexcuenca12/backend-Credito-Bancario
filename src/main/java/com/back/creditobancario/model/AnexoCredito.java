@@ -80,5 +80,10 @@ public class AnexoCredito  implements Serializable {
     @Column(name = "aneCredEstado")
     private Boolean aneCred_estado;
 
+    //Rwlaciones
+
+    //one to one hacia credito
+    @OneToOne(mappedBy = "anexoCredito")
+    private Credito credito;
 
 }

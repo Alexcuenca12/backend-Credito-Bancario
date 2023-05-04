@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Setter
@@ -29,5 +30,40 @@ public class Solicitante  implements Serializable {
     private Boolean soli_estado;
 
     //Relaciones
+
+    //one to one desde Buro
+    @OneToOne
+    @JoinColumn(name = "buroID")
+    private Buro buro;
+
+    //one to one desde Gastos
+    @OneToOne
+    @JoinColumn(name = "gastID")
+    private Gastos gastos;
+
+    //one to one desde Ingresos
+    @OneToOne
+    @JoinColumn(name = "ingrID")
+    private Ingresos ingresos;
+
+    //one to one desde Domicilio
+    @OneToOne
+    @JoinColumn(name = "domiID")
+    private Domicilio domicilio;
+
+    //one to one desde Empleo
+    @OneToOne
+    @JoinColumn(name = "emplID")
+    private Empleo empleo;
+
+    //one to one desde Conyugue
+    @OneToOne
+    @JoinColumn(name = "conyID")
+    private Conyugue conyugue;
+
+    //one to one desde Persona
+    @OneToOne
+    @JoinColumn(name = "persID")
+    private Persona persona;
 
 }

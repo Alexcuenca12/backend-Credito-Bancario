@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,5 +55,12 @@ public class Gastos {
     //estado
     @Column(name = "gastEstado")
     private Boolean gast_estado;
+
+    //Relaciones
+
+    //one to one hacia solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "gastos")
+    private Solicitante solicitante;
 
 }

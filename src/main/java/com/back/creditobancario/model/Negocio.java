@@ -47,13 +47,15 @@ public class Negocio implements Serializable {
 
 
     //Relaciones
+
+    //many to one desde direccion
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;
 
+    //one to one hacia conyugue
     @JsonIgnore
     @OneToOne(mappedBy = "negocio")
     private Conyugue conyugue;
-
 
 }

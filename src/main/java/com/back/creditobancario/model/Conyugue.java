@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,16 +31,25 @@ public class Conyugue implements Serializable {
 
 
     //Relaciones
+
+    //one to one desde persona
     @OneToOne()
     @JoinColumn(name = "persID")
     private Persona persona;
 
+    //one to one desde negocio
     @OneToOne()
     @JoinColumn(name = "negoID")
     private Negocio negocio;
 
+    //one to one desde empleo
     @OneToOne()
     @JoinColumn(name = "emplID")
     private Empleo empleo;
+
+    //one to one hacia solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "conyugue")
+    private Solicitante solicitante;
 
 }

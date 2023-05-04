@@ -59,12 +59,20 @@ public class Empleo implements Serializable {
 
 
     //Relaciones
+
+    //many to one desde direccion
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;
 
+    //one to one hacia conyugue
     @JsonIgnore
     @OneToOne(mappedBy = "empleo")
     private Conyugue conyugue;
+
+    //one to one hacia solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "empleo")
+    private Solicitante solicitante;
 
 }

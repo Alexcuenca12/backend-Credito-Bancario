@@ -48,24 +48,30 @@ public class Direccion implements Serializable {
 
 
     //Relaciones
+
+    //one to one hacia sucursal
     @JsonIgnore
     @OneToOne(mappedBy = "direccion")
     private Sucursal sucursal;
 
-    @ManyToOne
-    @JoinColumn(name = "provID")
-    private Provincia provincia;
-
+    //one to many hacia negocio
     @JsonIgnore
     @OneToMany(mappedBy = "direccion")
     private List<Negocio> negocio;
 
+    //one to many hacia empleo
     @JsonIgnore
     @OneToMany(mappedBy = "direccion")
     private List<Empleo> empleo;
 
+    //one to many hacia domicilio
     @JsonIgnore
     @OneToMany(mappedBy = "direccion")
     private List<Domicilio> domicilio;
+
+    //many to one desde provincia
+    @ManyToOne
+    @JoinColumn(name = "provID")
+    private Provincia provincia;
 }
 

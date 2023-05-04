@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,5 +55,12 @@ public class Ingresos implements Serializable {
     //estado
     @Column(name = "ingrEstado")
     private Boolean ingr_estado;
+
+    //Relaciones
+
+    //one to one hacia solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "ingresos")
+    private Solicitante solicitante;
 
 }

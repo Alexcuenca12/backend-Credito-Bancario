@@ -38,6 +38,8 @@ public class Parroquia implements Serializable {
 
 
     //Relaciones
+
+    //many to one desde canton
     @ManyToOne
     @JoinColumn(name = "cantonID")
     private Canton canton;

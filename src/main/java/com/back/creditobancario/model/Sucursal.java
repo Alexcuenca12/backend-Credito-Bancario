@@ -32,14 +32,18 @@ public class Sucursal implements Serializable {
 
 
     //Relaciones
+
+    //one to one desde usuario
     @OneToOne()
     @JoinColumn(name = "usuarioID")
     private Usuario usuario;
 
+    //one to one desde direccion
     @OneToOne()
     @JoinColumn(name = "direcID")
     private Direccion direccion;
 
+    //one to many hacia credito
     @JsonIgnore
     @OneToMany(mappedBy = "sucursal")
     private List<Credito> credito;

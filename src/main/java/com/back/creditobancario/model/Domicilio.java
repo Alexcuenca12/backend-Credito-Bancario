@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -58,7 +59,15 @@ public class Domicilio  implements Serializable {
 
 
     //Relaciones
+
+    //many to one desde direccion
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;
+
+    //one to one hacia solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "domicilio")
+    private Solicitante solicitante;
+
 }

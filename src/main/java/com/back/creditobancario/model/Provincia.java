@@ -40,10 +40,13 @@ public class Provincia implements Serializable {
 
 
     //Relaciones
+
+    //one to many hacia direccion
     @JsonIgnore
     @OneToMany(mappedBy = "provincia")
     private List<Direccion> direccion;
 
+    //one to many hacia canton
     @JsonIgnore
     @OneToMany(mappedBy = "provincia")
     private List<Canton> canton;

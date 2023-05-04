@@ -40,6 +40,8 @@ public class Rol implements Serializable {
 
 
     //Relaciones
+
+    //one to many hacia usuario
     @JsonIgnore
     @OneToMany(mappedBy = "rol")
     private List<Usuario> usuario;

@@ -46,12 +46,20 @@ public class Credito implements Serializable {
 
 
     //Relaciones
+
+    //many to one desde sucursal
     @ManyToOne
     @JoinColumn(name = "sucursalID")
     private Sucursal sucursal;
 
+    //many to one desde DestinoCredito
     @ManyToOne
     @JoinColumn(name = "destCredID")
     private DestinoCredito destino_credito;
+
+    //one to one desde AnexoCredito
+    @OneToOne
+    @JoinColumn(name = "aneCredID")
+    private AnexoCredito anexo_credito;
 
 }

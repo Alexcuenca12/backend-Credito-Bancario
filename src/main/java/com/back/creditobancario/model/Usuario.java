@@ -51,14 +51,18 @@ public class Usuario implements Serializable {
     private Boolean usuario_estado;
 
     //Relaciones
+
+    //one to one desde persona
     @OneToOne()
     @JoinColumn(name = "perID")
     private Persona persona;
 
+    //many to one desde rol
     @ManyToOne
     @JoinColumn(name = "rolID")
     private Rol rol;
 
+    //one to one hacia sucursal
     @JsonIgnore
     @OneToOne(mappedBy = "usuario")
     private Sucursal sucursal;
