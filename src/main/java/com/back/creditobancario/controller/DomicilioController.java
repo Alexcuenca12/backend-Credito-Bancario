@@ -65,13 +65,13 @@ public class DomicilioController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                domicilio.setDomicilio_color(p.getDomicilio_color());
-                domicilio.setDomicilio_tenencia(p.getDomicilio_color());
-                domicilio.setDomicilio_hipoteca(p.getDomicilio_hipoteca());
-                domicilio.setDomicilio_aniosresidencia(p.getDomicilio_aniosresidencia());
-                domicilio.setDomicilio_referencia(p.getDomicilio_referencia());
-                domicilio.setDomicilio_propietario(p.getDomicilio_propietario());
-                domicilio.setDomicilio_tlfnPropietario(p.getDomicilio_tlfnPropietario());
+                domicilio.setDomi_color(p.getDomi_color());
+                domicilio.setDomi_tenencia(p.getDomi_color());
+                domicilio.setDomi_hipoteca(p.getDomi_hipoteca());
+                domicilio.setDomi_aniosResidencia(p.getDomi_aniosResidencia());
+                domicilio.setDomi_referencia(p.getDomi_referencia());
+                domicilio.setDomi_propietario(p.getDomi_propietario());
+                domicilio.setDomi_telefonPropietario(p.getDomi_telefonPropietario());
                 return new ResponseEntity<>(domicilioService.save(domicilio), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

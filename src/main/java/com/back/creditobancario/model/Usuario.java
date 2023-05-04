@@ -24,35 +24,31 @@ public class Usuario implements Serializable {
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "usuaID")
-    private Long usua_id;
+    @Column(name = "usuarioID")
+    private Long usuario_id;
 
-    //username
-    @Column(name = "usuaUsername")
-    private String usua_username;
-
-    //password
-    @Column(name = "usuaPassword")
-    private String usua_password;
+    @Column(name = "usuarioUsername")
+    private String username;
+    @Column(name = "usuarioPassword")
+    private String password;
 
     //fecha_registro
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name = "usuaRegistro")
-    private Date usua_fechaRegistro;
+    @Column(name = "usuarioRegistro")
+    private Date fecha_registro;
 
-    //pregunta_uno
-    @Column(name = "usuaPreguntaUno")
-    private String usua_preguntaUno;
 
-    //pregunta_dos
-    @Column(name = "usuaPreguntaDos")
-    private String usua_PreguntaDos;
+    @Column(name = "usuarioPreg_uno")
+    private String pregunta_uno;
 
-    //estado
-    @Column(name = "usuaEstado")
-    private Boolean usua_estado;
 
+    @Column(name = "usuarioPreg_dos")
+    private String pregunta_dos;
+
+
+    @Column(name = "usuarioEstado")
+    private Boolean usuario_estado;
 
     //Relaciones
     @OneToOne()
