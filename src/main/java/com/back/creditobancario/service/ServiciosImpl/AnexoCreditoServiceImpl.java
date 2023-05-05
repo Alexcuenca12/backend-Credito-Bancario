@@ -1,6 +1,6 @@
 package com.back.creditobancario.service.ServiciosImpl;
 
-//Servicio para AnexoCredito
+//Servicio implement para AnexoCredito
 
 import com.back.creditobancario.model.AnexoCredito;
 import com.back.creditobancario.repository.AnexoCreditoRepository;

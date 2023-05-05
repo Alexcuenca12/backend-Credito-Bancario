@@ -53,7 +53,7 @@ public class ProvinciaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                provincia.setProvincia_estado(false);
+                provincia.setProv_estado(false);
                 return new ResponseEntity<>(provinciaService.save(provincia), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -68,8 +68,8 @@ public class ProvinciaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                provincia.setProvincia_codigo(p.getProvincia_codigo());
-                provincia.setProvincia_nombre(p.getProvincia_nombre());
+                provincia.setProv_codigo(p.getProv_codigo());
+                provincia.setProv_nombre(p.getProv_nombre());
                 return new ResponseEntity<>(provinciaService.save(provincia), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

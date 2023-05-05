@@ -1,9 +1,9 @@
 package com.back.creditobancario.controller;
-//Controlador de Buro
+//Controlador para BienesRaices
 
 //importaciones
-import com.back.creditobancario.model.Deudas;
-import com.back.creditobancario.service.Servicios.DeudasService;
+import com.back.creditobancario.model.BienesRaices;
+import com.back.creditobancario.service.Servicios.BienesRaicesService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,47 +13,47 @@ import java.util.List;
 
 @CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/api/deudas")
-public class DeudasController {
+@RequestMapping("/api/bienesRaices")
+public class BienesRaicesController {
     @Autowired
-    DeudasService deudasService;
+    BienesRaicesService bienesRaicesService;
 
     @GetMapping("/listar")
-    public ResponseEntity<List<Deudas>> obtenerLista() {
+    public ResponseEntity<List<BienesRaices>> obtenerLista() {
         try {
-            return new ResponseEntity<>(deudasService.findByAll(), HttpStatus.OK);
+            return new ResponseEntity<>(bienesRaicesService.findByAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/buscar/{id}")
-    public ResponseEntity<Deudas> getById(@PathVariable("id") Long id) {
+    public ResponseEntity<BienesRaices> getById(@PathVariable("id") Long id) {
         try {
-            return new ResponseEntity<>(deudasService.findById(id), HttpStatus.OK);
+            return new ResponseEntity<>(bienesRaicesService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<Deudas> crear(@RequestBody Deudas p) {
+    public ResponseEntity<BienesRaices> crear(@RequestBody BienesRaices p) {
         try {
-            return new ResponseEntity<>(deudasService.save(p), HttpStatus.CREATED);
+            return new ResponseEntity<>(bienesRaicesService.save(p), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/eliminar/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Deudas p) {
-        Deudas Deudas = deudasService.findById(id);
-        if (Deudas == null) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody BienesRaices p) {
+        BienesRaices BienesRaices = bienesRaicesService.findById(id);
+        if (BienesRaices == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Deudas.setDeud_estado(false);
-                return new ResponseEntity<>(deudasService.save(Deudas), HttpStatus.CREATED);
+                BienesRaices.setBienRaic_estado(false);
+                return new ResponseEntity<>(bienesRaicesService.save(BienesRaices), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

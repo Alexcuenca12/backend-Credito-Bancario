@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,18 @@ public class TablaBuro implements Serializable {
     private String tabBuro_score;
 
     //calificacion
-    @Column(name = "tabSolCalificacion")
+    @Column(name = "tabBuroCalificacion")
     private String tabBuro_calificacion;
+
+    //estado
+    @Column(name = "tabBuroEstado")
+    private Boolean tabBuro_estado;
+
+    //Relaciones
+
+    //one to one hacia buro
+    @JsonIgnore
+    @OneToOne(mappedBy = "tablaBuro")
+    private Buro buro;
+
 }

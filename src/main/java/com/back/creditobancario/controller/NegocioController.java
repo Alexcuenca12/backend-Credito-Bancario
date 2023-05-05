@@ -51,7 +51,7 @@ public class NegocioController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                negocio.setNegocio_estado(false);
+                negocio.setNego_estado(false);
                 return new ResponseEntity<>(negocioService.save(negocio), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -66,10 +66,10 @@ public class NegocioController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                negocio.setNegocio_actividad(p.getNegocio_actividad());
-                negocio.setNegocio_tiempo(p.getNegocio_tiempo());
-                negocio.setNegocio_tipo(p.getNegocio_tipo());
-                negocio.setNegocio_nombre(p.getNegocio_nombre());
+                negocio.setNego_actividad(p.getNego_actividad());
+                negocio.setNego_tiempo(p.getNego_tiempo());
+                negocio.setNego_tipo(p.getNego_tipo());
+                negocio.setNego_nombre(p.getNego_nombre());
                 return new ResponseEntity<>(negocioService.save(negocio), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

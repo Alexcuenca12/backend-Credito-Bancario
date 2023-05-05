@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,13 +8,14 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "bienesraices")
+@Table(name = "bienes_raices")
 public class BienesRaices implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,30 +24,41 @@ public class BienesRaices implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bieRaicID")
-    private Long bienes_raices_id;
+    private Long bienRaic_id;
 
     //tipo
     @Column(name = "bieRaicTipo")
-    private String tipo;
+    private String bienRaic_tipo;
 
     //numero_predio
     @Column(name = "bieRaicNumeroPredio")
-    private String numero_predio;
+    private String bienRaic_numeroPredio;
 
     //valor
     @Column(name = "bieRaicValor")
-    private String valor;
+    private String bienRaic_valor;
 
     //hipoteca
     @Column(name = "bieRaicHipoteca")
-    private String hipoteca;
+    private String bienRaic_hipoteca;
 
     //fecha_adquisicion
     @Column(name = "bieRaicFechaAdquisicion")
-    private String fecha_adquisicion;
+    private String bienRaic_fechaAdquisicion;
 
     //institucion_persona
     @Column(name = "bieRaicInstitucionPersona")
-    private String institucion_persona;
+    private String bienRaic_institucionPersona;
+
+    //estado
+    @Column(name = "bieRaicEstado")
+    private Boolean bienRaic_estado;
+
+    //Relaciones
+
+    //many to one desde solicitud
+    @ManyToOne
+    @JoinColumn(name = "soliID")
+    private Solicitud solicitud;
 
 }

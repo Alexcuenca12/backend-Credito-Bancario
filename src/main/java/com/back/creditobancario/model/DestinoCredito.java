@@ -18,16 +18,23 @@ public class DestinoCredito implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "destCredID")
-    private Long destino_credito_id;
+    @Column (name = "desCredID")
+    private Long destCred_id;
 
-    @Column(name = "destCredCategoria")
-    private String categoria;
+    //nombre
+    @Column(name = "desCredCategoria")
+    private String desCred_categoria;
 
-    @Column(name = "destCredDescripcion")
-    private String descripcion;
+    //descripcion
+    @Column(name = "desCredDescripcion")
+    private String desCred_descripcion;
+
+    //estado
+    @Column(name = "desCredEstado")
+    private Boolean desCred_estado;
 
 
 }

@@ -53,7 +53,7 @@ public class SucursalController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                sucursal.setSucursal_estado(false);
+                sucursal.setSucu_estado(false);
                 return new ResponseEntity<>(sucursalService.save(sucursal), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -68,7 +68,7 @@ public class SucursalController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                sucursal.setSucursal_estado(true);
+                sucursal.setSucu_estado(true);
                 return new ResponseEntity<>(sucursalService.save(sucursal), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

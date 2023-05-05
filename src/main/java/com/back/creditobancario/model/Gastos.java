@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,35 +21,46 @@ public class Gastos {
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "gasID")
-    private Long gastos_id;
+    @Column(name = "gastID")
+    private Long gast_id;
 
     //alimentacion
-    @Column(name = "gasAlimentacion")
-    private String alimentacion;
+    @Column(name = "gastAlimentacion")
+    private String gast_alimentacion;
 
     //vivienda
-    @Column(name = "gasVivienda")
-    private String vivienda;
+    @Column(name = "gastVivienda")
+    private String gast_vivienda;
 
     //salud
-    @Column(name = "gasSalud")
-    private String salud;
+    @Column(name = "gastSalud")
+    private String gast_salud;
 
     //educatcion
-    @Column(name = "gasEducacion")
-    private String educacion;
+    @Column(name = "gastEducacion")
+    private String gast_educacion;
 
     //servicios_basicos
-    @Column(name = "gasServiciosBasicos")
-    private String servicios_basicos;
+    @Column(name = "gastServiciosBasicos")
+    private String gast_serviciosBasicos;
 
     //otros
-    @Column(name = "gasOtros")
-    private String otros;
+    @Column(name = "gastOtros")
+    private String gast_otros;
 
     //total_gastos
-    @Column(name = "gasTotalGastos")
-    private String total_gastos;
+    @Column(name = "gastTotalGastos")
+    private String gast_totalGastos;
+
+    //estado
+    @Column(name = "gastEstado")
+    private Boolean gast_estado;
+
+    //Relaciones
+
+    //one to one hacia solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "gastos")
+    private Solicitud solicitud;
 
 }

@@ -20,20 +20,28 @@ public class Rol implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rolID")
     private Long rol_id;
 
+    //nombre
     @Column(name = "rolNombre")
     private String rol_nombre;
 
+    //descripcion
     @Column(name = "rolDescripcion")
     private String rol_descripcion;
 
+    //estado
     @Column(name = "rolEstado")
     private Boolean rol_estado;
 
+
+    //Relaciones
+
+    //one to many hacia usuario
     @JsonIgnore
     @OneToMany(mappedBy = "rol")
     private List<Usuario> usuario;

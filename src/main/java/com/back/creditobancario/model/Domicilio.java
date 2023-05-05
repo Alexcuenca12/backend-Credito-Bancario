@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,36 +19,55 @@ public class Domicilio  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "domicilioID")
-    private Long domicilio_id;
+    @Column(name = "domiID")
+    private Long domi_id;
 
-    @Column(name = "domicilioColor")
-    private String domicilio_color;
+    //color
+    @Column(name = "domiColor")
+    private String domi_color;
 
-    @Column(name = "domicilioTenencia")
-    private String domicilio_tenencia;
+    //tenencia
+    @Column(name = "domiTenencia")
+    private String domi_tenencia;
 
-    @Column(name = "domicilioHipoteca")
-    private Boolean domicilio_hipoteca;
+    //hipoteca
+    @Column(name = "domiHipoteca")
+    private Boolean domi_hipoteca;
 
-    @Column(name = "domicilioAniosResidencia")
-    private Integer domicilio_aniosresidencia;
+    //anios_residencia
+    @Column(name = "domiAniosResidencia")
+    private Integer domi_aniosResidencia;
 
-    @Column(name = "domicilioReferencia")
-    private String domicilio_referencia;
+    //referencia
+    @Column(name = "domiReferencia")
+    private String domi_referencia;
 
-    @Column(name = "domicilioPropietario")
-    private String domicilio_propietario;
+    //propietario
+    @Column(name = "domiPropietario")
+    private String domi_propietario;
 
-    @Column(name = "domicilioTlfnPropietario")
-    private String domicilio_tlfnPropietario;
+    //telefono_propietario
+    @Column(name = "domiTelefonoPropietario")
+    private String domi_telefonPropietario;
 
-    @Column(name = "domicilioEstado")
-    private Boolean domicilio_estado;
+    //estado
+    @Column(name = "domiEstado")
+    private Boolean domi_estado;
 
+
+    //Relaciones
+
+    //many to one desde direccion
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;
+
+    //one to one hacia solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "domicilio")
+    private Solicitud solicitud;
+
 }

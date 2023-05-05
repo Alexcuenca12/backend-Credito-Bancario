@@ -20,44 +20,58 @@ public class Direccion implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "direcID")
-    private Long direccion_id;
+    @Column(name = "direID")
+    private Long dire_id;
 
-    @Column(name = "direcCalle")
-    private String calle;
+    //calle
+    @Column(name = "direCalle")
+    private String dire_calle;
 
-    @Column(name = "direcNumero")
-    private String numero;
+    //numero
+    @Column(name = "direNumero")
+    private String dire_numero;
 
-    @Column(name = "direcInterseccion")
-    private String interseccion;
+    //interseccion
+    @Column(name = "direInterseccion")
+    private String dire_interseccion;
 
-    @Column(name = "direcSector")
-    private String sector;
+    //sector
+    @Column(name = "direSector")
+    private String dire_sector;
 
-    @Column(name = "direccionEstado")
-    private Boolean direccion_estado;
+    //estado
+    @Column(name = "direEstado")
+    private Boolean dire_estado;
 
+
+    //Relaciones
+
+    //one to one hacia sucursal
     @JsonIgnore
     @OneToOne(mappedBy = "direccion")
     private Sucursal sucursal;
 
-    @ManyToOne
-    @JoinColumn(name = "provID")
-    private Provincia provincia;
-
+    //one to many hacia negocio
     @JsonIgnore
     @OneToMany(mappedBy = "direccion")
     private List<Negocio> negocio;
 
+    //one to many hacia empleo
     @JsonIgnore
     @OneToMany(mappedBy = "direccion")
     private List<Empleo> empleo;
 
+    //one to many hacia domicilio
     @JsonIgnore
     @OneToMany(mappedBy = "direccion")
     private List<Domicilio> domicilio;
+
+    //many to one desde provincia
+    @ManyToOne
+    @JoinColumn(name = "provID")
+    private Provincia provincia;
 }
 

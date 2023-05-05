@@ -54,7 +54,7 @@ public class CantonController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Canton.setCanton_estado(false);
+                Canton.setCant_estado(false);
                 return new ResponseEntity<>(cantonService.save(Canton), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -69,9 +69,8 @@ public class CantonController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                canton.setCanton_codigo(p.getCanton_codigo());
-                canton.setCanton_nombre(p.getCanton_nombre());
-
+                canton.setCant_codigo(p.getCant_codigo());
+                canton.setCant_nombre(p.getCant_nombre());
                 return new ResponseEntity<>(cantonService.save(canton), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

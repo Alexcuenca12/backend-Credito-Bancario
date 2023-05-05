@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,10 +27,22 @@ public class Buro implements Serializable {
 
     //deudas_venciadas
     @Column(name = "buroDeudasVencidas")
-    private String deudas_vencidas;
+    private String buro_deudasVencidas;
 
     //estado
     @Column(name = "buroEstado")
     private Boolean buro_estado;
+
+    //Relaciones
+
+    //one to one desde tablaBuro
+    @OneToOne
+    @JoinColumn(name = "tabBuroID")
+    private TablaBuro tablaBuro;
+
+    //one to one hacia solicitante
+    @JsonIgnore
+    @OneToOne(mappedBy = "buro")
+    private Solicitud solicitud;
 
 }

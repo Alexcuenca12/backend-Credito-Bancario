@@ -19,33 +19,43 @@ public class Negocio implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "negocioID")
-    private Long negocio_id;
+    @Column(name = "negoID")
+    private Long nego_id;
 
-    @Column(name = "negocioTipo")
-    private String negocio_tipo;
+    //tipo
+    @Column(name = "negoTipo")
+    private String nego_tipo;
 
-    @Column(name = "negocioNombre")
-    private String negocio_nombre;
+    //nombre
+    @Column(name = "negoNombre")
+    private String nego_nombre;
 
-    @Column(name = "negocioActividad")
-    private String negocio_actividad;
+    //actividad
+    @Column(name = "negoActividad")
+    private String nego_actividad;
 
-    @Column(name = "negocioTiempo")
-    private Integer negocio_tiempo;
+    //tiempo
+    @Column(name = "negoTiempo")
+    private Integer nego_tiempo;
 
-    @Column(name = "negocioEstado")
-    private Boolean negocio_estado;
+    //estado
+    @Column(name = "negoEstado")
+    private Boolean nego_estado;
 
+
+    //Relaciones
+
+    //many to one desde direccion
     @ManyToOne
     @JoinColumn(name = "direcID")
     private Direccion direccion;
 
+    //one to one hacia conyugue
     @JsonIgnore
     @OneToOne(mappedBy = "negocio")
     private Conyugue conyugue;
-
 
 }

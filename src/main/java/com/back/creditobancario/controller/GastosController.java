@@ -1,61 +1,59 @@
 package com.back.creditobancario.controller;
+//Controlador de Gastos
 
-
-import com.back.creditobancario.model.Conyugue;
-import com.back.creditobancario.service.Servicios.ConyugueService;
+//importaciones
+import com.back.creditobancario.model.Gastos;
+import com.back.creditobancario.service.Servicios.GastosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/api/conyugue")
-public class ConyugueController {
+@RequestMapping("/api/gastos")
+public class GastosController {
     @Autowired
-    ConyugueService conyugueService;
-
+    GastosService gastosService;
 
     @GetMapping("/listar")
-    public ResponseEntity<List<Conyugue>> obtenerLista() {
+    public ResponseEntity<List<Gastos>> obtenerLista() {
         try {
-            return new ResponseEntity<>(conyugueService.findByAll(), HttpStatus.OK);
+            return new ResponseEntity<>(gastosService.findByAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 
     @GetMapping("/buscar/{id}")
-    public ResponseEntity<Conyugue> getById(@PathVariable("id") Long id) {
+    public ResponseEntity<Gastos> getById(@PathVariable("id") Long id) {
         try {
-            return new ResponseEntity<>(conyugueService.findById(id), HttpStatus.OK);
+            return new ResponseEntity<>(gastosService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-
     @PostMapping("/crear")
-    public ResponseEntity<Conyugue> crear(@RequestBody Conyugue c) {
+    public ResponseEntity<Gastos> crear(@RequestBody Gastos p) {
         try {
-            return new ResponseEntity<>(conyugueService.save(c), HttpStatus.CREATED);
+            return new ResponseEntity<>(gastosService.save(p), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/eliminar/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Conyugue p) {
-        Conyugue conyugue = conyugueService.findById(id);
-        if (conyugue == null) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Gastos p) {
+        Gastos Gastos = gastosService.findById(id);
+        if (Gastos == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                conyugue.setCony_estado(false);
-                return new ResponseEntity<>(conyugueService.save(conyugue), HttpStatus.CREATED);
+                Gastos.setGast_estado(false);
+                return new ResponseEntity<>(gastosService.save(Gastos), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
@@ -63,14 +61,14 @@ public class ConyugueController {
     }
 
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<Conyugue> actualizarConyugue(@PathVariable Long id, @RequestBody Conyugue p) {
-        Conyugue conyugue = conyugueService.findById(id);
-        if (conyugue == null) {
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Gastos p) {
+        Gastos Gastos = gastosService.findById(id);
+        if (Gastos == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-
-                return new ResponseEntity<>(conyugueService.save(conyugue), HttpStatus.CREATED);
+                //Pendiente
+                return new ResponseEntity<>(gastosService.save(Gastos), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

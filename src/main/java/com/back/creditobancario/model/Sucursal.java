@@ -20,22 +20,30 @@ public class Sucursal implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "sucursalID")
-    private Long sucursal_id;
+    @Column(name = "sucuID")
+    private Long sucu_id;
 
-    @Column(name = "sucursalEstado")
-    private Boolean sucursal_estado;
+    //estado
+    @Column(name = "sucuEstado")
+    private Boolean sucu_estado;
 
+
+    //Relaciones
+
+    //one to one desde usuario
     @OneToOne()
     @JoinColumn(name = "usuarioID")
     private Usuario usuario;
 
+    //one to one desde direccion
     @OneToOne()
     @JoinColumn(name = "direcID")
     private Direccion direccion;
 
+    //one to many hacia credito
     @JsonIgnore
     @OneToMany(mappedBy = "sucursal")
     private List<Credito> credito;

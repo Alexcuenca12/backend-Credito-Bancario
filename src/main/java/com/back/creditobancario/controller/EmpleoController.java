@@ -51,7 +51,7 @@ public class EmpleoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                empleo.setEmpleo_estado(false);
+                empleo.setEmpl_estado(false);
                 return new ResponseEntity<>(empleoService.save(empleo), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -66,13 +66,13 @@ public class EmpleoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                empleo.setEmpleo_tipoEmpleado(p.getEmpleo_tipoEmpleado());
-                empleo.setEmpleo_actEmpresa(p.getEmpleo_actEmpresa());
-                empleo.setEmpleo_nomEmpresa(p.getEmpleo_nomEmpresa());
-                empleo.setEmpleo_cargoEmpresa(p.getEmpleo_cargoEmpresa());
-                empleo.setEmpleo_tlfnEmpresa(p.getEmpleo_tlfnEmpresa());
-                empleo.setEmpleo_refEmpresa(p.getEmpleo_refEmpresa());
-                empleo.setEmpleo_tiempoEmpresa(p.getEmpleo_tiempoEmpresa());
+                empleo.setEmpl_tipoEmpleado(p.getEmpl_tipoEmpleado());
+                empleo.setEmpl_actividadEmpresa(p.getEmpl_actividadEmpresa());
+                empleo.setEmpl_nombreEmpresa(p.getEmpl_nombreEmpresa());
+                empleo.setEmpl_cargoEmpresa(p.getEmpl_cargoEmpresa());
+                empleo.setEmpl_telefonoEmpresa(p.getEmpl_telefonoEmpresa());
+                empleo.setEmpl_referenciaEmpresa(p.getEmpl_referenciaEmpresa());
+                empleo.setEmpl_tiempoEmpresa(p.getEmpl_tiempoEmpresa());
 
                 return new ResponseEntity<>(empleoService.save(empleo), HttpStatus.CREATED);
             } catch (Exception e) {
