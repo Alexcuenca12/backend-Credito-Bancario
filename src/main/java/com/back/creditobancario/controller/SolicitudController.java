@@ -44,6 +44,32 @@ public class SolicitudController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @PutMapping("/editar/{id}")
+    public ResponseEntity<?> actualizar (@PathVariable Long id, @RequestBody Solicitud p) {
+        Solicitud Solicitud = solicitudService.findById(id);
+        if (Solicitud == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                Solicitud.setBienes_raices(p.getBienes_raices());
+                Solicitud.setBuro(p.getBuro());
+                Solicitud.setGastos(p.getGastos());
+                Solicitud.setIngresos(p.getIngresos());
+                Solicitud.setDomicilio(p.getDomicilio());
+                Solicitud.setEmpleo(p.getEmpleo());
+                Solicitud.setConyugue(p.getConyugue());
+                Solicitud.setPersona(p.getPersona());
+                Solicitud.setCredito(p.getCredito());
+                Solicitud.setReferencias_bancarias(p.getReferencias_bancarias());
+                Solicitud.setVehiculo(p.getVehiculo());
+                Solicitud.setDeudas(p.getDeudas());
+                Solicitud.setTarjetas_credito(p.getTarjetas_credito());
+                return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
 
     @PutMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Solicitud p) {
@@ -59,4 +85,5 @@ public class SolicitudController {
             }
         }
     }
+
 }
