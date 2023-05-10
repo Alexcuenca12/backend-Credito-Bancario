@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -51,7 +53,9 @@ public class Vehiculo  implements Serializable {
 
     //fecha_adquisicion
     @Column(name = "vehiFechaAdquisicion")
-    private String vehi_fechaAdquisicion;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date vehi_fechaAdquisicion;
 
     //institucion_persona
     @Column(name = "vehiculoInstitucionPersona")

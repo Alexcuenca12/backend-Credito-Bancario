@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Setter
@@ -39,7 +41,9 @@ public class Persona implements Serializable {
 
     //fecha_nacimiento
     @Column(name = "persFechaNacimiento")
-    private String pers_fechaNacimiento;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date pers_fechaNacimiento;
 
     //sexo
     @Column(name = "persSexo")

@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,7 +29,9 @@ public class Deudas implements Serializable {
 
     //fecha_corte
     @Column(name = "deudFechaCorte")
-    private String deud_fechaCorte;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date deud_fechaCorte;
 
     //institucion
     @Column(name = "deudInstitucion")
