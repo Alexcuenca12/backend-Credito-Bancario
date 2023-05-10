@@ -39,7 +39,7 @@ public class Deudas implements Serializable {
 
     //valor
     @Column(name = "deudValor")
-    private String deud_valor;
+    private Double deud_valor;
 
     //otorgado
     @Column(name = "deudOtorgado")
@@ -51,7 +51,7 @@ public class Deudas implements Serializable {
 
     //saldo
     @Column(name = "deudSaldo")
-    private String deud_saldo;
+    private Double deud_saldo;
 
     //estado
     @Column(name = "deudEstado")

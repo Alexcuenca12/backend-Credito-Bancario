@@ -38,7 +38,7 @@ public class BienesRaices implements Serializable {
 
     //valor
     @Column(name = "bieRaicValor")
-    private String bienRaic_valor;
+    private Double bienRaic_valor;
 
     //hipoteca
     @Column(name = "bieRaicHipoteca")

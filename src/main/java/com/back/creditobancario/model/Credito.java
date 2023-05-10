@@ -36,7 +36,7 @@ public class Credito implements Serializable {
 
     //monto
     @Column(name = "credMonto")
-    private String cred_monto;
+    private Double cred_monto;
 
     //plazo
     @Column(name = "credPlazo")
@@ -44,7 +44,7 @@ public class Credito implements Serializable {
 
     //numero
     @Column(name = "credNumero")
-    private String cred_numero;
+    private int cred_numero;
 
     //estado
     @Column(name = "credEstado")

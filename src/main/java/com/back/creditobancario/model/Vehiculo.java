@@ -45,7 +45,7 @@ public class Vehiculo  implements Serializable {
 
     //valor
     @Column(name = "vehiValor")
-    private String vehi_valor;
+    private Double vehi_valor;
 
     //prenda
     @Column(name = "vehiPrenda")

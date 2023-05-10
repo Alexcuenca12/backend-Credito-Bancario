@@ -26,31 +26,31 @@ public class Gastos {
 
     //alimentacion
     @Column(name = "gastAlimentacion")
-    private String gast_alimentacion;
+    private Double gast_alimentacion;
 
     //vivienda
     @Column(name = "gastVivienda")
-    private String gast_vivienda;
+    private Double gast_vivienda;
 
     //salud
     @Column(name = "gastSalud")
-    private String gast_salud;
+    private Double gast_salud;
 
     //educatcion
     @Column(name = "gastEducacion")
-    private String gast_educacion;
+    private Double gast_educacion;
 
     //servicios_basicos
     @Column(name = "gastServiciosBasicos")
-    private String gast_serviciosBasicos;
+    private Double gast_serviciosBasicos;
 
     //otros
     @Column(name = "gastOtros")
-    private String gast_otros;
+    private Double gast_otros;
 
     //total_gastos
     @Column(name = "gastTotalGastos")
-    private String gast_totalGastos;
+    private Double gast_totalGastos;
 
     //estado
     @Column(name = "gastEstado")

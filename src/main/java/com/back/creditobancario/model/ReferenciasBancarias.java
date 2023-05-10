@@ -44,11 +44,11 @@ public class ReferenciasBancarias implements Serializable {
 
     //cifras_promedio
     @Column(name = "refBancCifrasPromedio")
-    private String refBanc_cifrasPromedio;
+    private Double refBanc_cifrasPromedio;
 
     //saldo
     @Column(name = "refBancSaldo")
-    private String refBanc_saldo;
+    private Double refBanc_saldo;
 
     //estado
     @Column(name = "refBancEstado")

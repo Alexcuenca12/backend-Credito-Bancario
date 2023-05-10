@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -33,12 +34,12 @@ public class TarjetasCredito {
     private String tarCred_numero;
 
     //cauducidad
-    @Column(name = "tarCredCauducidad")
-    private String tarCred_cauducidad;
+    @Column(name = "tarCredCaducidad")
+    private Date tarCred_caducidad;
 
     //cupo
     @Column(name = "tarCredCupo")
-    private String tarCred_cupo;
+    private Double tarCred_cupo;
 
     //utilizado
     @Column(name = "tarCredUtilizado")
