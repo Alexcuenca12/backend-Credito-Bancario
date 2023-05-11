@@ -38,7 +38,6 @@ public class Provincia implements Serializable {
     @Column(name = "provEstado")
     private Boolean prov_estado;
 
-
     //Relaciones
 
     //one to many hacia direccion

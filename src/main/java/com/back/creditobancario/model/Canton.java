@@ -38,7 +38,6 @@ public class Canton implements Serializable {
     @Column(name = "cantEstado")
     private Boolean cant_estado;
 
-
     //Relaciones
 
     //many to one desde provincia

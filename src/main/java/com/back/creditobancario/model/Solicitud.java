@@ -94,5 +94,6 @@ public class Solicitud implements Serializable {
 
     //one to many hacia TarjetasCredito
     @OneToMany(mappedBy = "solicitud")
+    @JsonIgnore
     private List<TarjetasCredito> tarjetas_credito;
 }

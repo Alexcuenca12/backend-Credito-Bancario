@@ -68,18 +68,9 @@ public class Credito implements Serializable {
     @OneToMany(mappedBy = "credito")
     private List<Solicitud> solicitud;
 
-
-
     //one to one hacia AnexoCredito
-    @JsonIgnore
     @OneToOne(mappedBy = "credito")
+    @JsonIgnore
     private AnexoCredito anexo_credito;
-
-    /*
-    //one to one desde AnexoCredito
-    @OneToOne
-    @JoinColumn(name = "aneCredID")
-    private AnexoCredito anexo_credito;
-     */
 
 }

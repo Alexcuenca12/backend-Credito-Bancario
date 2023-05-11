@@ -57,7 +57,6 @@ public class Empleo implements Serializable {
     @Column(name = "emplEstado")
     private Boolean empl_estado;
 
-
     //Relaciones
 
     //many to one desde direccion

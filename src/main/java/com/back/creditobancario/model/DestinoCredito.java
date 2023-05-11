@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Setter
@@ -21,7 +23,7 @@ public class DestinoCredito implements Serializable {
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "desCredID")
+    @Column(name = "desCredID")
     private Long destCred_id;
 
     //nombre
@@ -35,6 +37,10 @@ public class DestinoCredito implements Serializable {
     //estado
     @Column(name = "desCredEstado")
     private Boolean desCred_estado;
+
+    @OneToMany(mappedBy = "destino_credito")
+    @JsonIgnore
+    private List<Credito> creditos;
 
 
 }

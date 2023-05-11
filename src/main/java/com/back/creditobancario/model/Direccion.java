@@ -46,7 +46,6 @@ public class Direccion implements Serializable {
     @Column(name = "direEstado")
     private Boolean dire_estado;
 
-
     //Relaciones
 
     //one to one hacia sucursal

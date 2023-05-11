@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -65,11 +66,10 @@ public class Vehiculo  implements Serializable {
     @Column(name = "vehiEstado")
     private Boolean vehi_estado;
 
-
     //Relaciones
-
     //one to many hacia solicitante
     @OneToMany(mappedBy = "vehiculo")
+    @JsonIgnore
     private List<Solicitud> solicitud;
 
 }

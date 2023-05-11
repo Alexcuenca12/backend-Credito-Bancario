@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -61,6 +62,7 @@ public class Deudas implements Serializable {
 
     //one to meny hacia Soliciante
     @OneToMany(mappedBy = "deudas")
+    @JsonIgnore
     private List<Solicitud> solicitud;
 
 }
