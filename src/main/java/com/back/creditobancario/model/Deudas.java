@@ -1,12 +1,15 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,7 +30,9 @@ public class Deudas implements Serializable {
 
     //fecha_corte
     @Column(name = "deudFechaCorte")
-    private String deud_fechaCorte;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date deud_fechaCorte;
 
     //institucion
     @Column(name = "deudInstitucion")
@@ -35,7 +40,7 @@ public class Deudas implements Serializable {
 
     //valor
     @Column(name = "deudValor")
-    private String deud_valor;
+    private Double deud_valor;
 
     //otorgado
     @Column(name = "deudOtorgado")
@@ -47,7 +52,7 @@ public class Deudas implements Serializable {
 
     //saldo
     @Column(name = "deudSaldo")
-    private String deud_saldo;
+    private Double deud_saldo;
 
     //estado
     @Column(name = "deudEstado")
@@ -57,6 +62,7 @@ public class Deudas implements Serializable {
 
     //one to meny hacia Soliciante
     @OneToMany(mappedBy = "deudas")
+    @JsonIgnore
     private List<Solicitud> solicitud;
 
 }

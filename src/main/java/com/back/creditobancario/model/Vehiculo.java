@@ -1,12 +1,15 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -43,7 +46,7 @@ public class Vehiculo  implements Serializable {
 
     //valor
     @Column(name = "vehiValor")
-    private String vehi_valor;
+    private Double vehi_valor;
 
     //prenda
     @Column(name = "vehiPrenda")
@@ -51,7 +54,9 @@ public class Vehiculo  implements Serializable {
 
     //fecha_adquisicion
     @Column(name = "vehiFechaAdquisicion")
-    private String vehi_fechaAdquisicion;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date vehi_fechaAdquisicion;
 
     //institucion_persona
     @Column(name = "vehiculoInstitucionPersona")
@@ -61,11 +66,10 @@ public class Vehiculo  implements Serializable {
     @Column(name = "vehiEstado")
     private Boolean vehi_estado;
 
-
     //Relaciones
-
     //one to many hacia solicitante
     @OneToMany(mappedBy = "vehiculo")
+    @JsonIgnore
     private List<Solicitud> solicitud;
 
 }

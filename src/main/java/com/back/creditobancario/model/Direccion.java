@@ -46,7 +46,6 @@ public class Direccion implements Serializable {
     @Column(name = "direEstado")
     private Boolean direEstado;
 
-
     //Relaciones
 
     //one to one hacia sucursal
@@ -73,5 +72,14 @@ public class Direccion implements Serializable {
     @ManyToOne
     @JoinColumn(name = "provId")
     private Provincia provincia;
+
+    public Direccion(String direCalle, String direNumero, String direInterseccion, String direSector, boolean direEstado,  Provincia provincia) {
+        this.direCalle = direCalle;
+        this.direNumero = direNumero;
+        this.direInterseccion = direInterseccion;
+        this.direSector = direSector;
+        this.direEstado = direEstado;
+        this.provincia = provincia;
+    }
 }
 

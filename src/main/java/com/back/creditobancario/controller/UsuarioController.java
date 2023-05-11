@@ -26,6 +26,18 @@ public class UsuarioController {
         return ResponseEntity.ok().body(usuarioService.findByAll());
     }
 
+    //Metodos movil
+    @GetMapping("/users/listUsuRol")
+    public ResponseEntity<List<Usuario>> getUsuariosRolList(String username) {
+        return ResponseEntity.ok().body(usuarioService.listarUsuarioRol(username));
+    }
+
+    //Metodos movil
+    @GetMapping("/users/listImg")
+    public ResponseEntity<List<Usuario>> getImgPersona(String username) {
+        return ResponseEntity.ok().body(usuarioService.listarImg(username));
+    }
+
     @GetMapping("/search/{username}")
     public Usuario obtenerUsuario(@PathVariable("username") String username) {
         return usuarioService.search(username);
@@ -56,6 +68,24 @@ public class UsuarioController {
                 usuario.setUsername(u.getUsername());
                 usuario.setPassword(u.getPassword());
                 usuario.setUsuario_estado(false);
+                return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
+    @PutMapping("/restablecer/{id}")
+    public ResponseEntity<Usuario> restableceContra(@PathVariable Long id, @RequestBody Usuario u) {
+        Usuario usuario = usuarioService.findById(id);
+        if (usuario == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                if ((usuario.getPregunta_uno().equals(u.getPregunta_uno())) || (usuario.getPregunta_dos().equals(u.getPregunta_dos()))) {
+                    usuario.setUsername("usuario prueba");
+                    usuario.setPassword("12345");
+                }
                 return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

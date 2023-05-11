@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -36,7 +38,7 @@ public class BienesRaices implements Serializable {
 
     //valor
     @Column(name = "bieRaicValor")
-    private String bienRaic_valor;
+    private Double bienRaic_valor;
 
     //hipoteca
     @Column(name = "bieRaicHipoteca")
@@ -44,7 +46,9 @@ public class BienesRaices implements Serializable {
 
     //fecha_adquisicion
     @Column(name = "bieRaicFechaAdquisicion")
-    private String bienRaic_fechaAdquisicion;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date bienRaic_fechaAdquisicion;
 
     //institucion_persona
     @Column(name = "bieRaicInstitucionPersona")
@@ -60,5 +64,9 @@ public class BienesRaices implements Serializable {
     @ManyToOne
     @JoinColumn(name = "soliID")
     private Solicitud solicitud;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "bienesRaices")
+    private List<Solicitud> solicitudes;
 
 }

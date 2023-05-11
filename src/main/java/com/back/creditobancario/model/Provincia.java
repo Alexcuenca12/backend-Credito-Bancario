@@ -34,9 +34,7 @@ public class Provincia implements Serializable {
     @Column(name = "provNombre")
     private String prov_nombre;
 
-
     //Relaciones
-
     //one to many hacia direccion
     @JsonIgnore
     @OneToMany(mappedBy = "provincia")

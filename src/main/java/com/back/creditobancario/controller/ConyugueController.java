@@ -5,8 +5,6 @@ import com.back.creditobancario.model.*;
 import com.back.creditobancario.repository.*;
 import com.back.creditobancario.service.Servicios.ConyugueService;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,11 +53,71 @@ public class ConyugueController {
         }
     }
 
-
+    //Metodo crear, crea todo lo de conyugue, dirección, empleo y persona
 //    @PostMapping("/crear")
 //    public ResponseEntity<Conyugue> crear(@RequestBody Conyugue c) {
 //        try {
-//            return new ResponseEntity<>(conyugueService.save(c), HttpStatus.CREATED);
+//            // Verificar si la persona ya ha sido guardada en la base de datos
+//            Persona persona = c.getPersona();
+//            if (null !=  persona  && null == persona.getPers_id()  ) {
+//                Persona personaObject = personaRepository.save(persona);
+//                // Si la persona no ha sido guardada en la base de datos, guardarla primero
+//                c.setPersona(personaObject);
+//            }
+//
+//            // Guardar el negocio en la base de datos
+//            Negocio negocio = c.getNegocio();
+//
+//            // Verificar si ya existe la dirección del negocio y crearla si no existe
+//            Direccion dirNegocio = negocio.getDireccion();
+//            Provincia provNegocio = dirNegocio.getProvincia();
+//            Optional<Direccion> optionalDirNegocio = direccionRepository.findByDireCalleAndDireNumeroAndDireInterseccionAndDireSectorAndProvincia(
+//                    dirNegocio.getDireCalle(),
+//                    dirNegocio.getDireNumero(),
+//                    dirNegocio.getDireInterseccion(),
+//                    dirNegocio.getDireSector(),
+//                    provNegocio);
+//
+//            if (optionalDirNegocio.isPresent()) {
+//                dirNegocio = optionalDirNegocio.get();
+//            } else {
+//                dirNegocio = direccionRepository.save(dirNegocio);
+//            }
+//
+//            negocio.setDireccion(dirNegocio);
+//            negocioRepository.save(negocio);
+//
+//            // Actualizar el negocio en el objeto conyugue con el ID asignado por la base de datos
+//            c.setNegocio(negocio);
+//
+//            // Guardar el empleo en la base de datos
+//            Empleo empleo = c.getEmpleo();
+//
+//            // Verificar si ya existe la dirección del empleo y crearla si no existe
+//            Direccion dirEmpleo = empleo.getDireccion();
+//            Provincia provEmpleo = dirEmpleo.getProvincia();
+//            Optional<Direccion> optionalDirEmpleo = direccionRepository.findByDireCalleAndDireNumeroAndDireInterseccionAndDireSectorAndProvincia(
+//                    dirEmpleo.getDireCalle(),
+//                    dirEmpleo.getDireNumero(),
+//                    dirEmpleo.getDireInterseccion(),
+//                    dirEmpleo.getDireSector(),
+//                    provEmpleo);
+//
+//            if (optionalDirEmpleo.isPresent()) {
+//                dirEmpleo = optionalDirEmpleo.get();
+//            } else {
+//                dirEmpleo = direccionRepository.save(dirEmpleo);
+//            }
+//
+//            empleo.setDireccion(dirEmpleo);
+//            empleoRepository.save(empleo);
+//
+//            // Actualizar el empleo en el objeto conyugue con el ID asignado por la base de datos
+//            c.setEmpleo(empleo);
+//
+//            // Guardar el conyugue en la base de datos
+//            Conyugue conyugue = conyugueRepository.save(c);
+//            return new ResponseEntity<>(conyugue, HttpStatus.CREATED);
 //        } catch (Exception e) {
 //            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 //        }
@@ -79,22 +137,17 @@ public class ConyugueController {
             // Guardar el negocio en la base de datos
             Negocio negocio = c.getNegocio();
 
-            // Verificar si ya existe la dirección del negocio y crearla si no existe
+            // Crear una nueva dirección para el negocio
             Direccion dirNegocio = negocio.getDireccion();
             Provincia provNegocio = dirNegocio.getProvincia();
-            Optional<Direccion> optionalDirNegocio = direccionRepository.findByDireCalleAndDireNumeroAndDireInterseccionAndDireSectorAndProvincia(
+            dirNegocio = direccionRepository.save(new Direccion(
                     dirNegocio.getDireCalle(),
                     dirNegocio.getDireNumero(),
                     dirNegocio.getDireInterseccion(),
                     dirNegocio.getDireSector(),
-                    provNegocio);
-
-            if (optionalDirNegocio.isPresent()) {
-                dirNegocio = optionalDirNegocio.get();
-            } else {
-                dirNegocio = direccionRepository.save(dirNegocio);
-            }
-
+                    dirNegocio.getDireEstado(),
+                    provNegocio
+            ));
             negocio.setDireccion(dirNegocio);
             negocioRepository.save(negocio);
 
@@ -104,22 +157,17 @@ public class ConyugueController {
             // Guardar el empleo en la base de datos
             Empleo empleo = c.getEmpleo();
 
-            // Verificar si ya existe la dirección del empleo y crearla si no existe
+            // Crear una nueva dirección para el empleo
             Direccion dirEmpleo = empleo.getDireccion();
             Provincia provEmpleo = dirEmpleo.getProvincia();
-            Optional<Direccion> optionalDirEmpleo = direccionRepository.findByDireCalleAndDireNumeroAndDireInterseccionAndDireSectorAndProvincia(
+            dirEmpleo = direccionRepository.save(new Direccion(
                     dirEmpleo.getDireCalle(),
                     dirEmpleo.getDireNumero(),
                     dirEmpleo.getDireInterseccion(),
                     dirEmpleo.getDireSector(),
-                    provEmpleo);
-
-            if (optionalDirEmpleo.isPresent()) {
-                dirEmpleo = optionalDirEmpleo.get();
-            } else {
-                dirEmpleo = direccionRepository.save(dirEmpleo);
-            }
-
+                    dirNegocio.getDireEstado(),
+                    provEmpleo
+            ));
             empleo.setDireccion(dirEmpleo);
             empleoRepository.save(empleo);
 
@@ -128,27 +176,12 @@ public class ConyugueController {
 
             // Guardar el conyugue en la base de datos
             Conyugue conyugue = conyugueRepository.save(c);
+
             return new ResponseEntity<>(conyugue, HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
-//    private void actualizarProvincia(Provincia provincia) {
-//        if (provincia != null) {
-//            Optional<Provincia> provinciaExistente = provinciaRepository.findById(provincia.getProv_id());
-//            if (provinciaExistente.isPresent()) {
-//                provincia.setProv_id(provinciaExistente.get().getProv_id());
-//            } else {
-//                provinciaRepository.save(provincia);
-//            }
-//        }
-//    }
-
-
-
-
 
 
 

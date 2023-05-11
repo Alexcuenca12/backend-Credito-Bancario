@@ -13,4 +13,8 @@ public interface UsuarioService extends IGenericService<Usuario, Long> {
 
     public void delete(Long usuario_id);
 
+    List<Usuario> listarUsuarioRol(String username);
+
+    List<Usuario> listarImg(String username);
+
 }

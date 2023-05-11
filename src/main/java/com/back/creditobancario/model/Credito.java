@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -28,11 +30,13 @@ public class Credito implements Serializable {
 
     //fecha
     @Column(name = "credFecha")
-    private String cred_fecha;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date cred_fecha;
 
     //monto
     @Column(name = "credMonto")
-    private String cred_monto;
+    private Double cred_monto;
 
     //plazo
     @Column(name = "credPlazo")
@@ -40,7 +44,7 @@ public class Credito implements Serializable {
 
     //numero
     @Column(name = "credNumero")
-    private String cred_numero;
+    private int cred_numero;
 
     //estado
     @Column(name = "credEstado")
@@ -64,18 +68,9 @@ public class Credito implements Serializable {
     @OneToMany(mappedBy = "credito")
     private List<Solicitud> solicitud;
 
-
-
     //one to one hacia AnexoCredito
-    @JsonIgnore
     @OneToOne(mappedBy = "credito")
+    @JsonIgnore
     private AnexoCredito anexo_credito;
-
-    /*
-    //one to one desde AnexoCredito
-    @OneToOne
-    @JoinColumn(name = "aneCredID")
-    private AnexoCredito anexo_credito;
-     */
 
 }

@@ -36,6 +36,7 @@ public class AnexoCreditoController {
         }
     }
 
+    //Metodo crear con validaciones
     @PostMapping("/crear")
     public ResponseEntity<?> crear(@RequestBody AnexoCredito p) {
         try {

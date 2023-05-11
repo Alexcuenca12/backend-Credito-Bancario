@@ -20,8 +20,6 @@ import java.util.Date;
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "usuarioID")
@@ -38,14 +36,11 @@ public class Usuario implements Serializable {
     @Column(name = "usuarioRegistro")
     private Date fecha_registro;
 
-
     @Column(name = "usuarioPreg_uno")
     private String pregunta_uno;
 
-
     @Column(name = "usuarioPreg_dos")
     private String pregunta_dos;
-
 
     @Column(name = "usuarioEstado")
     private Boolean usuario_estado;
@@ -63,7 +58,6 @@ public class Usuario implements Serializable {
     private Rol rol;
 
     //one to one hacia sucursal
-    @JsonIgnore
     @OneToOne(mappedBy = "usuario")
     private Sucursal sucursal;
 

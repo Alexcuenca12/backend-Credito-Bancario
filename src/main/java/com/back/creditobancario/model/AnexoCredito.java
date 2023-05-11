@@ -83,19 +83,9 @@ public class AnexoCredito  implements Serializable {
     private boolean aneCred_estado;
 
     //Relaciones
-
-
-
     //one to one desde credito
     @OneToOne
     @JoinColumn(name = "credID")
     private Credito credito;
-
-    /*
-    //one to one hacia credito
-    @JsonIgnore
-    @OneToOne(mappedBy = "anexoCredito")
-    private Credito credito;
-     */
 
 }

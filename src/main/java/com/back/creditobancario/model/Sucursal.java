@@ -36,6 +36,7 @@ public class Sucursal implements Serializable {
     //one to one desde usuario
     @OneToOne()
     @JoinColumn(name = "usuarioID")
+    @JsonIgnore
     private Usuario usuario;
 
     //one to one desde direccion

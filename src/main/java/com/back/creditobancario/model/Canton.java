@@ -34,7 +34,6 @@ public class Canton implements Serializable {
     @Column(name = "cantNombre")
     private String cant_nombre;
 
-
     //Relaciones
 
     //many to one desde provincia

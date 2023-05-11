@@ -44,11 +44,11 @@ public class ReferenciasBancarias implements Serializable {
 
     //cifras_promedio
     @Column(name = "refBancCifrasPromedio")
-    private String refBanc_cifrasPromedio;
+    private Double refBanc_cifrasPromedio;
 
     //saldo
     @Column(name = "refBancSaldo")
-    private String refBanc_saldo;
+    private Double refBanc_saldo;
 
     //estado
     @Column(name = "refBancEstado")
@@ -56,10 +56,9 @@ public class ReferenciasBancarias implements Serializable {
 
     //Relaciones
 
-    //many to one desde solicitud
-    @ManyToOne
-    @JoinColumn(name = "soliID")
-    private Solicitud solicitud;
+    @JsonIgnore
+    @OneToMany(mappedBy = "referenciasBancarias")
+    private List<Solicitud> solicitudess;
 
 
 }

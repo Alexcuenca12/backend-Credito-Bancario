@@ -45,9 +45,7 @@ public class Negocio implements Serializable {
     @Column(name = "negoEstado")
     private Boolean nego_estado;
 
-
     //Relaciones
-
     //many to one desde direccion
     @ManyToOne
     @JoinColumn(name = "direcID")

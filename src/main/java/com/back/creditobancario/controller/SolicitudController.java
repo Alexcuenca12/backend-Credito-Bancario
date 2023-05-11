@@ -51,7 +51,7 @@ public class SolicitudController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Solicitud.setBienes_raices(p.getBienes_raices());
+                Solicitud.setBienesRaices(p.getBienesRaices());
                 Solicitud.setBuro(p.getBuro());
                 Solicitud.setGastos(p.getGastos());
                 Solicitud.setIngresos(p.getIngresos());
@@ -60,10 +60,10 @@ public class SolicitudController {
                 Solicitud.setConyugue(p.getConyugue());
                 Solicitud.setPersona(p.getPersona());
                 Solicitud.setCredito(p.getCredito());
-                Solicitud.setReferencias_bancarias(p.getReferencias_bancarias());
+                Solicitud.setReferenciasBancarias(p.getReferenciasBancarias());
                 Solicitud.setVehiculo(p.getVehiculo());
                 Solicitud.setDeudas(p.getDeudas());
-                Solicitud.setTarjetas_credito(p.getTarjetas_credito());
+                Solicitud.setTarjetasCredito(p.getTarjetasCredito());
                 return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

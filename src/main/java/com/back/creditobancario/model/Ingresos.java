@@ -26,31 +26,31 @@ public class Ingresos implements Serializable {
 
     //sueldo_mensual
     @Column(name = "ingrSueldoMensual")
-    private String ingr_sueldoMensual;
+    private Double ingr_sueldoMensual;
 
     //sueldo_conyugue
     @Column(name = "ingrSueldoConyugue")
-    private String ingr_sueldoConyugue;
+    private Double ingr_sueldoConyugue;
 
     //remesas
     @Column(name = "ingrRemesas")
-    private String ingr_remesas;
+    private Double ingr_remesas;
 
     //pension_jubilados
     @Column(name = "ingrPensionJubilados")
-    private String ingr_pensionJubilados;
+    private Double ingr_pensionJubilados;
 
     //ingresos_servicios
     @Column(name = "ingrIngresosServicios")
-    private String ingr_ingresosServicios;
+    private Double ingr_ingresosServicios;
 
     //otros_ingresos
     @Column(name = "ingrOtrosIngresos")
-    private String ingr_otrosIngresos;
+    private Double ingr_otrosIngresos;
 
     //total_ingresos
     @Column(name = "ingrTotalIngresos")
-    private String ingr_totalIngresos;
+    private Double ingr_totalIngresos;
 
     //estado
     @Column(name = "ingrEstado")
