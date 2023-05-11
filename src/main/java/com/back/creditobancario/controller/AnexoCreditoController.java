@@ -37,26 +37,49 @@ public class AnexoCreditoController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<AnexoCredito> crear(@RequestBody AnexoCredito p) {
+    public ResponseEntity<?> crear(@RequestBody AnexoCredito p) {
         try {
-            return new ResponseEntity<>(anexoCreditoService.save(p), HttpStatus.CREATED);
+            if (null == p) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (null == p.getAneCred_cedulaSolicitante() || p.getAneCred_cedulaSolicitante().isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (null == p.getAneCred_rolesPago() || p.getAneCred_rolesPago().isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (null == p.getAneCred_recibosVivienda() || p.getAneCred_recibosVivienda().isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (null == p.getAneCred_facturasAlimentacion() || p.getAneCred_facturasAlimentacion().isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (null == p.getAneCred_facturasServicios() || p.getAneCred_facturasServicios().isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (null == p.getAneCred_facturasSalud() || p.getAneCred_facturasSalud().isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            p.setAneCred_estado(true);
+            return new ResponseEntity<>(anexoCreditoService.save(p), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     @PutMapping("/eliminar/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody AnexoCredito p) {
-        AnexoCredito AnexoCredito = anexoCreditoService.findById(id);
-        if (AnexoCredito == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
+        AnexoCredito anexoCredito = anexoCreditoService.findById(id);
+        if (anexoCredito == null) {
+            return ResponseEntity.notFound().build();
         } else {
             try {
-                AnexoCredito.setAneCred_estado(false);
-                return new ResponseEntity<>(anexoCreditoService.save(AnexoCredito), HttpStatus.CREATED);
+                anexoCredito.setAneCred_estado(false);
+                AnexoCredito anexoCreditoEliminado = anexoCreditoService.save(anexoCredito);
+                return ResponseEntity.status(HttpStatus.OK).body(anexoCreditoEliminado);
             } catch (Exception e) {
-                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
             }
         }
     }
+
 }

@@ -34,10 +34,6 @@ public class Canton implements Serializable {
     @Column(name = "cantNombre")
     private String cant_nombre;
 
-    //estado
-    @Column(name = "cantEstado")
-    private Boolean cant_estado;
-
 
     //Relaciones
 

@@ -23,8 +23,8 @@ public class Provincia implements Serializable {
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "provID")
-    private Long prov_id;
+    @Column(name = "provId")
+    private Long provId;
 
     //codigo
     @Column(name = "provCod")
@@ -33,10 +33,6 @@ public class Provincia implements Serializable {
     //nombre
     @Column(name = "provNombre")
     private String prov_nombre;
-
-    //estado
-    @Column(name = "provEstado")
-    private Boolean prov_estado;
 
 
     //Relaciones

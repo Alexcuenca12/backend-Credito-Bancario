@@ -32,11 +32,6 @@ public class Parroquia implements Serializable {
     @Column(name = "parrNombre")
     private String parr_nombre;
 
-    //estado
-    @Column(name = "parrEstado")
-    private Boolean parr_estado;
-
-
     //Relaciones
 
     //many to one desde canton

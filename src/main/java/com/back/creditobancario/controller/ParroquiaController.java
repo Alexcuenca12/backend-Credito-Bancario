@@ -52,7 +52,7 @@ public class ParroquiaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                parroquia.setParr_estado(false);
+//                parroquia.setParr_estado(false);
                 return new ResponseEntity<>(parroquiaService.save(parroquia), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

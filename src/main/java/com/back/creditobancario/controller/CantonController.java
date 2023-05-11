@@ -54,7 +54,7 @@ public class CantonController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Canton.setCant_estado(false);
+//                Canton.setCant_estado(false);
                 return new ResponseEntity<>(cantonService.save(Canton), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

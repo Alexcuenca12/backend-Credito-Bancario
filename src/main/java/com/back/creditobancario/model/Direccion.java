@@ -23,28 +23,28 @@ public class Direccion implements Serializable {
     //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "direID")
-    private Long dire_id;
+    @Column(name = "direId")
+    private Long direId;
 
     //calle
     @Column(name = "direCalle")
-    private String dire_calle;
+    private String direCalle;
 
     //numero
     @Column(name = "direNumero")
-    private String dire_numero;
+    private String direNumero;
 
     //interseccion
     @Column(name = "direInterseccion")
-    private String dire_interseccion;
+    private String direInterseccion;
 
     //sector
     @Column(name = "direSector")
-    private String dire_sector;
+    private String direSector;
 
     //estado
     @Column(name = "direEstado")
-    private Boolean dire_estado;
+    private Boolean direEstado;
 
 
     //Relaciones
@@ -71,7 +71,7 @@ public class Direccion implements Serializable {
 
     //many to one desde provincia
     @ManyToOne
-    @JoinColumn(name = "provID")
+    @JoinColumn(name = "provId")
     private Provincia provincia;
 }
 

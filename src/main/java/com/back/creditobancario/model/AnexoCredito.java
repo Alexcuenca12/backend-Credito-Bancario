@@ -80,7 +80,7 @@ public class AnexoCredito  implements Serializable {
 
     //estado
     @Column(name = "aneCredEstado")
-    private Boolean aneCred_estado;
+    private boolean aneCred_estado;
 
     //Relaciones
 

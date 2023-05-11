@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Setter
@@ -39,7 +40,7 @@ public class Persona implements Serializable {
 
     //fecha_nacimiento
     @Column(name = "persFechaNacimiento")
-    private String pers_fechaNacimiento;
+    private Date pers_fechaNacimiento;
 
     //sexo
     @Column(name = "persSexo")
