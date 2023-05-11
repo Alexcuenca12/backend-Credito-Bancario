@@ -56,10 +56,9 @@ public class ReferenciasBancarias implements Serializable {
 
     //Relaciones
 
-    //many to one desde solicitud
-    @ManyToOne
-    @JoinColumn(name = "soliID")
-    private Solicitud solicitud;
+    @JsonIgnore
+    @OneToMany(mappedBy = "referenciasBancarias")
+    private List<Solicitud> solicitudess;
 
 
 }

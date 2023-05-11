@@ -39,7 +39,6 @@ public class Provincia implements Serializable {
     private Boolean prov_estado;
 
     //Relaciones
-
     //one to many hacia direccion
     @JsonIgnore
     @OneToMany(mappedBy = "provincia")

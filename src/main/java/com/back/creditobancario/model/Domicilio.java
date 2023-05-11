@@ -59,7 +59,6 @@ public class Domicilio  implements Serializable {
 
 
     //Relaciones
-
     //many to one desde direccion
     @ManyToOne
     @JoinColumn(name = "direcID")

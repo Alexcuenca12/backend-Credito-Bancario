@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -55,10 +56,8 @@ public class TarjetasCredito {
 
 
     //Relaciones
-
-    //many to one desde solicitud
-    @ManyToOne
-    @JoinColumn(name = "soliID")
-    private Solicitud solicitud;
+    @JsonIgnore
+    @OneToMany(mappedBy = "tarjetasCredito")
+    private List<Solicitud> solicitudes;
 
 }

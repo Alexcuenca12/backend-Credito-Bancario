@@ -33,9 +33,9 @@ public class Solicitud implements Serializable {
     //Relaciones
 
     //one to many hacia BienesRaices
-    @JsonIgnore
-    @OneToMany(mappedBy = "solicitud")
-    private List<BienesRaices> bienes_raices;
+    @ManyToOne
+    @JoinColumn(name = "bieRaicID")
+    private BienesRaices bienesRaices;
 
     //one to one desde Buro
     @OneToOne
@@ -78,9 +78,9 @@ public class Solicitud implements Serializable {
     private Credito credito;
 
     //one to many hacia ReferenciasPersonales
-    @JsonIgnore
-    @OneToMany(mappedBy = "solicitud")
-    private List<ReferenciasBancarias> referencias_bancarias;
+    @ManyToOne
+    @JoinColumn(name = "refBancID")
+    private ReferenciasBancarias referenciasBancarias;
 
     //many to one desde Vehiculo
     @ManyToOne
@@ -92,8 +92,8 @@ public class Solicitud implements Serializable {
     @JoinColumn(name = "deudID")
     private Deudas deudas;
 
-    //one to many hacia TarjetasCredito
-    @OneToMany(mappedBy = "solicitud")
-    @JsonIgnore
-    private List<TarjetasCredito> tarjetas_credito;
+
+    @ManyToOne
+    @JoinColumn(name = "tarCred_id")
+    private TarjetasCredito tarjetasCredito;
 }

@@ -58,7 +58,6 @@ public class Usuario implements Serializable {
     private Rol rol;
 
     //one to one hacia sucursal
-    @JsonIgnore
     @OneToOne(mappedBy = "usuario")
     private Sucursal sucursal;
 
