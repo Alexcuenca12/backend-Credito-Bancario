@@ -55,7 +55,7 @@ public class Persona implements Serializable {
     private String pers_genero;
 
     //foto
-    @Column(name = "persFoto")
+    @Column(name = "persFoto", columnDefinition = "LONGTEXT")
     private String pers_foto;
 
     //estado_civil
@@ -111,24 +111,5 @@ public class Persona implements Serializable {
     @JsonIgnore
     @OneToOne(mappedBy = "persona")
     private Solicitud solicitud;
-
-
-
-
-
-
-    /*
-
-
-
-
-
-
-    */
-
-
-
-
-
 
 }
