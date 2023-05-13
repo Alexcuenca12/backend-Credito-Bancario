@@ -28,10 +28,9 @@ public class Solicitud implements Serializable {
 
     //estado
     @Column(name = "soliEstado")
-    private Boolean soli_estado;
+    private String soli_estado;
 
-    //Relaciones
-
+    //Relacionesi
     //one to many hacia BienesRaices
     @JsonIgnore
     @OneToMany(mappedBy = "solicitud")
