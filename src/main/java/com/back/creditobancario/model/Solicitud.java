@@ -97,3 +97,12 @@ public class Solicitud implements Serializable {
     @JoinColumn(name = "tarCred_id")
     private TarjetasCredito tarjetasCredito;
 }
+
+/*
+* Pasos para subir el BackEnd de un proyecto a una maquina virtual Ubuntu de la nube
+* Para el funcionamiento del backend es necesario tener instalado: Java, Maven, Git, MySQL
+* Las versiones de Java y Maven deben ser las mismas que las del proyecto
+* Instalamos Java
+* sudo apt install openjdk-17-jre-headless
+* java --version
+* */
