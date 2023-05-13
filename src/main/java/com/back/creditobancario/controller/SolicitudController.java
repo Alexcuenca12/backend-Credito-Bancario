@@ -27,6 +27,15 @@ public class SolicitudController {
         }
     }
 
+    @GetMapping("/listarSoliEstado")
+    public ResponseEntity<List<Solicitud>> listarSolicitudesEstado() {
+        try {
+            return new ResponseEntity<>(solicitudService.listarSolicitudesEstado(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @GetMapping("/buscar/{id}")
     public ResponseEntity<Solicitud> getById(@PathVariable("id") Long id) {
         try {
@@ -78,7 +87,7 @@ public class SolicitudController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Solicitud.setSoli_estado(false);
+//                Solicitud.setSoli_estado(false);
                 return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

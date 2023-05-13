@@ -5,4 +5,6 @@ import com.back.creditobancario.model.Persona;
 import java.util.List;
 
 public interface PersonaService extends IGenericService<Persona, Long> {
+    public Persona findByCedula(String cedula);
+
 }
