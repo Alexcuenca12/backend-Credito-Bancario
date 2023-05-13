@@ -35,6 +35,15 @@ public class PersonaController {
         }
     }
 
+    @GetMapping("/buscar/{cedula}")
+    public ResponseEntity<Persona> getByCedula(@PathVariable("cedula") String cedula) {
+        try {
+            return new ResponseEntity<>(personaService.findByCedula(cedula), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @PostMapping("/crear")
     public ResponseEntity<Persona> crear(@RequestBody Persona p) {
