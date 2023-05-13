@@ -10,10 +10,4 @@ import java.util.Optional;
 @Repository
 public interface DireccionRepository extends JpaRepository<Direccion, Long> {
 
-    Optional<Direccion> findByDireCalleAndDireNumeroAndDireInterseccionAndDireSectorAndProvincia(String direCalle, String direNumero, String direInterseccion, String direSector,  Provincia provincia);
-
-    Optional<Direccion> findByDireCalleAndDireNumeroAndDireInterseccionAndDireSectorAndProvinciaAndEmpleoIsNull(String calle, String numero, String interseccion, String sector, Provincia provincia);
-
-    Optional<Direccion> findByDireCalleAndDireNumeroAndDireInterseccionAndDireSectorAndProvinciaAndNegocioIsNull(String calle, String numero, String interseccion, String sector, Provincia provincia);
-
 }
