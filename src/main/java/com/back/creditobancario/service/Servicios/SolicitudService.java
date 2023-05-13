@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface SolicitudService extends IGenericService<Solicitud, Long>{
     public List<Solicitud>listarSolicitudesEstado();
-    public Solicitud findByCedula(String cedula);
 }
