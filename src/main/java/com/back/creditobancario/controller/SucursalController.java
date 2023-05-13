@@ -27,10 +27,19 @@ public class SucursalController {
     }
 
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/buscar-id/{id}")
     public ResponseEntity<Sucursal> getById(@PathVariable("id") Long id) {
         try {
             return new ResponseEntity<>(sucursalService.findById(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/buscar-codigo/{id}")
+    public ResponseEntity<Sucursal> getById(@PathVariable("codigo") String codigo) {
+        try {
+            return new ResponseEntity<>(sucursalService.findByCodigo(codigo), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

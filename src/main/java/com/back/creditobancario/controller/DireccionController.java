@@ -50,7 +50,7 @@ public class DireccionController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                direccion.setDireEstado(false);
+                direccion.setDire_estado(false);
                 return new ResponseEntity<>(direccionService.save(direccion), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -65,10 +65,10 @@ public class DireccionController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                direccion.setDireCalle(p.getDireCalle());
-                direccion.setDireInterseccion(p.getDireInterseccion());
-                direccion.setDireNumero(p.getDireNumero());
-                direccion.setDireSector(p.getDireSector());
+                direccion.setDire_calle(p.getDire_calle());
+                direccion.setDire_interseccion(p.getDire_interseccion());
+                direccion.setDire_numero(p.getDire_numero());
+                direccion.setDire_sector(p.getDire_sector());
                 return new ResponseEntity<>(direccionService.save(direccion), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

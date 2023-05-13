@@ -23,4 +23,5 @@ public class SolicitudServiceImpl extends GenericServiceImpl<Solicitud, Long>  i
     public List<Solicitud> listarSolicitudesEstado() {
         return listarSolicitudesEstado();
     }
+
 }

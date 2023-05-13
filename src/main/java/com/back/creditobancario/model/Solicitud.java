@@ -1,6 +1,5 @@
 package com.back.creditobancario.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Setter
@@ -26,11 +24,15 @@ public class Solicitud implements Serializable {
     @Column(name = "soliID")
     private Long soli_id;
 
+    //estadoRegistro
+    @Column(name = "soliEstadoRegistro")
+    private String soli_estadoRegistro;
+
     //estado
     @Column(name = "soliEstado")
     private String soli_estado;
 
-    //Relacionesi
+    //Relaciones
     //one to many hacia BienesRaices
     @ManyToOne
     @JoinColumn(name = "bieRaicID")
