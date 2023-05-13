@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface SucursalRepository extends JpaRepository<Sucursal, Long> {
-    @Query(value = "SELECT * from sucursal where suc_codigo =?",nativeQuery = true)
-    Sucursal findByCodigo(String codigo);
+    @Query(value = "SELECT * from sucursal where suc_nombre =?",nativeQuery = true)
+    Sucursal findByNombre(String nombre);
 }

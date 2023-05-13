@@ -17,7 +17,7 @@ public class SucursalServiceImpl extends GenericServiceImpl<Sucursal, Long> impl
     }
 
     @Override
-    public Sucursal findByCodigo(String codigo) {
-        return sucursalRepository.findByCodigo(codigo);
+    public Sucursal findByNombre(String nombre) {
+        return sucursalRepository.findByNombre(nombre);
     }
 }
