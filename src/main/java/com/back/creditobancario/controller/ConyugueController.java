@@ -2,6 +2,7 @@ package com.back.creditobancario.controller;
 
 
 import com.back.creditobancario.model.*;
+import com.back.creditobancario.repository.*;
 import com.back.creditobancario.service.Servicios.ConyugueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +14,20 @@ import java.util.List;
 
 @CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/api/conyugue")
+@RequestMapping("/api/conyugue3")
 public class ConyugueController {
     @Autowired
     ConyugueService conyugueService;
+    @Autowired
+    private PersonaRepository personaRepository;
+    @Autowired
+    private DireccionRepository direccionRepository;
+    @Autowired
+    private NegocioRepository negocioRepository;
+    @Autowired
+    private EmpleoRepository empleoRepository;
+    @Autowired
+    private ConyugueRepository conyugueRepository;
 
     @GetMapping("/listar")
     public ResponseEntity<List<Conyugue>> obtenerLista() {
@@ -27,7 +38,6 @@ public class ConyugueController {
         }
     }
 
-
     @GetMapping("/buscar/{id}")
     public ResponseEntity<Conyugue> getById(@PathVariable("id") Long id) {
         try {
@@ -36,6 +46,7 @@ public class ConyugueController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
 
 
@@ -67,11 +78,11 @@ public class ConyugueController {
 //            Direccion dirNegocio = negocio.getDireccion();
 //            Provincia provNegocio = dirNegocio.getProvincia();
 //            dirNegocio = direccionRepository.save(new Direccion(
-//                    dirNegocio.getDireCalle(),
-//                    dirNegocio.getDireNumero(),
-//                    dirNegocio.getDireInterseccion(),
-//                    dirNegocio.getDireSector(),
-//                    dirNegocio.getDireEstado(),
+//                    dirNegocio.getDire_calle(),
+//                    dirNegocio.getDire_numero(),
+//                    dirNegocio.getDire_interseccion(),
+//                    dirNegocio.getDire_sector(),
+//                    dirNegocio.getDire_estado(),
 //                    provNegocio
 //            ));
 //            negocio.setDireccion(dirNegocio);
@@ -87,11 +98,11 @@ public class ConyugueController {
 //            Direccion dirEmpleo = empleo.getDireccion();
 //            Provincia provEmpleo = dirEmpleo.getProvincia();
 //            dirEmpleo = direccionRepository.save(new Direccion(
-//                    dirEmpleo.getDireCalle(),
-//                    dirEmpleo.getDireNumero(),
-//                    dirEmpleo.getDireInterseccion(),
-//                    dirEmpleo.getDireSector(),
-//                    dirNegocio.getDireEstado(),
+//                    dirNegocio.getDire_calle(),
+//                    dirNegocio.getDire_numero(),
+//                    dirNegocio.getDire_interseccion(),
+//                    dirNegocio.getDire_sector(),
+//                    dirNegocio.getDire_estado(),
 //                    provEmpleo
 //            ));
 //            empleo.setDireccion(dirEmpleo);
@@ -108,7 +119,6 @@ public class ConyugueController {
 //            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 //        }
 //    }
-
 
 
     @PutMapping("/eliminar/{id}")

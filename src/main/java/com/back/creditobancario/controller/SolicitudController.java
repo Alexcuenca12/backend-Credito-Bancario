@@ -27,7 +27,16 @@ public class SolicitudController {
         }
     }
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/listarSoliEstado")
+    public ResponseEntity<List<Solicitud>> listarSolicitudesEstado() {
+        try {
+            return new ResponseEntity<>(solicitudService.listarSolicitudesEstado(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/buscar-id/{id}")
     public ResponseEntity<Solicitud> getById(@PathVariable("id") Long id) {
         try {
             return new ResponseEntity<>(solicitudService.findById(id), HttpStatus.OK);
@@ -35,7 +44,7 @@ public class SolicitudController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    
     @PostMapping("/crear")
     public ResponseEntity<Solicitud> crear(@RequestBody Solicitud p) {
         try {
@@ -44,6 +53,7 @@ public class SolicitudController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PutMapping("/editar/{id}")
     public ResponseEntity<?> actualizar (@PathVariable Long id, @RequestBody Solicitud p) {
         Solicitud Solicitud = solicitudService.findById(id);
@@ -64,6 +74,7 @@ public class SolicitudController {
                 Solicitud.setVehiculo(p.getVehiculo());
                 Solicitud.setDeudas(p.getDeudas());
                 Solicitud.setTarjetasCredito(p.getTarjetasCredito());
+                Solicitud.setSoli_estadoRegistro(p.getSoli_estadoRegistro());
                 return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -78,7 +89,7 @@ public class SolicitudController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Solicitud.setSoli_estado(false);
+//                Solicitud.setSoli_estado(false);
                 return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

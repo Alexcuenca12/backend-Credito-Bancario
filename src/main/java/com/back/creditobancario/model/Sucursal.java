@@ -26,6 +26,10 @@ public class Sucursal implements Serializable {
     @Column(name = "sucuID")
     private Long sucu_id;
 
+    //nombre
+    @Column(name = "sucuNombre")
+    private String sucu_nombre;
+
     //estado
     @Column(name = "sucuEstado")
     private Boolean sucu_estado;

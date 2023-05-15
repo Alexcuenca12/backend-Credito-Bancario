@@ -26,10 +26,19 @@ public class PersonaController {
     }
 
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/buscar-id/{id}")
     public ResponseEntity<Persona> getById(@PathVariable("id") Long id) {
         try {
             return new ResponseEntity<>(personaService.findById(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/buscar-cedula/{cedula}")
+    public ResponseEntity<Persona> getByCedula(@PathVariable("cedula") String cedula) {
+        try {
+            return new ResponseEntity<>(personaService.findByCedula(cedula), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -82,6 +91,7 @@ public class PersonaController {
                 persona.setPers_telefono(p.getPers_telefono());
                 persona.setPers_nacionalidad(p.getPers_nacionalidad());
                 persona.setPers_codigoPostal(p.getPers_codigoPostal());
+                persona.setPers_estado(p.getPers_estado());
                 return new ResponseEntity<>(personaService.save(persona), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

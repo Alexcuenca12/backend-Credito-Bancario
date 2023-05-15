@@ -15,4 +15,9 @@ public class SucursalServiceImpl extends GenericServiceImpl<Sucursal, Long> impl
     public CrudRepository<Sucursal, Long> getDao() {
         return sucursalRepository;
     }
+
+    @Override
+    public Sucursal findByNombre(String nombre) {
+        return sucursalRepository.findByNombre(nombre);
+    }
 }

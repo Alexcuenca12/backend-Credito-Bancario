@@ -27,7 +27,7 @@ public class SucursalController {
     }
 
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/buscar-id/{id}")
     public ResponseEntity<Sucursal> getById(@PathVariable("id") Long id) {
         try {
             return new ResponseEntity<>(sucursalService.findById(id), HttpStatus.OK);
@@ -36,6 +36,14 @@ public class SucursalController {
         }
     }
 
+    @GetMapping("/buscar-nombre/{id}")
+    public ResponseEntity<Sucursal> getById(@PathVariable("nombre") String nombre) {
+        try {
+            return new ResponseEntity<>(sucursalService.findByNombre(nombre), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @PostMapping("/crear")
     public ResponseEntity<Sucursal> crear(@RequestBody Sucursal p) {
