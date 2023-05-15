@@ -45,15 +45,22 @@ public class DeudasController {
         }
     }
 
+    //Metodo para actualizar
     @PutMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Deudas p) {
-        Deudas Deudas = deudasService.findById(id);
-        if (Deudas == null) {
+        Deudas deudas = deudasService.findById(id);
+        if (deudas == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Deudas.setDeud_estado(false);
-                return new ResponseEntity<>(deudasService.save(Deudas), HttpStatus.CREATED);
+                deudas.setDeud_institucion(p.getDeud_institucion());
+                deudas.setDeud_valor(p.getDeud_valor());
+                deudas.setDeud_otorgado(p.getDeud_otorgado());
+                deudas.setDeud_destino(p.getDeud_destino());
+                deudas.setDeud_saldo(p.getDeud_saldo());
+                deudas.setDeud_fechaCorte(p.getDeud_fechaCorte());
+                deudas.setDeud_estado(false);
+                return new ResponseEntity<>(deudasService.save(deudas), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

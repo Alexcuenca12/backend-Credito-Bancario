@@ -36,13 +36,13 @@ public class Canton implements Serializable {
 
     //Relaciones
 
-    //many to one desde provincia
-    @ManyToOne
-    @JoinColumn(name = "provID")
-    private Provincia provincia;
-
-    //one to many hacia parroquia
+    //one to many hacia provincia
     @JsonIgnore
     @OneToMany(mappedBy = "canton")
-    private List<Parroquia> parroquia;
+    private List<Provincia> provincia;
+
+    //many to one desde parroquia
+    @ManyToOne
+    @JoinColumn(name = "parrID")
+    private Parroquia parroquia;
 }

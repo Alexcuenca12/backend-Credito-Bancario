@@ -60,15 +60,24 @@ public class GastosController {
         }
     }
 
+    //Metodo para actualizar
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Gastos p) {
-        Gastos Gastos = gastosService.findById(id);
-        if (Gastos == null) {
+        Gastos gastos = gastosService.findById(id);
+        if (gastos == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                //Pendiente
-                return new ResponseEntity<>(gastosService.save(Gastos), HttpStatus.CREATED);
+                gastos.setGast_estado(p.getGast_estado());
+                gastos.setGast_vivienda(p.getGast_vivienda());
+                gastos.setGast_alimentacion(p.getGast_alimentacion());
+                gastos.setGast_salud(p.getGast_salud());
+                gastos.setGast_educacion(p.getGast_educacion());
+                gastos.setGast_serviciosBasicos(p.getGast_serviciosBasicos());
+                gastos.setGast_otros(p.getGast_otros());
+                gastos.setGast_totalGastos(p.getGast_totalGastos());
+
+                return new ResponseEntity<>(gastosService.save(gastos), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

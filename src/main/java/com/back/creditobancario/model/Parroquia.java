@@ -1,5 +1,6 @@
 package com.back.creditobancario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Setter
@@ -33,8 +35,9 @@ public class Parroquia implements Serializable {
     private String parr_nombre;
 
     //Relaciones
-    //many to one desde canton
-    @ManyToOne
-    @JoinColumn(name = "cantonID")
-    private Canton canton;
+
+    //one to many hacia Canton
+    @JsonIgnore
+    @OneToMany(mappedBy = "parroquia")
+    private List<Canton> canton;
 }

@@ -59,4 +59,27 @@ public class TarjetasCreditoController {
             }
         }
     }
+
+    //Metodo para actualizar
+
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody TarjetasCredito p) {
+        TarjetasCredito tarjetasCredito = tarjetasCreditoService.findById(id);
+        if (tarjetasCredito == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                tarjetasCredito.setTarCred_banco(p.getTarCred_banco());
+                tarjetasCredito.setTarCred_numero(p.getTarCred_numero());
+                tarjetasCredito.setTarCred_caducidad(p.getTarCred_caducidad());
+                tarjetasCredito.setTarCred_cupo(p.getTarCred_cupo());
+                tarjetasCredito.setTarCred_utilizado(p.getTarCred_utilizado());
+                tarjetasCredito.setTarCred_cuota(p.getTarCred_cuota());
+                tarjetasCredito.setTarCred_estado(p.getTarCred_estado());
+                return new ResponseEntity<>(tarjetasCreditoService.save(tarjetasCredito), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
 }

@@ -72,14 +72,5 @@ public class Direccion implements Serializable {
     @ManyToOne
     @JoinColumn(name = "provId")
     private Provincia provincia;
-
-    public Direccion(String direCalle, String direNumero, String direInterseccion, String direSector, boolean direEstado,  Provincia provincia) {
-        this.dire_calle = direCalle;
-        this.dire_numero = direNumero;
-        this.dire_interseccion = direInterseccion;
-        this.dire_sector = direSector;
-        this.dire_estado = direEstado;
-        this.provincia = provincia;
-    }
 }
 
