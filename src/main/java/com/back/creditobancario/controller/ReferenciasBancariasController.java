@@ -59,4 +59,25 @@ public class ReferenciasBancariasController {
             }
         }
     }
+
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody ReferenciasBancarias p) {
+        ReferenciasBancarias referenciasBancarias = referenciasBancariasService.findById(id);
+        if (referenciasBancarias == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                referenciasBancarias.setRefBanc_nombre(p.getRefBanc_nombre());
+                referenciasBancarias.setRefBanc_numero(p.getRefBanc_numero());
+                referenciasBancarias.setRefBanc_tipo(p.getRefBanc_tipo());
+                referenciasBancarias.setRefBanc_apertura(p.getRefBanc_apertura());
+                referenciasBancarias.setRefBanc_cifrasPromedio(p.getRefBanc_cifrasPromedio());
+                referenciasBancarias.setRefBanc_saldo(p.getRefBanc_saldo());
+                referenciasBancarias.setRefBanc_estado(p.getRefBanc_estado());
+                return new ResponseEntity<>(referenciasBancariasService.save(referenciasBancarias), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
 }

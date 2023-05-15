@@ -75,6 +75,7 @@ public class SolicitudController {
                 Solicitud.setDeudas(p.getDeudas());
                 Solicitud.setTarjetasCredito(p.getTarjetasCredito());
                 Solicitud.setSoli_estadoRegistro(p.getSoli_estadoRegistro());
+                Solicitud.setSoli_estado(p.getSoli_estado());
                 return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -84,13 +85,13 @@ public class SolicitudController {
 
     @PutMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Solicitud p) {
-        Solicitud Solicitud = solicitudService.findById(id);
-        if (Solicitud == null) {
+        Solicitud solicitud = solicitudService.findById(id);
+        if (solicitud == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                Solicitud.setSoli_estado("eliminado"); //cambiar estado a eliminado
-                return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
+                solicitud.setSoli_estado("eliminado"); //cambiar estado a eliminado
+                return new ResponseEntity<>(solicitudService.save(solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

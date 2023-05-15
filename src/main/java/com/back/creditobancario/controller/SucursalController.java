@@ -76,6 +76,9 @@ public class SucursalController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
+                sucursal.setUsuario(p.getUsuario());
+                sucursal.setDireccion(p.getDireccion());
+                sucursal.setSucu_nombre(p.getSucu_nombre());
                 sucursal.setSucu_estado(true);
                 return new ResponseEntity<>(sucursalService.save(sucursal), HttpStatus.CREATED);
             } catch (Exception e) {

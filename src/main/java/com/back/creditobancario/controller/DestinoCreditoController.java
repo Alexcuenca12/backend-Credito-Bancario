@@ -59,4 +59,22 @@ public class DestinoCreditoController {
             }
         }
     }
+
+    //Metodo para actualizar
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody DestinoCredito p) {
+        DestinoCredito destinoCredito = destinoCreditoService.findById(id);
+        if (destinoCredito == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                destinoCredito.setDesCred_categoria(p.getDesCred_categoria());
+                destinoCredito.setDesCred_descripcion(p.getDesCred_descripcion());
+                destinoCredito.setDesCred_estado(p.getDesCred_estado());
+                return new ResponseEntity<>(destinoCreditoService.save(destinoCredito), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
 }
