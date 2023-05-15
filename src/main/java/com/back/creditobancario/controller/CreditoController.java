@@ -59,4 +59,20 @@ public class CreditoController {
             }
         }
     }
+
+    //Metodo para actualizar el estado de un credito
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Credito p) {
+        Credito Credito = creditoService.findById(id);
+        if (Credito == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                Credito.setCred_estado(p.getCred_estado());
+                return new ResponseEntity<>(creditoService.save(Credito), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
 }

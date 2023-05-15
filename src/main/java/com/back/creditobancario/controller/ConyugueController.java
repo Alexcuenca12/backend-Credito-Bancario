@@ -132,7 +132,7 @@ public class ConyugueController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-
+                conyugue.setCony_estado(p.getCony_estado());
                 return new ResponseEntity<>(conyugueService.save(conyugue), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
