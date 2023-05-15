@@ -26,8 +26,9 @@ public class Usuario implements Serializable {
     @Column(name = "usuarioID")
     private Long usuario_id;
 
-    @Column(name = "usuarioUsername")
+    @Column(name = "usuarioUsername", unique = true)
     private String username;
+
     @Column(name = "usuarioPassword")
     private String password;
 
@@ -35,7 +36,7 @@ public class Usuario implements Serializable {
     @Column(name = "usuarioRegistro")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fecha_registro;
 
     @Column(name = "usuarioPreg_uno")
