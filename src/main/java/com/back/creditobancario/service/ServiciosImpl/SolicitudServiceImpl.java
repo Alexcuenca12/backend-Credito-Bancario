@@ -21,7 +21,12 @@ public class SolicitudServiceImpl extends GenericServiceImpl<Solicitud, Long>  i
 
     @Override
     public List<Solicitud> listarSolicitudesEstado() {
-        return listarSolicitudesEstado();
+        return solicitudRepository.listarSolicitudesEstado();
+    }
+
+    @Override
+    public List<Solicitud> listarSolicitudesUsername(String username) {
+        return solicitudRepository.listarSolicitudesUsername(username);
     }
 
 }

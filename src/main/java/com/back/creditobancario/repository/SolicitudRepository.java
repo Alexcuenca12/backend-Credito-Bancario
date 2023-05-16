@@ -20,10 +20,11 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
     @Query(value = "SELECT s.soliid, p.per_cedula,p.pers_nombres||''||p.pers_apellidos as nombres,\n" +
             "c.cred_monto,c.cred_fecha,s.soli_estado \n" +
             "FROM solicitud s \n" +
-            "join persona p on s.persid=p.persid \n" +
+            "join persona p on s.persid=p.persid\n" +
+            "join usuario u on p.persid=u.perid\n" +
             "join credito c on s.credid=c.credid\n" +
-            "where p.per_cedula = ?", nativeQuery = true)
-    List<Solicitud> listarSolicitudes(String cedula);
+            "where u.usuario_username='' ?", nativeQuery = true)
+    List<Solicitud> listarSolicitudesUsername(String username);
 
 
 }
