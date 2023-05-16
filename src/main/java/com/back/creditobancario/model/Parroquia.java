@@ -37,7 +37,7 @@ public class Parroquia implements Serializable {
     //Relaciones
 
     //one to many hacia Canton
-    @JsonIgnore
-    @OneToMany(mappedBy = "parroquia")
-    private List<Canton> canton;
+    @ManyToOne
+    @JoinColumn(name = "cantID")
+    private Canton canton;
 }
