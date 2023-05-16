@@ -1,6 +1,7 @@
 package com.back.creditobancario.controller;
 
 import com.back.creditobancario.model.Persona;
+import com.back.creditobancario.repository.PersonaRepository;
 import com.back.creditobancario.service.Servicios.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,8 @@ import java.util.List;
 public class PersonaController {
     @Autowired
     PersonaService personaService;
+    @Autowired
+    private PersonaRepository personaRepository;
 
     @GetMapping("/listar")
     public ResponseEntity<List<Persona>> obtenerLista() {
@@ -44,6 +47,15 @@ public class PersonaController {
         }
     }
 
+    @GetMapping("/verificar-correo/{correo}")
+    public ResponseEntity<Boolean> verificarCorreo(@PathVariable("correo") String correo) {
+        try {
+            boolean correoExistente = personaRepository.existsByCorreo(correo);
+            return new ResponseEntity<>(correoExistente, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @PostMapping("/crear")
     public ResponseEntity<Persona> crear(@RequestBody Persona p) {
