@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AnexoCreditoServiceImpl extends GenericServiceImpl<AnexoCredito, Long>  implements AnexoCreditoService {
     @Autowired
@@ -16,5 +18,10 @@ public class AnexoCreditoServiceImpl extends GenericServiceImpl<AnexoCredito, Lo
     @Override
     public CrudRepository<AnexoCredito, Long> getDao() {
         return anexoCreditoRepository;
+    }
+
+    @Override
+    public List<AnexoCredito> listarDocumentos(Long id) {
+        return anexoCreditoRepository.listarDocumentos(id);
     }
 }

@@ -2,6 +2,7 @@ package com.back.creditobancario.controller;
 //Controlador para AnexoCredito
 
 //importaciones
+
 import com.back.creditobancario.model.AnexoCredito;
 import com.back.creditobancario.service.Servicios.AnexoCreditoService;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,15 @@ public class AnexoCreditoController {
     public ResponseEntity<AnexoCredito> getById(@PathVariable("id") Long id) {
         try {
             return new ResponseEntity<>(anexoCreditoService.findById(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/buscarDoc/{id}")
+    public ResponseEntity<List<AnexoCredito>> listarDocumentos(@PathVariable("id") Long id) {
+        try {
+            return new ResponseEntity<>(anexoCreditoService.listarDocumentos(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -67,6 +77,7 @@ public class AnexoCreditoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PutMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
         AnexoCredito anexoCredito = anexoCreditoService.findById(id);
