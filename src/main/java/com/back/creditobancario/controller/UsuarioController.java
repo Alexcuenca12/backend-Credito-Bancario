@@ -81,9 +81,9 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping("/restablecer/{id}")
-    public ResponseEntity<Usuario> restableceContra(@PathVariable Long id, @RequestBody Usuario u) {
-        Usuario usuario = usuarioService.findById(id);
+    @PutMapping("/restablecer/{username}")
+    public ResponseEntity<Usuario> restableceContra(@PathVariable String username, @RequestBody Usuario u) {
+        Usuario usuario = usuarioService.search(username);
         if (usuario == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {

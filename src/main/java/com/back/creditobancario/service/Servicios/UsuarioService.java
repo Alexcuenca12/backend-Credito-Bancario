@@ -17,4 +17,10 @@ public interface UsuarioService extends IGenericService<Usuario, Long> {
 
     List<Usuario> listarImg(String username);
 
+
+
+
+
+
+
 }
