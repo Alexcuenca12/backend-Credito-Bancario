@@ -40,10 +40,10 @@ public class Usuario implements Serializable {
     private Date fecha_registro;
 
     @Column(name = "usuarioPreg_uno")
-    private String pregunta_uno;
+    private String preguntaUno;
 
     @Column(name = "usuarioPreg_dos")
-    private String pregunta_dos;
+    private String preguntaDos;
 
     @Column(name = "usuarioEstado")
     private Boolean usuario_estado;

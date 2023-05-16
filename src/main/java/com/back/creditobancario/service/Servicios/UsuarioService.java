@@ -11,16 +11,13 @@ public interface UsuarioService extends IGenericService<Usuario, Long> {
 
     Usuario login(String username, String password);
 
+    Usuario restablecer(String username, String pregunta_uno, String pregunta_dos);
+
     public void delete(Long usuario_id);
 
     List<Usuario> listarUsuarioRol(String username);
 
     List<Usuario> listarImg(String username);
-
-
-
-
-
 
 
 }

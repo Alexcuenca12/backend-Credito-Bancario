@@ -69,8 +69,8 @@ public class UsuarioController {
                 usuario.setPassword(u.getPassword());
                 usuario.setRol(u.getRol());
                 usuario.setSucursal(u.getSucursal());
-                usuario.setPregunta_uno(u.getPregunta_uno());
-                usuario.setPregunta_dos(u.getPregunta_dos());
+                usuario.setPreguntaUno(u.getPreguntaUno());
+                usuario.setPreguntaDos(u.getPreguntaDos());
                 usuario.setSucursal(u.getSucursal());
                 usuario.setPersona(u.getPersona());
                 usuario.setUsuario_estado(u.getUsuario_estado());
@@ -88,7 +88,7 @@ public class UsuarioController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                if ((usuario.getPregunta_uno().equals(u.getPregunta_uno())) || (usuario.getPregunta_dos().equals(u.getPregunta_dos()))) {
+                if ((usuario.getPreguntaUno().equals(u.getPreguntaUno())) || (usuario.getPreguntaDos().equals(u.getPreguntaDos()))) {
                     usuario.setUsername("usuario prueba");
                     usuario.setPassword("12345");
                 }
@@ -98,6 +98,7 @@ public class UsuarioController {
             }
         }
     }
+
 
     @PostMapping("/signin")
     public Usuario IniciarSesion(@RequestBody Usuario usuario) throws Exception {
@@ -130,6 +131,13 @@ public class UsuarioController {
     @CrossOrigin
     public Usuario login(@PathVariable String username, @PathVariable String password) {
         return usuarioService.login(username, password);
+    }
+
+    @RequestMapping(value = "login/{username}/{preguntaUno}/{preguntaDos}", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public Usuario restablecerContra(@PathVariable String username, @PathVariable String preguntaUno,@PathVariable String preguntaDos) {
+        return usuarioService.restablecer(username, preguntaUno,preguntaDos);
     }
 }
 
