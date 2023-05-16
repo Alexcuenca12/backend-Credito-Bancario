@@ -70,7 +70,7 @@ public class Direccion implements Serializable {
 
     //many to one desde provincia
     @ManyToOne
-    @JoinColumn(name = "provId")
-    private Provincia provincia;
+    @JoinColumn(name = "parrID")
+    private Parroquia parroquia;
 }
 
