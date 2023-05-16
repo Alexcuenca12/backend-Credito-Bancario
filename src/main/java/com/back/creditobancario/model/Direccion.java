@@ -74,8 +74,5 @@ public class Direccion implements Serializable {
     @JoinColumn(name = "provId")
     private Provincia provincia;
 
-
-    public Direccion(String dire_calle, String dire_numero, String dire_interseccion, String dire_sector, Boolean dire_estado, Provincia provNegocio) {
-    }
 }
 

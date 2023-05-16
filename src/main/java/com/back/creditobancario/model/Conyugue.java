@@ -25,7 +25,7 @@ public class Conyugue implements Serializable {
     @Column(name = "conyID")
     private Long cony_id;
 
-    //nombre
+    //estado
     @Column(name = "conyEstado")
     private Boolean cony_estado;
 

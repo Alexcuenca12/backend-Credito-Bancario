@@ -60,15 +60,23 @@ public class IngresosController {
         }
     }
 
+    //Metodo para actualizar
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Ingresos p) {
-        Ingresos Ingresos = ingresosService.findById(id);
-        if (Ingresos == null) {
+        Ingresos ingresos = ingresosService.findById(id);
+        if (ingresos == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                //Pendiente
-                return new ResponseEntity<>(ingresosService.save(p), HttpStatus.CREATED);
+                ingresos.setIngr_totalIngresos(p.getIngr_totalIngresos());
+                ingresos.setIngr_remesas(p.getIngr_remesas());
+                ingresos.setIngr_sueldoConyugue(p.getIngr_sueldoConyugue());
+                ingresos.setIngr_sueldoMensual(p.getIngr_sueldoMensual());
+                ingresos.setIngr_pensionJubilados(p.getIngr_pensionJubilados());
+                ingresos.setIngr_otrosIngresos(p.getIngr_otrosIngresos());
+                ingresos.setIngr_ingresosServicios(p.getIngr_ingresosServicios());
+                ingresos.setIngr_estado(p.getIngr_estado());
+                return new ResponseEntity<>(ingresosService.save(ingresos), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

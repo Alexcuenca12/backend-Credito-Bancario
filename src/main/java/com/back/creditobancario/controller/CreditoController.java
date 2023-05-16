@@ -59,4 +59,27 @@ public class CreditoController {
             }
         }
     }
+
+    //Metodo para actualizar el estado de un credito
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Credito p) {
+        Credito credito = creditoService.findById(id);
+        if (credito == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                credito.setCred_fecha(p.getCred_fecha());
+                credito.setCred_monto(p.getCred_monto());
+                credito.setCred_plazo(p.getCred_plazo());
+                credito.setCred_numero(p.getCred_numero());
+                credito.setSucursal(p.getSucursal());
+                credito.setDestino_credito(p.getDestino_credito());
+                credito.setAnexo_credito(p.getAnexo_credito());
+                credito.setCred_estado(p.getCred_estado());
+                return new ResponseEntity<>(creditoService.save(credito), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
 }

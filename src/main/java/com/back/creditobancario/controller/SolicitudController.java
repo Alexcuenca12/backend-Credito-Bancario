@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/api/solicitante")
+@RequestMapping("/api/solicitud")
 public class SolicitudController {
     @Autowired
     SolicitudService solicitudService;
@@ -54,7 +54,7 @@ public class SolicitudController {
         }
     }
 
-    @PutMapping("/editar/{id}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> actualizar (@PathVariable Long id, @RequestBody Solicitud p) {
         Solicitud Solicitud = solicitudService.findById(id);
         if (Solicitud == null) {
@@ -75,6 +75,7 @@ public class SolicitudController {
                 Solicitud.setDeudas(p.getDeudas());
                 Solicitud.setTarjetasCredito(p.getTarjetasCredito());
                 Solicitud.setSoli_estadoRegistro(p.getSoli_estadoRegistro());
+                Solicitud.setSoli_estado(p.getSoli_estado());
                 return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -84,13 +85,13 @@ public class SolicitudController {
 
     @PutMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Solicitud p) {
-        Solicitud Solicitud = solicitudService.findById(id);
-        if (Solicitud == null) {
+        Solicitud solicitud = solicitudService.findById(id);
+        if (solicitud == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-//                Solicitud.setSoli_estado(false);
-                return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
+                solicitud.setSoli_estado("eliminado"); //cambiar estado a eliminado
+                return new ResponseEntity<>(solicitudService.save(solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

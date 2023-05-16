@@ -67,7 +67,13 @@ public class UsuarioController {
             try {
                 usuario.setUsername(u.getUsername());
                 usuario.setPassword(u.getPassword());
-                usuario.setUsuario_estado(false);
+                usuario.setRol(u.getRol());
+                usuario.setSucursal(u.getSucursal());
+                usuario.setPregunta_uno(u.getPregunta_uno());
+                usuario.setPregunta_dos(u.getPregunta_dos());
+                usuario.setSucursal(u.getSucursal());
+                usuario.setPersona(u.getPersona());
+                usuario.setUsuario_estado(u.getUsuario_estado());
                 return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

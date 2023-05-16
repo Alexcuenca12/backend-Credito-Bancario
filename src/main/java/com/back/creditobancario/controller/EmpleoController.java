@@ -59,6 +59,7 @@ public class EmpleoController {
         }
     }
 
+    //Metodo para actualizar
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<Empleo> actualizarEmpleo(@PathVariable Long id, @RequestBody Empleo p) {
         Empleo empleo = empleoService.findById(id);

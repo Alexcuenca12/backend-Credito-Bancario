@@ -59,4 +59,28 @@ public class VehiculoController {
             }
         }
     }
+
+    //Metodo para actualizar
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Vehiculo p) {
+        Vehiculo vehiculo = vehiculoService.findById(id);
+        if (vehiculo == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                vehiculo.setVehi_placa(p.getVehi_placa());
+                vehiculo.setVehi_marca(p.getVehi_marca());
+                vehiculo.setVehi_modelo(p.getVehi_modelo());
+                vehiculo.setVehi_tipo(p.getVehi_tipo());
+                vehiculo.setVehi_valor(p.getVehi_valor());
+                vehiculo.setVehi_prenda(p.getVehi_prenda());
+                vehiculo.setVehi_fechaAdquisicion(p.getVehi_fechaAdquisicion());
+                vehiculo.setVehi_institucionPersona(p.getVehi_institucionPersona());
+                vehiculo.setVehi_estado(p.getVehi_estado());
+                return new ResponseEntity<>(vehiculoService.save(vehiculo), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
 }

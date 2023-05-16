@@ -83,4 +83,30 @@ public class AnexoCreditoController {
         }
     }
 
+    //Metodo actualizar
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizar(@PathVariable("id") Long id, @RequestBody AnexoCredito p) {
+        try {
+            AnexoCredito anexoCredito = anexoCreditoService.findById(id);
+            if (null == anexoCredito) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            anexoCredito.setAneCred_cedulaSolicitante(p.getAneCred_cedulaSolicitante());
+            anexoCredito.setAneCred_cedulaConyugue(p.getAneCred_cedulaConyugue());
+            anexoCredito.setAneCred_predios(p.getAneCred_predios());
+            anexoCredito.setAneCred_matriculas(p.getAneCred_matriculas());
+            anexoCredito.setAneCred_rolesPago(p.getAneCred_rolesPago());
+            anexoCredito.setAneCred_recibosVivienda(p.getAneCred_recibosVivienda());
+            anexoCredito.setAneCred_remesas(p.getAneCred_remesas());
+            anexoCredito.setAneCred_estadoTarjetasCredito(p.getAneCred_estadoTarjetasCredito());
+            anexoCredito.setAneCred_facturasAlimentacion(p.getAneCred_facturasAlimentacion());
+            anexoCredito.setAneCred_facturasServicios(p.getAneCred_facturasServicios());
+            anexoCredito.setAneCred_facturasSalud(p.getAneCred_facturasSalud());
+            anexoCredito.setAneCred_estado(p.isAneCred_estado());
+            return new ResponseEntity<>(anexoCreditoService.save(anexoCredito), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

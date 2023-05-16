@@ -42,8 +42,8 @@ public class Provincia implements Serializable {
     @OneToMany(mappedBy = "provincia")
     private List<Direccion> direccion;
 
-    //one to many hacia canton
-    @JsonIgnore
-    @OneToMany(mappedBy = "provincia")
-    private List<Canton> canton;
+    //many to one desde canton
+    @ManyToOne
+    @JoinColumn(name = "cantID")
+    private Canton canton;
 }

@@ -68,6 +68,10 @@ public class BuroController {
         } else {
             try {
                 p.setBuro_id(id);
+                p.setBuro_estado(p.getBuro_estado());
+                p.setBuro_deudasVencidas(p.getBuro_deudasVencidas());
+                p.setTablaBuro(p.getTablaBuro());
+                p.setSolicitud(p.getSolicitud());
                 return new ResponseEntity<>(buroService.save(p), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
