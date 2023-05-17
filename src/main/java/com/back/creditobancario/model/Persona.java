@@ -45,7 +45,7 @@ public class Persona implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 
     private Date pers_fechaNacimiento;
 
