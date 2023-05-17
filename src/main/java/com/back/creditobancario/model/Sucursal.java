@@ -38,8 +38,9 @@ public class Sucursal implements Serializable {
     //Relaciones
 
     //one to one desde usuario
-    @OneToOne(mappedBy = "sucursal")
-    private Usuario usuario;
+    @JsonIgnore
+    @OneToMany(mappedBy = "sucursal")
+    private List<Usuario> usuario;
 
     //one to one desde direccion
     @OneToOne()

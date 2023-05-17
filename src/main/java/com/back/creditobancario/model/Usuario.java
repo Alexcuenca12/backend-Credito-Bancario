@@ -61,9 +61,8 @@ public class Usuario implements Serializable {
     private Rol rol;
 
     //one to one hacia sucursal
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "sucursalID")
-    @JsonIgnore
     private Sucursal sucursal;
 
 }
