@@ -15,6 +15,6 @@ public class ConyugueServiceImpl extends GenericServiceImpl<Conyugue, Long> impl
 
     @Override
     public CrudRepository<Conyugue, Long> getDao() {
-        return null;
+        return conyugueRepository;
     }
 }

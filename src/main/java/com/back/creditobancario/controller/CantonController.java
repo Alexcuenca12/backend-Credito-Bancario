@@ -3,6 +3,8 @@ package com.back.creditobancario.controller;
 
 //importaciones
 import com.back.creditobancario.model.Canton;
+import com.back.creditobancario.model.Provincia;
+import com.back.creditobancario.repository.CantonRepository;
 import com.back.creditobancario.service.Servicios.CantonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,9 @@ import java.util.List;
 public class CantonController {
     @Autowired
     CantonService cantonService;
+
+    @Autowired
+    CantonRepository cantonRepository;
 
     @GetMapping("/listar")
     public ResponseEntity<List<Canton>> obtenerLista() {
@@ -35,6 +40,13 @@ public class CantonController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/cantonsByProvince/{id}")
+    public List<Canton> getCantonesByProvinciaId(@PathVariable Long id) {
+        Provincia provincia = new Provincia();
+        provincia.setProv_id(id);
+        return cantonRepository.findByProvincia(provincia);
     }
 
 

@@ -51,13 +51,13 @@ public class Vehiculo  implements Serializable {
 
     //prenda
     @Column(name = "vehiPrenda")
-    private String vehi_prenda;
+    private Double vehi_prenda;
 
     //fecha_adquisicion
     @Column(name = "vehiFechaAdquisicion")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date vehi_fechaAdquisicion;
 
     //institucion_persona

@@ -69,6 +69,7 @@ public class DireccionController {
                 direccion.setDire_interseccion(p.getDire_interseccion());
                 direccion.setDire_numero(p.getDire_numero());
                 direccion.setDire_sector(p.getDire_sector());
+
                 return new ResponseEntity<>(direccionService.save(direccion), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

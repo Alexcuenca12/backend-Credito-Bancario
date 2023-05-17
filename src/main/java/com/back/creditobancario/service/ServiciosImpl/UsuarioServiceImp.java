@@ -25,6 +25,11 @@ public class UsuarioServiceImp extends GenericServiceImpl<Usuario, Long> impleme
     }
 
     @Override
+    public Usuario restablecer(String username, String pregunta_uno, String pregunta_dos) {
+        return usuarioRepository.findByusernameAndPreguntaUnoAndPreguntaDos(username,pregunta_uno,pregunta_dos);
+    }
+
+    @Override
     public List<Usuario> listarUsuarioRol(String username) {
         return usuarioRepository.listarUsuarioRol(username);
     }

@@ -9,4 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface DireccionRepository extends JpaRepository<Direccion, Long> {
+
 }

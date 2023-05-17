@@ -1,6 +1,8 @@
 package com.back.creditobancario.controller;
 
+import com.back.creditobancario.model.Canton;
 import com.back.creditobancario.model.Parroquia;
+import com.back.creditobancario.repository.ParroquiaRepository;
 import com.back.creditobancario.service.Servicios.ParroquiaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,9 @@ import java.util.List;
 public class ParroquiaController {
     @Autowired
     ParroquiaService parroquiaService;
+
+    @Autowired
+    ParroquiaRepository  parroquiaRepository;
 
     @GetMapping("/listar")
     public ResponseEntity<List<Parroquia>> obtenerLista() {
@@ -35,6 +40,12 @@ public class ParroquiaController {
         }
     }
 
+    @GetMapping("/parishByCantons/{id}")
+    public List<Parroquia> getParroquiasByCantonId(@PathVariable Long id) {
+        Canton canton = new Canton();
+        canton.setCant_id(id);
+        return parroquiaRepository.findByCanton(canton);
+    }
 
     @PostMapping("/crear")
     public ResponseEntity<Parroquia> crear(@RequestBody Parroquia p) {
