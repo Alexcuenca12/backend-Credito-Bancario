@@ -49,7 +49,7 @@ public class BienesRaices implements Serializable {
     @Column(name = "bieRaicFechaAdquisicion")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date bienRaic_fechaAdquisicion;
 
     //institucion_persona
