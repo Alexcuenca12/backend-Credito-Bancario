@@ -38,10 +38,9 @@ public class Sucursal implements Serializable {
     //Relaciones
 
     //one to one desde usuario
-    @OneToOne()
-    @JoinColumn(name = "usuarioID")
     @JsonIgnore
-    private Usuario usuario;
+    @OneToMany(mappedBy = "sucursal")
+    private List<Usuario> usuario;
 
     //one to one desde direccion
     @OneToOne()

@@ -14,6 +14,8 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
     Usuario findByusernameAndPassword(String username, String password);
 
+    Usuario findByusernameAndPreguntaUnoAndPreguntaDos(String username, String pregunta_uno, String pregunta_dos);
+
     // Metodos Query
     @Query(value = "SELECT * FROM usuario WHERE username = ?", nativeQuery = true)
     List<Usuario> buscarUsername(String username);
@@ -30,5 +32,6 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
     @Query(value = "select p.pers_nombres, p.pers_foto from persona p " +
             "join usuario u on p.persid= u.perid where u.usuario_username= ?", nativeQuery = true)
     List<Usuario> listarImg(String username);
+
 
 }

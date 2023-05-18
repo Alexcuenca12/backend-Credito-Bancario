@@ -36,14 +36,14 @@ public class Usuario implements Serializable {
     @Column(name = "usuarioRegistro")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date fecha_registro;
 
     @Column(name = "usuarioPreg_uno")
-    private String pregunta_uno;
+    private String preguntaUno;
 
     @Column(name = "usuarioPreg_dos")
-    private String pregunta_dos;
+    private String preguntaDos;
 
     @Column(name = "usuarioEstado")
     private Boolean usuario_estado;
@@ -52,7 +52,7 @@ public class Usuario implements Serializable {
 
     //one to one desde persona
     @OneToOne()
-    @JoinColumn(name = "perID")
+    @JoinColumn(name = "persID")
     private Persona persona;
 
     //many to one desde rol
@@ -61,7 +61,8 @@ public class Usuario implements Serializable {
     private Rol rol;
 
     //one to one hacia sucursal
-    @OneToOne(mappedBy = "usuario")
+    @ManyToOne()
+    @JoinColumn(name = "sucursalID")
     private Sucursal sucursal;
 
 }

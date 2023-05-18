@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -46,7 +47,6 @@ public class Persona implements Serializable {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-
     private Date pers_fechaNacimiento;
 
     //sexo
@@ -112,7 +112,7 @@ public class Persona implements Serializable {
 
     //one to one hacia Solicitante
     @JsonIgnore
-    @OneToOne(mappedBy = "persona")
-    private Solicitud solicitud;
+    @OneToMany(mappedBy = "persona")
+    private List<Solicitud> solicitud;
 
 }
