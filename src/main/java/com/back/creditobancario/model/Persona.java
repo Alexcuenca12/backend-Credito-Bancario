@@ -93,6 +93,9 @@ public class Persona implements Serializable {
     @Column(name = "persCodigoPostal")
     private String pers_codigoPostal;
 
+    @Column(name = "persPatrimonio")
+    private Double pers_patrimonio;
+
     //estado
     @Column(name = "persEstado")
     private Boolean pers_estado;
