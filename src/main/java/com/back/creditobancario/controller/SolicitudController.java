@@ -99,7 +99,7 @@ public class SolicitudController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                solicitud.setSoli_estado("eliminado"); //cambiar estado a eliminado
+                solicitud.setSoli_estado(false); //cambiar estado a eliminado
                 return new ResponseEntity<>(solicitudService.save(solicitud), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

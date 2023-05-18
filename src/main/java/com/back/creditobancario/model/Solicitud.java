@@ -32,7 +32,7 @@ public class Solicitud implements Serializable {
 
     //estado
     @Column(name = "soliEstado")
-    private String soli_estado;
+    private Boolean soli_estado;
 
     //Relaciones
     //one to many hacia BienesRaices

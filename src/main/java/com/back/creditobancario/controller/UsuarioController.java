@@ -134,7 +134,7 @@ public class UsuarioController {
         return usuarioService.login(username, password);
     }
 
-    @RequestMapping(value = "restablecer/{username}/{preguntaUno}/{preguntaDos}", method = RequestMethod.GET)
+    @RequestMapping(value = "restablecerC/{username}/{preguntaUno}/{preguntaDos}", method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin
     public Usuario restablecerContra(@PathVariable String username, @PathVariable String preguntaUno,@PathVariable String preguntaDos) {
