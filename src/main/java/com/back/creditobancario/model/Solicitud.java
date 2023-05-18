@@ -71,7 +71,7 @@ public class Solicitud implements Serializable {
     private Conyugue conyugue;
 
     //one to one desde Persona
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "persID")
     private Persona persona;
 

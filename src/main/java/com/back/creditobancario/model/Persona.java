@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -111,7 +112,7 @@ public class Persona implements Serializable {
 
     //one to one hacia Solicitante
     @JsonIgnore
-    @OneToOne(mappedBy = "persona")
-    private Solicitud solicitud;
+    @OneToMany(mappedBy = "persona")
+    private List<Solicitud> solicitud;
 
 }
