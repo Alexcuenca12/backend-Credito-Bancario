@@ -27,55 +27,55 @@ public class AnexoCredito  implements Serializable {
     private Long aneCred_id;
 
     //cedula_solicitante
-    @Column(name = "aneCredCedulaSolicitante")
+    @Column(name = "aneCredCedulaSolicitante", columnDefinition = "LONGTEXT")
     private String aneCred_cedulaSolicitante;
 
     //cedula_conyugue
-    @Column(name = "aneCredCedulaConyugue")
+    @Column(name = "aneCredCedulaConyugue", columnDefinition = "LONGTEXT")
     private String aneCred_cedulaConyugue;
 
     //predios
-    @Column(name = "aneCredPredios")
+    @Column(name = "aneCredPredios", columnDefinition = "LONGTEXT")
     private String aneCred_predios;
 
     //matriculas
-    @Column(name = "aneCredMatriculas")
+    @Column(name = "aneCredMatriculas", columnDefinition = "LONGTEXT")
     private String aneCred_matriculas;
 
     //roles_pago
-    @Column(name = "aneCredRolesPago")
+    @Column(name = "aneCredRolesPago", columnDefinition = "LONGTEXT")
     private String aneCred_rolesPago;
 
     //recibos_vivieda
-    @Column(name = "aneCredRecibosVivienda")
+    @Column(name = "aneCredRecibosVivienda", columnDefinition = "LONGTEXT")
     private String aneCred_recibosVivienda;
 
     //remesas
-    @Column(name = "aneCredRemesas")
+    @Column(name = "aneCredRemesas", columnDefinition = "LONGTEXT")
     private String aneCred_remesas;
 
     //estado_tarjetas_credito
-    @Column(name = "aneCredEstadoTarjetasCredito")
+    @Column(name = "aneCredEstadoTarjetasCredito", columnDefinition = "LONGTEXT")
     private String aneCred_estadoTarjetasCredito;
 
     //facturas_alimentacion
-    @Column(name = "aneCredFacturasAlimentacion")
+    @Column(name = "aneCredFacturasAlimentacion", columnDefinition = "LONGTEXT")
     private String aneCred_facturasAlimentacion;
 
     //facturas_servicios
-    @Column(name = "aneCredFacturasServicios")
+    @Column(name = "aneCredFacturasServicios", columnDefinition = "LONGTEXT")
     private String aneCred_facturasServicios;
 
     //facturas_salud
-    @Column(name = "aneCredFacturasSalud")
+    @Column(name = "aneCredFacturasSalud", columnDefinition = "LONGTEXT")
     private String aneCred_facturasSalud;
 
     //facturas_educacion
-    @Column(name = "aneCredFacturasEducacion")
+    @Column(name = "aneCredFacturasEducacion", columnDefinition = "LONGTEXT")
     private String aneCred_facturasEducacion;
 
     //facturas_otros
-    @Column(name = "aneCredFacturasOtros")
+    @Column(name = "aneCredFacturasOtros", columnDefinition = "LONGTEXT")
     private String aneCred_facturasOtros;
 
     //estado
