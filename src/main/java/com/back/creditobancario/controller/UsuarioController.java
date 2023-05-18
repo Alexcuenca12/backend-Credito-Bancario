@@ -91,6 +91,7 @@ public class UsuarioController {
                 if ((usuario.getPreguntaUno().equals(u.getPreguntaUno())) || (usuario.getPreguntaDos().equals(u.getPreguntaDos()))) {
                     usuario.setUsername("usuario prueba");
                     usuario.setPassword("12345");
+                    usuario.setRol(u.getRol());
                 }
                 return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
             } catch (Exception e) {
@@ -133,7 +134,7 @@ public class UsuarioController {
         return usuarioService.login(username, password);
     }
 
-    @RequestMapping(value = "login/{username}/{preguntaUno}/{preguntaDos}", method = RequestMethod.GET)
+    @RequestMapping(value = "restablecer/{username}/{preguntaUno}/{preguntaDos}", method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin
     public Usuario restablecerContra(@PathVariable String username, @PathVariable String preguntaUno,@PathVariable String preguntaDos) {
