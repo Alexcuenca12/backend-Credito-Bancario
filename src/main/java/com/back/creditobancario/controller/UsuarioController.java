@@ -140,5 +140,6 @@ public class UsuarioController {
     public Usuario restablecerContra(@PathVariable String username, @PathVariable String preguntaUno,@PathVariable String preguntaDos) {
         return usuarioService.restablecer(username, preguntaUno,preguntaDos);
     }
+
 }
 
