@@ -29,4 +29,9 @@ public class SolicitudServiceImpl extends GenericServiceImpl<Solicitud, Long>  i
         return solicitudRepository.listarSolicitudesUsername(username);
     }
 
+    @Override
+    public List<Solicitud> ListarSolicitudesSucursal(String idSucursal) {
+        return solicitudRepository.ListarSolicitudesSucursal(idSucursal);
+    }
+
 }

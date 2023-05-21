@@ -7,4 +7,5 @@ import java.util.List;
 public interface SolicitudService extends IGenericService<Solicitud, Long>{
     public List<Solicitud>listarSolicitudesEstado();
     public  List<Solicitud>listarSolicitudesUsername(String username);
+    public List<Solicitud> ListarSolicitudesSucursal(String idSucursal);
 }

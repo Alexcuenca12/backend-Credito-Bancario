@@ -45,6 +45,15 @@ public class SolicitudController {
         }
     }
 
+    @GetMapping("/listarSolicitudesSucursal/{sucu_nombre}")
+    public ResponseEntity<List<Solicitud>> listarSolicitudesSucursal(@PathVariable("sucu_nombre") String sucu_nombre) {
+        try {
+            return new ResponseEntity<>(solicitudService.ListarSolicitudesSucursal(sucu_nombre), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @GetMapping("/buscar-id/{id}")
     public ResponseEntity<Solicitud> getById(@PathVariable("id") Long id) {
         try {
