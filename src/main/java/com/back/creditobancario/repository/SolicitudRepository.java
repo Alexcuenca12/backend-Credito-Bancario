@@ -2,6 +2,7 @@ package com.back.creditobancario.repository;
 //Repositorio para Solicitud
 
 import com.back.creditobancario.model.Solicitud;
+import com.back.creditobancario.views.listaSolicitudUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -14,13 +15,6 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
             "join usuario u on p.persid=u.persid\n" +
             "join credito c on s.credid=c.credid", nativeQuery = true)
     List<Solicitud> listarSolicitudesEstado();
-
-    @Query(value = "SELECT * FROM solicitud s\n" +
-            "    join persona p on s.persid=p.persid\n" +
-            "    join usuario u on p.persid=u.persid\n" +
-            "    join credito c on s.credid=c.credid\n" +
-            " WHERE u.usuario_username=?", nativeQuery = true)
-    List<Solicitud> listarSolicitudesUsername(String username);
 
     @Query(value = "SELECT * FROM solicitud s\n" +
             "    join persona p on s.persid=p.persid\n" +

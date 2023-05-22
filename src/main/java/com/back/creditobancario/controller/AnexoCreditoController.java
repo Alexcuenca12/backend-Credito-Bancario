@@ -5,6 +5,8 @@ package com.back.creditobancario.controller;
 
 import com.back.creditobancario.model.AnexoCredito;
 import com.back.creditobancario.service.Servicios.AnexoCreditoService;
+import com.back.creditobancario.service.Servicios.listaAnexoPersonaService;
+import com.back.creditobancario.views.listarAnexosPersona;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,9 @@ import java.util.List;
 public class AnexoCreditoController {
     @Autowired
     AnexoCreditoService anexoCreditoService;
+
+    @Autowired
+    listaAnexoPersonaService personaAnexoService;
 
     @GetMapping("/listar")
     public ResponseEntity<List<AnexoCredito>> obtenerLista() {
@@ -41,6 +46,15 @@ public class AnexoCreditoController {
     public ResponseEntity<List<AnexoCredito>> listarDocumentos(@PathVariable("id") Long id) {
         try {
             return new ResponseEntity<>(anexoCreditoService.listarDocumentos(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/buscarAnexos/{id}")
+    public ResponseEntity<List<listarAnexosPersona>> listarAnexos(@PathVariable("id") Long id) {
+        try {
+            return new ResponseEntity<>(personaAnexoService.listarAnexosPersona(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

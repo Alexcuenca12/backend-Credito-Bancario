@@ -4,6 +4,8 @@ package com.back.creditobancario.controller;
 //importaciones
 import com.back.creditobancario.model.Solicitud;
 import com.back.creditobancario.service.Servicios.SolicitudService;
+import com.back.creditobancario.service.Servicios.listaSolicitudUserService;
+import com.back.creditobancario.views.listaSolicitudUser;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,9 @@ import java.util.List;
 public class SolicitudController {
     @Autowired
     SolicitudService solicitudService;
+
+    @Autowired
+    listaSolicitudUserService userService;
 
     @GetMapping("/listar")
     public ResponseEntity<List<Solicitud>> obtenerLista() {
@@ -37,9 +42,9 @@ public class SolicitudController {
     }
 
     @GetMapping("/listarSolicitudesUsername/{username}")
-    public ResponseEntity<List<Solicitud>> listarSolicitudesUsername(@PathVariable("username") String username) {
+    public ResponseEntity<List<listaSolicitudUser>> listarSolicitudesUsername(@PathVariable("username") String username) {
         try {
-            return new ResponseEntity<>(solicitudService.listarSolicitudesUsername(username), HttpStatus.OK);
+            return new ResponseEntity<>(userService.listarSolicitudesUsername(username), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
