@@ -81,14 +81,14 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping("/restablecer/{username}")
-    public ResponseEntity<Usuario> restablecerContra(@PathVariable Long id, @RequestBody Usuario u) {
+    @PutMapping("/restablecer/{id}")
+    public ResponseEntity<Usuario> restablecerContra(@PathVariable Long id, @RequestParam String password) {
         Usuario usuario = usuarioService.findById(id);
         if (usuario == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                usuario.setPassword(u.getPassword());
+                usuario.setPassword(password);
                 return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
