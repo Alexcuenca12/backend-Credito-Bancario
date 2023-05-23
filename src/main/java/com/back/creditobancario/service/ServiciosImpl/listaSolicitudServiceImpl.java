@@ -14,8 +14,13 @@ public class listaSolicitudServiceImpl extends GenericServiceImpl<listaSolicitud
     @Autowired
     listaSolicitudUserRepository userListRepository;
     @Override
-    public List<listaSolicitudUser> listarSolicitudesUsername(Long id) {
-        return userListRepository.listarSolicitudesUsername(id);
+    public List<listaSolicitudUser> listarSolicitudesUsername(String username) {
+        return userListRepository.listarSolicitudesUsername(username);
+    }
+
+    @Override
+    public List<listaSolicitudUser> listarSolicitudesSucursal(Long id) {
+        return userListRepository.listarSolicitudesSucursal(id);
     }
 
     @Override
