@@ -41,23 +41,23 @@ public class SolicitudController {
         }
     }
 
-    @GetMapping("/listarSolicitudesUsername/{username}")
-    public ResponseEntity<List<listaSolicitudUser>> listarSolicitudesUsername(@PathVariable("username") String username) {
+    @GetMapping("/listarSolicitudesSucursal/{id}")
+    public ResponseEntity<List<listaSolicitudUser>> listarSolicitudesSucursal(@PathVariable("id") Long id) {
         try {
-            return new ResponseEntity<>(userService.listarSolicitudesUsername(username), HttpStatus.OK);
+            return new ResponseEntity<>(userService.listarSolicitudesUsername(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping("/listarSolicitudesSucursal/{sucu_nombre}")
-    public ResponseEntity<List<Solicitud>> listarSolicitudesSucursal(@PathVariable("sucu_nombre") String sucu_nombre) {
-        try {
-            return new ResponseEntity<>(solicitudService.ListarSolicitudesSucursal(sucu_nombre), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @GetMapping("/listarSolicitudesSucursal/{sucu_nombre}")
+//    public ResponseEntity<List<Solicitud>> listarSolicitudesSucursal(@PathVariable("sucu_nombre") String sucu_nombre) {
+//        try {
+//            return new ResponseEntity<>(solicitudService.ListarSolicitudesSucursal(sucu_nombre), HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
     @GetMapping("/buscar-id/{id}")
     public ResponseEntity<Solicitud> getById(@PathVariable("id") Long id) {

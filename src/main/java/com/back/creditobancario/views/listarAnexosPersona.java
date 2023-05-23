@@ -16,6 +16,7 @@ import javax.persistence.Table;
 public class listarAnexosPersona {
     @Id
     private Long persid;
+    private Long soliid;
     private String Nombres;
     private Double ane_credid;
     private String ane_cred_cedula_conyugue;

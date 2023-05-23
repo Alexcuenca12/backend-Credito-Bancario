@@ -17,6 +17,7 @@ import java.util.Date;
 public class listaSolicitudUser {
     @Id
     private Long soliid;
+    private String Nombres;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -24,5 +25,6 @@ public class listaSolicitudUser {
     private Double cred_monto;
     private String soli_estado_registro;
     private String usuario_username;
+    private Long sucuid;
 
 }

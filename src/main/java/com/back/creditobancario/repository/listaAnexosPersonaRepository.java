@@ -10,6 +10,6 @@ import java.util.List;
 public interface listaAnexosPersonaRepository extends JpaRepository<listarAnexosPersona, Long> {
 
     @Query(value = "Select * from listaranexospersona \n" +
-            "where persid = ?", nativeQuery = true)
+            "where soliid = ?", nativeQuery = true)
     List<listarAnexosPersona> listarAnexosPersona(Long id);
 }
