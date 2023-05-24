@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/api")
 public class EmailController {
 
     @Autowired
