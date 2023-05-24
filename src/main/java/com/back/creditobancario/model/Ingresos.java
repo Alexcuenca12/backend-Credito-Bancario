@@ -52,6 +52,9 @@ public class Ingresos implements Serializable {
     @Column(name = "ingrTotalIngresos")
     private Double ingr_totalIngresos;
 
+    @Column(name = "ingrPatrimonio")
+    private Double ingr_patrimonio;
+
     //estado
     @Column(name = "ingrEstado")
     private Boolean ingr_estado;

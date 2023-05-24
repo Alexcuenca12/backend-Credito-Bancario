@@ -30,6 +30,7 @@ public class Solicitud implements Serializable {
     @Column(name = "soliEstadoRegistro")
     private String soli_estadoRegistro;
 
+
     //estado
     @Column(name = "soliEstado")
     private Boolean soli_estado;

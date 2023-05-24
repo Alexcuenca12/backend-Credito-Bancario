@@ -4,6 +4,7 @@ package com.back.creditobancario.service.ServiciosImpl;
 import com.back.creditobancario.model.Solicitud;
 import com.back.creditobancario.repository.SolicitudRepository;
 import com.back.creditobancario.service.Servicios.SolicitudService;
+import com.back.creditobancario.views.listaSolicitudUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -24,9 +25,10 @@ public class SolicitudServiceImpl extends GenericServiceImpl<Solicitud, Long>  i
         return solicitudRepository.listarSolicitudesEstado();
     }
 
+
     @Override
-    public List<Solicitud> listarSolicitudesUsername(String username) {
-        return solicitudRepository.listarSolicitudesUsername(username);
+    public List<Solicitud> ListarSolicitudesSucursal(String idSucursal) {
+        return solicitudRepository.ListarSolicitudesSucursal(idSucursal);
     }
 
 }

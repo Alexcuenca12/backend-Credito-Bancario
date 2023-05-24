@@ -14,9 +14,9 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
     Usuario findByusernameAndPassword(String username, String password);
 
-    Usuario findByusernameAndPreguntaUnoAndPreguntaDos(String username, String pregunta_uno, String pregunta_dos);
-
     // Metodos Query
+
+    Usuario findByusernameAndPreguntaUnoAndPreguntaDos(String username, String pregunta_uno, String pregunta_dos);
     @Query(value = "SELECT * FROM usuario WHERE username = ?", nativeQuery = true)
     List<Usuario> buscarUsername(String username);
 
@@ -25,12 +25,17 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
     @Query(value = "Select * from usuario  where enabled = 1", nativeQuery = true)
     List<Usuario> listarUsuario();
 
-    @Query(value = "select r.rol_nombre, p.pers_correo from rol r join usuario u on u.rolid = r.rolid " +
-            "join persona p on p.persid= u.perid where u.usuario_username =?", nativeQuery = true)
+    @Query(value = "select r.rol_nombre, p.pers_correo " +
+            "from rol r " +
+            "join usuario u on u.rolid = r.rolid " +
+            "join persona p on p.persid= u.perid " +
+            "where u.usuario_username =?", nativeQuery = true)
     List<Usuario> listarUsuarioRol(String username);
 
-    @Query(value = "select p.pers_nombres, p.pers_foto from persona p " +
-            "join usuario u on p.persid= u.perid where u.usuario_username= ?", nativeQuery = true)
+    @Query(value = "select p.pers_nombres, p.pers_foto " +
+            "from persona p " +
+            "join usuario u on p.persid= u.perid " +
+            "where u.usuario_username= ?", nativeQuery = true)
     List<Usuario> listarImg(String username);
 
 

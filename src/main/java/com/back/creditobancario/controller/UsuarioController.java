@@ -81,18 +81,14 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping("/restablecer/{username}")
-    public ResponseEntity<Usuario> restableceContra(@PathVariable String username, @RequestBody Usuario u) {
-        Usuario usuario = usuarioService.search(username);
+    @PutMapping("/restablecer/{id}")
+    public ResponseEntity<Usuario> restablecerContra(@PathVariable Long id, @RequestParam String password) {
+        Usuario usuario = usuarioService.findById(id);
         if (usuario == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                if ((usuario.getPreguntaUno().equals(u.getPreguntaUno())) || (usuario.getPreguntaDos().equals(u.getPreguntaDos()))) {
-                    usuario.setUsername("usuario prueba");
-                    usuario.setPassword("12345");
-                    usuario.setRol(u.getRol());
-                }
+                usuario.setPassword(password);
                 return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -137,8 +133,9 @@ public class UsuarioController {
     @RequestMapping(value = "restablecerC/{username}/{preguntaUno}/{preguntaDos}", method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin
-    public Usuario restablecerContra(@PathVariable String username, @PathVariable String preguntaUno,@PathVariable String preguntaDos) {
-        return usuarioService.restablecer(username, preguntaUno,preguntaDos);
+    public Usuario restablecerContra(@PathVariable String username, @PathVariable String preguntaUno, @PathVariable String preguntaDos) {
+        return usuarioService.restablecer(username, preguntaUno, preguntaDos);
     }
+
 }
 
