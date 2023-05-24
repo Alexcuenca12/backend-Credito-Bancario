@@ -39,7 +39,7 @@ public class Negocio implements Serializable {
 
     //tiempo
     @Column(name = "negoTiempo")
-    private Integer nego_tiempo;
+    private String nego_tiempo;
 
     //estado
     @Column(name = "negoEstado")

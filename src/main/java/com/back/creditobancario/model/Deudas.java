@@ -46,7 +46,10 @@ public class Deudas implements Serializable {
 
     //otorgado
     @Column(name = "deudOtorgado")
-    private String deud_otorgado;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date deud_otorgado;
 
     //destino
     @Column(name = "deudDestino")
