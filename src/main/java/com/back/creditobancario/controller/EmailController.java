@@ -55,19 +55,19 @@ public class EmailController {
 
         String base64file = emailRechazo;
         byte[] fileBytes = Base64Utils.decodeFromString(base64file);
-        File outputFile = new File("src/main/resources/files/RespuestaRechazo.pdf");
+        File outputFile = new File("src/main/resources/files/Solicitud_Credito_Rechazado.pdf");
         try (FileOutputStream outputStream = new FileOutputStream(outputFile)) {
             outputStream.write(fileBytes);
         } catch (FileNotFoundException e) {throw new RuntimeException(e);
         } catch (IOException e) {throw new RuntimeException(e);}
 
         try {
-            Path path = Paths.get("src/main/resources/files/RespuestaRechazo.pdf");
+            Path path = Paths.get("src/main/resources/files/Solicitud_Credito_Rechazado.pdf");
             File file = path.toFile();
             emailService.sendEmailWithFile(emailFileDTO.getToUser(), emailFileDTO.getSubject(), emailFileDTO.getMessage(), file);
             Map<String, String> response = new HashMap<>();
             response.put("estado", "Enviado");
-            response.put("archivo", "RespuestaRechazo.pdf");
+            response.put("archivo", "Solicitud_Credito_Rechazado.pdf");
 
             return ResponseEntity.ok(response);
 
