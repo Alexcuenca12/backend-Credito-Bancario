@@ -35,6 +35,9 @@ public class ControlCredito implements Serializable {
     @Column(name = "cuadroCumplimiento", columnDefinition = "LONGTEXT")
     private String cuadroCumplimiento;
 
+    @Column(name = "correoRechazo", columnDefinition = "LONGTEXT")
+    private String correoRechazo;
+
     @Column(name = "controlEstado")
     private Boolean controlEstado;
 
