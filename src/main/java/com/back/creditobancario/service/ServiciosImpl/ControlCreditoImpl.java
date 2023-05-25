@@ -15,4 +15,9 @@ public class ControlCreditoImpl extends GenericServiceImpl<ControlCredito,Long> 
     public CrudRepository<ControlCredito, Long> getDao() {
         return controlCreditoRepository;
     }
+
+    @Override
+    public ControlCredito findByIDSoli(Long soliid) {
+        return controlCreditoRepository.findByIDSoli(soliid);
+    }
 }

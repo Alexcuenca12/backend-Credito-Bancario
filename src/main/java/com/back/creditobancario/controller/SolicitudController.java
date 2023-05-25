@@ -106,6 +106,22 @@ public class SolicitudController {
         }
     }
 
+    @PutMapping("/actualizarEstado/{id}")
+    public ResponseEntity<?> actualizarEstado (@PathVariable Long id, @RequestParam String estadoRegistro) {
+        Solicitud Solicitud = solicitudService.findById(id);
+        if (Solicitud == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                Solicitud.setSoli_estadoRegistro(estadoRegistro);
+                return new ResponseEntity<>(solicitudService.save(Solicitud), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
+
     @PutMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestBody Solicitud p) {
         Solicitud solicitud = solicitudService.findById(id);
