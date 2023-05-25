@@ -48,34 +48,26 @@ public class EmailController {
 
     @PostMapping("/sendEmailFile/{id}")
     public ResponseEntity<?> requestEmailFile(@PathVariable Long id, @ModelAttribute EmailFileDTO emailFileDTO){
-        ControlCredito controlCredito = controlCreditoService.findByIDSoli(id);
         String emailRechazo;
-        if (controlCredito == null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }else{
-            emailRechazo = controlCredito.getCorreoRechazo();
-        }
-        String base64file = emailRechazo;
+        ControlCredito controlCredito = controlCreditoService.findByIDSoli(id);
+        if (controlCredito == null){return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
+        else{emailRechazo = controlCredito.getCorreoRechazo();}
 
+        String base64file = emailRechazo;
         byte[] fileBytes = Base64Utils.decodeFromString(base64file);
-        File outputFile = new File("src/main/resources/files/Respuesta.pdf");
+        File outputFile = new File("src/main/resources/files/RespuestaRechazo.pdf");
         try (FileOutputStream outputStream = new FileOutputStream(outputFile)) {
             outputStream.write(fileBytes);
         } catch (FileNotFoundException e) {throw new RuntimeException(e);
         } catch (IOException e) {throw new RuntimeException(e);}
 
         try {
-            String fileName = emailFileDTO.getFile().getOriginalFilename();
-            Path path = Paths.get("src/main/resources/files/" + fileName);
-            Files.createDirectories(path.getParent());
-            Files.copy(emailFileDTO.getFile().getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+            Path path = Paths.get("src/main/resources/files/RespuestaRechazo.pdf");
             File file = path.toFile();
-
             emailService.sendEmailWithFile(emailFileDTO.getToUser(), emailFileDTO.getSubject(), emailFileDTO.getMessage(), file);
-
             Map<String, String> response = new HashMap<>();
             response.put("estado", "Enviado");
-            response.put("archivo", fileName);
+            response.put("archivo", "RespuestaRechazo.pdf");
 
             return ResponseEntity.ok(response);
 
