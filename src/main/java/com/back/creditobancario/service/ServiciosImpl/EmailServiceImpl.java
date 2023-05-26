@@ -36,7 +36,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendEmailWithFile(String[] toUser, String subject, String message, File file) {
+    public void sendEmailWithFile(String toUser, String subject, String message, File file) {
 
         try {
             MimeMessage mimeMessage = mailSender.createMimeMessage();

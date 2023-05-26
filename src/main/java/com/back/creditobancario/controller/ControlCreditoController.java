@@ -80,5 +80,20 @@ public class ControlCreditoController {
         }
     }
 
+    @PutMapping("/actualizarListaVerificacion/{id}")
+    public ResponseEntity<?> actualizarListaVerificacion(@PathVariable Long id, @RequestParam String ListaVerificacion) {
+        ControlCredito controlCredito = controlCreditoService.findByIDSoli(id);
+        if (controlCredito == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                controlCredito.setListaVerificacion(ListaVerificacion);
+                return new ResponseEntity<>(controlCreditoService.save(controlCredito), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
 
 }
