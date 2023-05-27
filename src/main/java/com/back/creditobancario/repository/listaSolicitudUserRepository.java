@@ -1,6 +1,5 @@
 package com.back.creditobancario.repository;
 
-import com.back.creditobancario.model.Solicitud;
 import com.back.creditobancario.views.listaSolicitudUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

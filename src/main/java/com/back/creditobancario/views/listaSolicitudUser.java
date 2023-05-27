@@ -25,6 +25,7 @@ public class listaSolicitudUser {
     private Double cred_monto;
     private String soli_estado_registro;
     private String usuario_username;
+    private String pers_correo;
     private Long sucuid;
 
 }
