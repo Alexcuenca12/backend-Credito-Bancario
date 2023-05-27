@@ -26,8 +26,8 @@ public class ControlCredito implements Serializable {
     @Column(name = "solicitudCredito", columnDefinition = "LONGTEXT")
     private String solicitudCredito;
 
-    @Column(name = "ListaVerificacion", columnDefinition = "LONGTEXT")
-    private String ListaVerificacion;
+    @Column(name = "listaVerificacion", columnDefinition = "LONGTEXT")
+    private String listaVerificacion;
 
     @Column(name = "resumenEstado", columnDefinition = "LONGTEXT")
     private String resumenEstado;
