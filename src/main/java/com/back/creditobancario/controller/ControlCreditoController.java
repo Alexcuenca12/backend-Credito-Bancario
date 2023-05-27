@@ -81,14 +81,25 @@ public class ControlCreditoController {
     }
 
     @PutMapping("/actualizarListaVerificacion/{id}")
-    public ResponseEntity<?> actualizarListaVerificacion(@PathVariable Long id, @RequestParam String ListaVerificacion) {
+    public ResponseEntity<?> actualizarListaVerificacion(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
         ControlCredito controlCredito = controlCreditoService.findByIDSoli(id);
         if (controlCredito == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                controlCredito.setListaVerificacion(ListaVerificacion);
-                return new ResponseEntity<>(controlCreditoService.save(controlCredito), HttpStatus.CREATED);
+                // Obtener el contenido del archivo
+                byte[] fileContent = file.getBytes();
+
+                // Convertir el contenido a base64
+                String base64PDF = Base64.getEncoder().encodeToString(fileContent);
+
+                // Actualizar la entidad con el contenido en base64
+                controlCredito.setListaVerificacion(base64PDF);
+
+                // Guardar la entidad actualizada
+                controlCreditoService.save(controlCredito);
+
+                return new ResponseEntity<>(controlCredito, HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
