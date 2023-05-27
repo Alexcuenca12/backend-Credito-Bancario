@@ -75,4 +75,29 @@ public class EmailController {
             throw new RuntimeException("Error al enviar el Email con el archivo. " + e.getMessage());
         }
     }
+
+    @PostMapping("/sendMailFile")
+    public ResponseEntity<?> requestMailFile(@ModelAttribute EmailFileDTO emailFileDTO){
+        try {
+            String fileName = emailFileDTO.getFile().getOriginalFilename();
+            Path path = Paths.get("src/main/resources/files/" + fileName);
+
+            Files.createDirectories(path.getParent());
+            Files.copy(emailFileDTO.getFile().getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+
+            File file = path.toFile();
+
+            emailService.sendEmailWithFile(emailFileDTO.getToUser(), emailFileDTO.getSubject(), emailFileDTO.getMessage(), file);
+
+            Map<String, String> response = new HashMap<>();
+            response.put("estado", "Enviado");
+            response.put("archivo", fileName);
+
+            return ResponseEntity.ok(response);
+
+        } catch (Exception e){
+            throw new RuntimeException("Error al enviar el Email con el archivo. " + e.getMessage());
+        }
+    }
+
 }
