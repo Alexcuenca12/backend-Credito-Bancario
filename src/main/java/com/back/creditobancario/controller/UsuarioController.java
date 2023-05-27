@@ -1,6 +1,8 @@
 package com.back.creditobancario.controller;
 
+import com.back.creditobancario.model.Rol;
 import com.back.creditobancario.model.Usuario;
+import com.back.creditobancario.model.UsuarioRol;
 import com.back.creditobancario.repository.UsuarioRepository;
 import com.back.creditobancario.service.Servicios.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -20,6 +24,7 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+
 
     @GetMapping("/users/list")
     public ResponseEntity<List<Usuario>> getUsuariosList() {
