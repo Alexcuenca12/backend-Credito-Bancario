@@ -22,7 +22,7 @@ public class UsuarioServiceImp extends GenericServiceImpl<Usuario, Long> impleme
 
     @Override
     public Usuario search(String username) {
-        return usuarioRepository.findByUsername(username);
+        return usuarioRepository.findUsuarioByUsername(username);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class UsuarioServiceImp extends GenericServiceImpl<Usuario, Long> impleme
 
     @Override
     public Usuario guardarUsuario(Usuario usuario, Set<UsuarioRol> usuarioRoles) throws Exception {
-        Usuario usuarioLocal = usuarioRepository.findByUsername(usuario.getUsername());
+        Usuario usuarioLocal = usuarioRepository.findUsuarioByUsername(usuario.getUsername());
         if(usuarioLocal != null){
             System.out.println("El usuario ya existe");
             throw new Exception("El usuario ya esta presente");

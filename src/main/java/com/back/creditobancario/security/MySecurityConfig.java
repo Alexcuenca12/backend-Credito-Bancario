@@ -1,4 +1,5 @@
 package com.back.creditobancario.security;
+
 import com.back.creditobancario.service.ServiciosImpl.UserDetailsServiceImpl;
 import org.springframework.http.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,15 +69,15 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-                // Permitir el acceso a las rutas necesarias para Swagger
-                .antMatchers("/generate-token", "/api/usuarios/*",
+                .antMatchers("/generate-token", "/api/usuarios/**","/actual-usuario/**",
                         "/v2/api-docs", "/configuration/ui",
                         "/swagger-resources/**", "/configuration/security",
-                        "/swagger-ui.html", "/webjars/**")
+                        "/swagger-ui.html", "/webjars/**", "/api/rol/**")
                 .permitAll()
                 .antMatchers(HttpMethod.OPTIONS)
                 .permitAll()
-                // Restringir el acceso a las demás rutas
+                .antMatchers("/api/persona/verificar-correo/**")
+                .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling()
@@ -87,6 +88,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
 
 
 }
